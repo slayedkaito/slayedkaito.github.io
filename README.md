@@ -1,5 +1,5 @@
 <!-- Your title -->
-## Hi There, I'm sistinee! Welcome to My GitHub profile. 👋 Nice to meet you :3 
+## Hi There, I'm sistinee or most people know me as kaitoslay on Tiktok. Welcome to My GitHub profile. 👋 Nice to meet you :3 
 ---
 <img align="center" src="https://raw.githubusercontent.com/slayedkaito/slayedkaito/main/New%20Project%204%20%5B147245F%5D.png" width="1100"/>
 
