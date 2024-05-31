@@ -22,7 +22,7 @@
 ---
 
 <div align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=slayedsistine&show_icons=true&theme=dracula" alt="slayedsistine Github Stats">
+  <img src="https://github-readme-stats.vercel.app/api?username=slayedkaito&show_icons=true&theme=dracula" alt="slayedsistine Github Stats">
   <br><br>
 
 ---
