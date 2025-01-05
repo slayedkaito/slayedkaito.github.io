@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profil Saya</title>
     <style>
-        /* General Styles */
         * {
             margin: 0;
             padding: 0;
@@ -19,7 +18,6 @@
             background-color: #1e1e1e;
         }
 
-        /* Header Styles */
         header {
             position: relative;
             text-align: center;
@@ -53,7 +51,6 @@
             font-size: 1.2rem;
         }
 
-        /* Hamburger Menu Styles */
         .menu-btn {
             position: fixed;
             top: 20px;
@@ -88,7 +85,6 @@
             transform: rotate(-45deg) translate(7px, -7px);
         }
 
-        /* Navigation Styles */
         nav {
             position: fixed;
             top: 0;
@@ -118,7 +114,6 @@
             background: #2575fc;
         }
 
-        /* Main Section Styles */
         .container {
             max-width: 800px;
             margin: 2rem auto;
@@ -132,7 +127,20 @@
             border-radius: 10px;
             position: relative;
             color: #f1f1f1;
-            background: rgba(0, 0, 0, 0.7);
+            background: rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+        }
+
+        section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: -1;
+            border-radius: 10px;
         }
 
         #about::before, #skills::before, #contact::before, #socials::before {
@@ -142,7 +150,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            opacity: 0.2;
+            opacity: 0.5;
             z-index: -1;
             border-radius: 10px;
         }
@@ -163,7 +171,14 @@
             background: url('https://raw.githubusercontent.com/slayedkaito/slayedkaito/refs/heads/main/f8470e287d57a85c9a8f836f3f94c68f.jpg') no-repeat center center/cover;
         }
 
-        /* Social Icons Styles */
+        section h2,
+        section p,
+        section ul,
+        section .social-icons {
+            position: relative;
+            z-index: 1;
+        }
+
         .social-icons {
             display: flex;
             justify-content: center;
@@ -194,7 +209,6 @@
             transform: scale(1.1);
         }
 
-        /* Footer Styles */
         footer {
             background: #333;
             color: white;
@@ -216,7 +230,6 @@
             text-decoration: underline;
         }
 
-        /* Responsive Styles */
         @media (max-width: 768px) {
             header h1 {
                 font-size: 2rem;
@@ -243,20 +256,17 @@
     </style>
 </head>
 <body>
-    <!-- Header Section -->
     <header>
         <h1>Halo, Saya Gathan</h1>
         <p>Selamat datang di profil saya!</p>
     </header>
 
-    <!-- Hamburger Menu Button -->
     <div class="menu-btn">
         <span></span>
         <span></span>
         <span></span>
     </div>
 
-    <!-- Navigation -->
     <nav>
         <a href="#about">Tentang Saya</a>
         <a href="#skills">Keahlian</a>
@@ -264,15 +274,12 @@
         <a href="#socials">Sosial Media</a>
     </nav>
 
-    <!-- Main Content -->
     <div class="container">
-        <!-- About Section -->
         <section id="about">
             <h2>Tentang Saya</h2>
             <p>Halo! Saya seorang siswa dari sekolah SMK Bukit Asam Tanjung Enim. Saya sekarang kelas 12 TAB dan saya sedang belajar coding dan membuat website pertama saya. Saya tertarik dengan dunia teknologi, anime, dan light novel! >< </p>
         </section>
 
-        <!-- Skills Section -->
         <section id="skills">
             <h2>Keahlian</h2>
             <p>Saat ini saya belajar:</p>
@@ -283,13 +290,11 @@
             </ul>
         </section>
 
-        <!-- Contact Section -->
         <section id="contact">
             <h2>Kontak</h2>
             <p>Email: <a href="mailto:gathanalfarabi@protonmail.com">gathanalfarabi@protonmail.com</a></p>
         </section>
 
-        <!-- Social Media Section -->
         <section id="socials">
             <h2>Sosial Media</h2>
             <div class="social-icons">
@@ -306,14 +311,12 @@
         </section>
     </div>
 
-    <!-- Footer -->
     <footer>
         <p>Website ini dibuat dengan ❤️ oleh kaito aka gathan</p>
         <p><a href="#top">Kembali ke atas</a></p>
     </footer>
 
     <script>
-        // Hamburger Menu Toggle
         const menuBtn = document.querySelector('.menu-btn');
         const nav = document.querySelector('nav');
 
@@ -322,7 +325,6 @@
             nav.classList.toggle('active');
         });
 
-        // Close menu when clicking a nav link
         document.querySelectorAll('nav a').forEach(link => {
             link.addEventListener('click', () => {
                 menuBtn.classList.remove('active');
@@ -330,7 +332,6 @@
             });
         });
 
-        // Close menu when clicking outside
         document.addEventListener('click', (e) => {
             if (!nav.contains(e.target) && !menuBtn.contains(e.target)) {
                 menuBtn.classList.remove('active');
