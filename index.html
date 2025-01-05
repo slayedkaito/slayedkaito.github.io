@@ -53,23 +53,46 @@
             font-size: 1.2rem;
         }
 
-        /* Navigation Styles */
-        nav {
-            background: #333;
+        /* Toggle Menu */
+        .menu-toggle {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 100;
+            background-color: #333;
             color: white;
-            text-align: center;
-            padding: 0.5rem 0;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
         }
 
-        nav a {
-            color: white;
+        .menu-toggle:focus {
+            outline: none;
+        }
+
+        .menu {
+            display: none;
+            position: absolute;
+            top: 50px;
+            right: 10px;
+            background-color: #333;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .menu a {
+            display: block;
             text-decoration: none;
-            margin: 0 15px;
-            font-weight: bold;
+            color: white;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
         }
 
-        nav a:hover {
-            color: #2575fc;
+        .menu a:hover {
+            background-color: #2575fc;
         }
 
         /* Main Section Styles */
@@ -88,34 +111,7 @@
             color: #f1f1f1;
         }
 
-        #about::before, #skills::before, #contact::before, #socials::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            opacity: 0.2;
-            z-index: -1;
-            border-radius: 10px;
-        }
-
-        #about::before {
-            background: url('https://raw.githubusercontent.com/slayedkaito/slayedkaito/refs/heads/main/cb56db64be70bfa794bd907aaf013198%20(1).jpg') no-repeat center center/cover;
-        }
-
-        #skills::before {
-            background: url('https://raw.githubusercontent.com/slayedkaito/slayedkaito/refs/heads/main/ccd4b1e305aeabbd74bc5f7c20c0492b.jpg') no-repeat center center/cover;
-        }
-
-        #contact::before {
-            background: url('https://raw.githubusercontent.com/slayedkaito/slayedkaito/refs/heads/main/4673bcb3bde647b5dbc614c14a199e2c.jpg') no-repeat center center/cover;
-        }
-
-        #socials::before {
-            background: url('https://raw.githubusercontent.com/slayedkaito/slayedkaito/refs/heads/main/f8470e287d57a85c9a8f836f3f94c68f.jpg') no-repeat center center/cover;
-        }
-
+        /* Social Media */
         .social-icons {
             display: flex;
             justify-content: center;
@@ -124,20 +120,20 @@
         }
 
         .social-icons a {
-            display: inline-block;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             width: 50px;
             height: 50px;
             background-color: #333;
             border-radius: 50%;
-            text-align: center;
-            line-height: 50px;
             transition: transform 0.3s ease, background-color 0.3s ease;
         }
 
         .social-icons a img {
             width: 24px;
             height: 24px;
-            filter: invert(1); /* Membuat logo putih */
+            filter: invert(1);
         }
 
         .social-icons a:hover {
@@ -174,15 +170,14 @@
     <header>
         <h1>Halo, Saya Gathan</h1>
         <p>Selamat datang di profil saya!</p>
+        <button class="menu-toggle" onclick="toggleMenu()">Menu</button>
+        <div class="menu">
+            <a href="#about">Tentang Saya</a>
+            <a href="#skills">Keahlian</a>
+            <a href="#contact">Kontak</a>
+            <a href="#socials">Sosial Media</a>
+        </div>
     </header>
-
-    <!-- Navigation -->
-    <nav>
-        <a href="#about">Tentang Saya</a>
-        <a href="#skills">Keahlian</a>
-        <a href="#contact">Kontak</a>
-        <a href="#socials">Sosial Media</a>
-    </nav>
 
     <!-- Main Content -->
     <div class="container">
@@ -231,6 +226,13 @@
         <p>Website ini dibuat dengan ❤️ oleh kaito aka gathan</p>
         <p><a href="#top">Kembali ke atas</a></p>
     </footer>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.querySelector('.menu');
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
 
 </body>
 </html>
