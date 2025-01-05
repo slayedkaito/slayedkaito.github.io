@@ -5,24 +5,162 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profil Saya</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #f4f4f9;
+        /* General Styles */
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
-        h1 {
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
             color: #333;
+            background-color: #f9f9f9;
         }
-        p {
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Navigation Styles */
+        nav {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 0.5rem 0;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #2575fc;
+        }
+
+        /* Main Section Styles */
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 1rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-img {
+            display: block;
+            margin: 1rem auto;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 3px solid #2575fc;
+        }
+
+        .intro {
+            text-align: center;
+            margin: 1rem 0;
+        }
+
+        .intro h2 {
+            font-size: 1.8rem;
+            color: #2575fc;
+        }
+
+        .intro p {
             color: #555;
+        }
+
+        /* Footer Styles */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 2rem;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: #2575fc;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
-    <h1>Halo, Saya [Namamu]</h1>
-    <p>Selamat datang di profil online saya!</p>
-    <p>Saat ini saya belajar membuat website menggunakan GitHub Pages.</p>
+
+    <!-- Header Section -->
+    <header>
+        <h1>Halo, Saya Gathan</h1>
+        <p>Selamat datang di profil saya!</p>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="#about">Tentang Saya</a>
+        <a href="#skills">Keahlian</a>
+        <a href="#contact">Kontak</a>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <img src="https://raw.githubusercontent.com/slayedkaito/slayedkaito/refs/heads/main/768980efc9ed5d6e6063ac8cabe4c459.jpg" alt="Foto Profil" class="profile-img">
+
+        <!-- About Section -->
+        <section class="intro" id="about">
+            <h2>Tentang Saya</h2>
+            <p>Halo! Saya seorang siswa yang sedang belajar coding dan membuat website pertama saya. Saya tertarik dengan dunia teknologi, anime, dan light novel!</p>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="intro" id="skills">
+            <h2>Keahlian</h2>
+            <p>Saat ini saya belajar:</p>
+            <ul style="list-style: none; padding-left: 0; text-align: left;">
+                <li>- Dasar HTML & CSS</li>
+                <li>- Membuat website profil</li>
+                <li>- Mengelola GitHub Pages</li>
+            </ul>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="intro" id="contact">
+            <h2>Kontak</h2>
+            <p>Hubungi saya di:</p>
+            <p>Email: <a href="gathanalfarabi@protonmail.com">email@example.com</a></p>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>Website ini dibuat dengan ❤️ oleh kaito aka gathan.</p>
+        <p><a href="#top">Kembali ke atas</a></p>
+    </footer>
+
 </body>
 </html>
