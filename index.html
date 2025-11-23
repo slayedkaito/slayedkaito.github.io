@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>AmiaOS – Anime Glassmorphism Portfolio</title>
+  <title>AmiaOS – Glass Anime Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     :root {
@@ -41,7 +41,7 @@
 
     .hidden { display: none !important; }
 
-    /* ========== BOOT SCREEN ========== */
+    /* ========== BOOT ========== */
 
     #boot-screen {
       position: absolute;
@@ -60,14 +60,11 @@
       width: min(520px, 100% - 32px);
       padding: 30px 38px;
       border-radius: 20px;
-      background:
-        radial-gradient(circle at top, rgba(255, 255, 255, 0.22), transparent 65%),
-        rgba(4, 4, 12, 0.92);
-      box-shadow:
-        0 0 0 1px rgba(255, 255, 255, 0.06),
-        0 30px 70px rgba(0, 0, 0, 0.95);
-      backdrop-filter: blur(22px) saturate(160%);
-      -webkit-backdrop-filter: blur(22px) saturate(160%);
+      background: rgba(4, 4, 12, 0.94);
+      border: 1px solid rgba(255,255,255,0.1);
+      box-shadow: 0 10px 28px rgba(0,0,0,0.6);
+      backdrop-filter: blur(18px) saturate(160%);
+      -webkit-backdrop-filter: blur(18px) saturate(160%);
     }
 
     .boot-logo {
@@ -107,7 +104,7 @@
       100% { width: 100%; }
     }
 
-    /* ========== LOCK SCREEN ========== */
+    /* ========== LOCK ========== */
 
     #lock-screen {
       position: absolute;
@@ -156,7 +153,7 @@
       background: rgba(6, 6, 20, 0.7);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
-      box-shadow: 0 18px 42px rgba(0, 0, 0, 0.94);
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.7);
       color: var(--text-soft);
     }
 
@@ -165,7 +162,7 @@
       height: 7px;
       border-radius: 999px;
       background: #ff9cde;
-      box-shadow: 0 0 12px rgba(255, 156, 222, 0.9);
+      box-shadow: 0 0 10px rgba(255, 156, 222, 0.8);
     }
 
     /* ========== DESKTOP ========== */
@@ -175,7 +172,9 @@
       inset: 0;
       opacity: 0;
       transform: scale(1.005);
-      transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+      transition:
+        opacity 0.45s ease-out,
+        transform 0.45s cubic-bezier(0.25, 0.8, 0.25, 1);
     }
 
     #desktop.visible {
@@ -186,25 +185,12 @@
     #desktop-wallpaper {
       position: absolute;
       inset: 0;
-      background-image:
-        linear-gradient(135deg, rgba(15, 20, 60, 0.45), rgba(10, 8, 24, 0.9)),
-        url("https://livewallp.com/wp-content/uploads/2021/08/Blue-Archive-Azusa-Beach-ver-Live2D.jpg");
+      background-image: url("https://livewallp.com/wp-content/uploads/2021/08/Blue-Archive-Azusa-Beach-ver-Live2D.jpg");
       background-size: cover;
       background-position: calc(50% + var(--bg-pos-x)) calc(50% + var(--bg-pos-y));
       background-repeat: no-repeat;
       z-index: 0;
       will-change: background-position;
-    }
-
-    #desktop-wallpaper::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at top left, rgba(255, 255, 255, 0.18), transparent 60%),
-        radial-gradient(circle at bottom right, rgba(135, 206, 250, 0.2), transparent 60%);
-      mix-blend-mode: screen;
-      pointer-events: none;
     }
 
     #desktop-layer {
@@ -226,19 +212,14 @@
       height: var(--menubar-height);
       padding: 0 12px;
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
       font-size: 12px;
       color: var(--text-soft);
-      background: linear-gradient(
-        to bottom,
-        rgba(5, 7, 20, 0.88),
-        rgba(5, 7, 20, 0.6),
-        transparent
-      );
-      backdrop-filter: blur(26px) saturate(180%);
-      -webkit-backdrop-filter: blur(26px) saturate(180%);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.65);
+      background: rgba(255, 255, 255, 0.07);
+      backdrop-filter: blur(36px) saturate(200%);
+      -webkit-backdrop-filter: blur(36px) saturate(200%);
+      border-bottom: 1px solid rgba(255,255,255,0.25);
       z-index: 950;
     }
 
@@ -247,6 +228,11 @@
       display: flex;
       align-items: center;
       gap: 10px;
+    }
+
+    .menu-right {
+      margin-left: auto;
+      padding-right: 8px;
     }
 
     .menu-logo {
@@ -261,27 +247,109 @@
       color: #ffffff;
       background:
         radial-gradient(circle at 25% 20%, #ffffff, #ffd7f7 45%, #ff8bd6 85%);
-      box-shadow: 0 0 10px rgba(255, 180, 244, 0.9);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
     }
 
     .menu-title {
       font-weight: 600;
       color: #ffffff;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.2);
     }
 
-    .menu-item { opacity: 0.85; }
-    .menu-item.dim { opacity: 0.65; }
+    .menu-item {
+      opacity: 0.9;
+      color: #fff;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.15);
+    }
+
+    .menu-item.dim { opacity: 0.7; }
 
     .menu-right-icon {
-      font-size: 13px;
       opacity: 0.9;
+      padding: 0 4px;
+      cursor: pointer;
+      transition: opacity .15s;
+      color: #fff;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.15);
     }
 
-    #menubar-clock {
+    .menu-right-icon:hover { opacity: 1; }
+
+    #menu-clock {
       font-variant-numeric: tabular-nums;
     }
 
-    /* ========== DOCK (REAL GLASS) ========== */
+    /* ========== CONTROL CENTER ========== */
+
+    #control-center {
+      position: absolute;
+      top: 40px;
+      right: 10px;
+      width: 260px;
+      border-radius: 20px;
+      background: rgba(10, 12, 35, 0.78);
+      backdrop-filter: blur(32px) saturate(180%);
+      -webkit-backdrop-filter: blur(32px) saturate(180%);
+      border: 1px solid rgba(255,255,255,0.4);
+      padding: 12px 14px;
+      font-size: 12px;
+      color: var(--text-soft);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+      z-index: 960;
+      opacity: 0;
+      transform: translateY(-8px) scale(0.98);
+      pointer-events: none;
+      transition:
+        opacity .18s ease-out,
+        transform .18s cubic-bezier(0.25,0.8,0.25,1);
+    }
+
+    #control-center.visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      pointer-events: auto;
+    }
+
+    .cc-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .cc-title {
+      font-weight: 600;
+      color: #fff;
+      font-size: 13px;
+      margin-bottom: 4px;
+    }
+
+    .cc-toggle {
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.4);
+      background: rgba(255,255,255,0.06);
+      color: #fff;
+      font-size: 11px;
+      cursor: pointer;
+    }
+
+    .cc-toggle.active {
+      background: linear-gradient(135deg,#6fa8ff,#ff9cde);
+      color: #050816;
+      border-color: rgba(255,255,255,1);
+    }
+
+    .cc-slider {
+      width: 100%;
+      margin: 4px 0 10px;
+    }
+
+    .cc-slider input[type="range"] {
+      width: 100%;
+    }
+
+    /* ========== DOCK ========== */
 
     #dock {
       position: absolute;
@@ -291,12 +359,11 @@
       height: var(--dock-height);
       padding: 8px 16px;
       border-radius: 26px;
-      background: rgba(10, 14, 40, 0.46);
-      backdrop-filter: blur(32px) saturate(190%);
-      -webkit-backdrop-filter: blur(32px) saturate(190%);
-      box-shadow:
-        0 30px 70px rgba(0, 0, 0, 0.95),
-        0 0 0 1px rgba(255, 255, 255, 0.22);
+      background: rgba(10, 14, 40, 0.38);
+      backdrop-filter: blur(30px) saturate(190%);
+      -webkit-backdrop-filter: blur(30px) saturate(190%);
+      border: 1px solid rgba(255,255,255,0.25);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.25);
       display: flex;
       align-items: flex-end;
       justify-content: center;
@@ -319,17 +386,15 @@
       border-radius: 18px;
       background:
         radial-gradient(circle at 28% 18%, #ffffff, #ffe9ff 40%, #ff9ddf 70%, #6fa8ff 100%);
-      box-shadow:
-        0 18px 32px rgba(0, 0, 0, 0.95),
-        0 0 0 1px rgba(255, 255, 255, 0.6);
+      border: 1px solid rgba(255,255,255,0.6);
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
       transition:
-        transform 0.18s ease-out,
-        box-shadow 0.18s ease-out,
-        filter 0.18s ease-out;
+        transform 0.18s cubic-bezier(0.34,1.56,0.64,1),
+        border-color 0.18s ease-out;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.35);
     }
 
     .dock-emoji {
@@ -337,25 +402,15 @@
       transform: translateY(1px);
     }
 
-    .dock-item:hover {
-      transform: translateY(-9px) scale(1.16);
-      box-shadow:
-        0 26px 44px rgba(0, 0, 0, 1),
-        0 0 0 1px rgba(255, 255, 255, 0.96);
-      filter: saturate(1.25);
-    }
-
-    .dock-item.active {
-      box-shadow:
-        0 26px 50px rgba(0,0,0,1),
-        0 0 25px rgba(255,200,255,0.7),
-        0 0 0 1px rgba(255,255,255,1);
+    .dock-item-wrapper:hover .dock-item {
+      transform: translateY(-10px) scale(1.18);
+      border-color: #ffffff;
     }
 
     .dock-label {
       font-size: 11px;
       color: rgba(255, 255, 255, 0.9);
-      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
     }
 
     .dock-dot {
@@ -363,7 +418,6 @@
       height: 6px;
       border-radius: 999px;
       background: #ffffff;
-      box-shadow: 0 0 10px rgba(255, 255, 255, 0.96);
       margin-top: 2px;
       opacity: 0;
       transition: opacity 0.16s ease-out;
@@ -395,17 +449,17 @@
       align-items: center;
       gap: 6px;
       cursor: pointer;
-      background: rgba(5, 7, 20, 0.32);
+      background: rgba(5, 7, 20, 0.38);
       backdrop-filter: blur(18px) saturate(150%);
       -webkit-backdrop-filter: blur(18px) saturate(150%);
-      border: 1px solid rgba(255,255,255,0.18);
-      box-shadow: 0 14px 32px rgba(0,0,0,0.76);
+      border: 1px solid rgba(255,255,255,0.2);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.4);
       transition: transform 0.12s ease-out, box-shadow 0.12s ease-out;
     }
 
     .desktop-icon:hover {
       transform: translateY(-2px);
-      box-shadow: 0 18px 40px rgba(0,0,0,0.9);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.5);
     }
 
     .desktop-icon-symbol {
@@ -420,7 +474,7 @@
       font-size: 19px;
     }
 
-    /* ========== WINDOWS (REAL GLASS) ========== */
+    /* ========== WINDOWS ========== */
 
     .window {
       position: absolute;
@@ -431,22 +485,19 @@
       display: none;
       flex-direction: column;
       border-radius: 22px;
-      background: rgba(8, 10, 26, 0.38);         /* <- semi-transparent only */
-      border: 1px solid rgba(255, 255, 255, 0.35);
-      box-shadow:
-        0 32px 90px rgba(0, 0, 0, 0.98),
-        0 0 0 1px rgba(255, 255, 255, 0.16);
-      backdrop-filter: blur(40px) saturate(170%) brightness(1.1);
-      -webkit-backdrop-filter: blur(40px) saturate(170%) brightness(1.1);
+      background: rgba(8, 10, 26, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(40px) saturate(170%) brightness(1.08);
+      -webkit-backdrop-filter: blur(40px) saturate(170%) brightness(1.08);
       overflow: hidden;
       z-index: 100;
       opacity: 0;
       transform: translateY(16px) scale(0.97);
       transition:
         opacity 0.25s ease-out,
-        transform 0.25s cubic-bezier(0.22, 0.61, 0.36, 1),
-        box-shadow 0.22s ease-out,
-        border-color 0.22s ease-out;
+        transform 0.25s cubic-bezier(0.25, 0.8, 0.25, 1),
+        border-color 0.18s ease-out;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
     }
 
     .window.visible {
@@ -455,11 +506,7 @@
     }
 
     .window.focused {
-      border-color: rgba(255, 255, 255, 0.9);
-      box-shadow:
-        0 36px 120px rgba(0, 0, 0, 1),
-        0 0 0 1px rgba(255, 255, 255, 0.24),
-        0 0 40px rgba(255, 200, 255, 0.4);
+      border-color: rgba(255, 255, 255, 0.98);
     }
 
     .window-header {
@@ -470,8 +517,8 @@
       gap: 8px;
       background: linear-gradient(
         120deg,
-        rgba(255,255,255,0.18),
-        rgba(10, 12, 30, 0.96)
+        rgba(255,255,255,0.2),
+        rgba(10, 12, 30, 0.95)
       );
       cursor: grab;
     }
@@ -489,9 +536,6 @@
       width: 12px;
       height: 12px;
       border-radius: 999px;
-      box-shadow:
-        0 0 0 1px rgba(255, 255, 255, 0.5),
-        0 0 8px rgba(0, 0, 0, 0.7);
       border: 1px solid rgba(0, 0, 0, 0.55);
       cursor: pointer;
     }
@@ -519,7 +563,7 @@
       font-size: 13px;
       color: var(--text-soft);
       overflow: auto;
-      background: transparent; /* biar blur keliatan full */
+      background: transparent;
     }
 
     .window-body h2 {
@@ -545,9 +589,9 @@
     .card-soft {
       padding: 10px 11px;
       border-radius: 14px;
-      background: rgba(9, 11, 30, 0.85);
+      background: rgba(9, 11, 30, 0.78);
       border: 1px solid rgba(255, 255, 255, 0.22);
-      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.7);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.25);
     }
 
     .tag {
@@ -568,11 +612,10 @@
       height: 7px;
       border-radius: 999px;
       background: var(--accent);
-      box-shadow: 0 0 8px rgba(79, 140, 255, 0.9);
     }
 
     .muted {
-      opacity: 0.82;
+      opacity: 0.86;
       font-size: 12px;
     }
 
@@ -601,7 +644,6 @@
     textarea.notes:focus,
     textarea.terminal:focus {
       border-color: rgba(139, 206, 255, 0.95);
-      box-shadow: 0 0 0 1px rgba(139, 206, 255, 0.95);
     }
 
     .terminal-prompt {
@@ -612,12 +654,133 @@
       white-space: pre-line;
     }
 
-    /* Browser UI */
+    /* ========== FINDER ========== */
+
+    .finder-layout {
+      display: grid;
+      grid-template-columns: 180px minmax(0, 1fr);
+      gap: 10px;
+      height: 100%;
+    }
+
+    .finder-sidebar {
+      border-radius: 14px;
+      background: rgba(5, 7, 25, 0.9);
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 8px 10px;
+      font-size: 12px;
+    }
+
+    .finder-section-title {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      opacity: 0.7;
+      margin: 6px 0 2px;
+    }
+
+    .finder-item {
+      padding: 4px 6px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .finder-item span {
+      font-size: 13px;
+    }
+
+    .finder-item.active,
+    .finder-item:hover {
+      background: rgba(255,255,255,0.12);
+    }
+
+    .finder-main {
+      border-radius: 14px;
+      background: rgba(5, 7, 25, 0.9);
+      border: 1px solid rgba(255,255,255,0.22);
+      padding: 10px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .finder-main-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+    }
+
+    .finder-grid {
+      margin-top: 6px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 10px;
+    }
+
+    .finder-file {
+      border-radius: 12px;
+      padding: 8px 8px 6px;
+      background: rgba(14, 16, 40, 0.9);
+      border: 1px solid rgba(255,255,255,0.16);
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      font-size: 11px;
+    }
+
+    .finder-file-icon {
+      font-size: 20px;
+    }
+
+    .finder-file-name {
+      font-weight: 500;
+      color: #fff;
+    }
+
+    .finder-file-meta {
+      opacity: 0.8;
+    }
+
+    /* ========== BROWSER ========== */
+
+    .browser-layout {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      gap: 6px;
+    }
+
     .browser-bar {
       display: flex;
       align-items: center;
       gap: 6px;
-      margin-bottom: 8px;
+    }
+
+    .browser-nav-btn {
+      width: 26px;
+      height: 26px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.3);
+      background: rgba(8,10,30,0.9);
+      color: #fff;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .browser-nav-btn:disabled {
+      opacity: 0.4;
+      cursor: default;
     }
 
     .browser-input {
@@ -644,7 +807,12 @@
       background: linear-gradient(135deg, #6fa8ff, #ff9cde);
       color: #050816;
       font-weight: 600;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.35);
+    }
+
+    .browser-status {
+      font-size: 11px;
+      min-height: 1.4em;
     }
 
     .browser-frame-wrapper {
@@ -652,17 +820,18 @@
       overflow: hidden;
       border: 1px solid rgba(255, 255, 255, 0.2);
       background: rgba(0, 0, 0, 0.75);
-      min-height: 220px;
+      flex: 1;
+      min-height: 180px;
     }
 
     .browser-frame {
       width: 100%;
-      height: 320px;
+      height: 100%;
       border: none;
       background: #050816;
     }
 
-    /* ========== SCROLLBAR ========== */
+    /* Scrollbar */
 
     .window-body::-webkit-scrollbar,
     textarea::-webkit-scrollbar {
@@ -682,7 +851,11 @@
 
     @media (max-width: 768px) {
       .lock-time { font-size: 60px; }
+
       #menubar { font-size: 11px; padding: 0 8px; }
+      .menu-left { gap: 6px; }
+      .menu-item { display: none; }
+
       #desktop-layer { padding-top: var(--menubar-height); }
       #desktop-icons { display: none; }
 
@@ -730,7 +903,14 @@
         font-size: 12px;
       }
 
-      .browser-frame { height: 260px; }
+      #control-center {
+        right: 6px;
+        width: calc(100% - 12px);
+      }
+
+      .finder-layout {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -767,7 +947,7 @@ POST: Initializing hardware...
   <div id="desktop">
     <div id="desktop-wallpaper"></div>
 
-    <!-- Menubar -->
+    <!-- MENU BAR -->
     <div id="menubar">
       <div class="menu-left">
         <div class="menu-logo" data-open-app="about"></div>
@@ -778,15 +958,41 @@ POST: Initializing hardware...
         <div class="menu-item dim">Portfolio</div>
       </div>
       <div class="menu-right">
-        <div class="menu-right-icon">🔊</div>
-        <div class="menu-right-icon">📶</div>
-        <div class="menu-right-icon" id="menubar-clock">--:--</div>
+        <div class="menu-right-icon" id="menu-cc">☀️</div>
+        <div class="menu-right-icon" id="menu-sound">🔊</div>
+        <div class="menu-right-icon" id="menu-wifi">📶</div>
+        <div class="menu-right-icon" id="menu-clock">--:--</div>
+      </div>
+    </div>
+
+    <!-- CONTROL CENTER -->
+    <div id="control-center">
+      <div class="cc-row">
+        <div class="cc-title">Control Center</div>
+      </div>
+      <div class="cc-row">
+        <span>Wi-Fi</span>
+        <button class="cc-toggle active" id="cc-wifi-toggle">On</button>
+      </div>
+      <div class="cc-row">
+        <span>Sound</span>
+        <button class="cc-toggle active" id="cc-sound-toggle">On</button>
+      </div>
+      <div class="cc-slider">
+        <div class="cc-row">
+          <span>Brightness</span>
+        </div>
+        <input id="cc-brightness" type="range" min="40" max="100" value="100" />
       </div>
     </div>
 
     <div id="desktop-layer">
-      <!-- Desktop icons -->
+      <!-- DESKTOP ICONS -->
       <div id="desktop-icons">
+        <div class="desktop-icon" data-open-app="finder">
+          <div class="desktop-icon-symbol">📂</div>
+          <div>Finder</div>
+        </div>
         <div class="desktop-icon" data-open-app="about">
           <div class="desktop-icon-symbol">👧</div>
           <div>About Me</div>
@@ -799,17 +1005,70 @@ POST: Initializing hardware...
           <div class="desktop-icon-symbol">🛠️</div>
           <div>Skills</div>
         </div>
-        <div class="desktop-icon" data-open-app="browser">
-          <div class="desktop-icon-symbol">🌐</div>
-          <div>Browser</div>
-        </div>
       </div>
 
       <!-- WINDOWS -->
 
+      <!-- Finder -->
+      <div class="window" id="window-finder" data-app="finder"
+           style="top:90px;left:170px;max-width:840px;">
+        <div class="window-header">
+          <div class="window-traffic">
+            <div class="traffic-dot traffic-close" data-action="close"></div>
+            <div class="traffic-dot traffic-min" data-action="minimize"></div>
+            <div class="traffic-dot traffic-max" data-action="maximize"></div>
+          </div>
+          <div class="window-title">Finder – Portfolio Files</div>
+        </div>
+        <div class="window-body">
+          <div class="finder-layout">
+            <div class="finder-sidebar">
+              <div class="finder-section-title">Favorites</div>
+              <div class="finder-item active" data-section="about">
+                <span>👧 About Me</span>
+              </div>
+              <div class="finder-item" data-section="projects">
+                <span>📁 Projects</span>
+              </div>
+              <div class="finder-item" data-section="notes">
+                <span>📝 Notes</span>
+              </div>
+
+              <div class="finder-section-title">Online</div>
+              <div class="finder-item" data-section="social">
+                <span>🔗 Social Links</span>
+              </div>
+
+              <div class="finder-section-title">Documents</div>
+              <div class="finder-item" data-section="cv">
+                <span>📄 CV &amp; Documents</span>
+              </div>
+
+              <div class="finder-section-title">Experiments</div>
+              <div class="finder-item" data-section="experiments">
+                <span>🧪 Experiments &amp; OS Dev</span>
+              </div>
+              <div class="finder-item" data-section="hardware">
+                <span>🖥 Hardware / PC Builds</span>
+              </div>
+            </div>
+
+            <div class="finder-main">
+              <div class="finder-main-header">
+                <div id="finder-breadcrumb">About Me</div>
+                <div class="muted">AmiaOS · Portfolio Finder</div>
+              </div>
+              <div id="finder-files" class="finder-grid">
+                <!-- files injected by JS -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!-- About -->
       <div class="window" id="window-about" data-app="about"
-           style="top:90px;left:260px;">
+           style="top:100px;left:280px;">
         <div class="window-header">
           <div class="window-traffic">
             <div class="traffic-dot traffic-close" data-action="close"></div>
@@ -853,7 +1112,7 @@ POST: Initializing hardware...
 
       <!-- Skills -->
       <div class="window" id="window-skills" data-app="skills"
-           style="top:120px;left:170px;">
+           style="top:130px;left:160px;">
         <div class="window-header">
           <div class="window-traffic">
             <div class="traffic-dot traffic-close" data-action="close"></div>
@@ -892,7 +1151,7 @@ POST: Initializing hardware...
 
       <!-- Projects -->
       <div class="window" id="window-projects" data-app="projects"
-           style="top:110px;left:420px;">
+           style="top:118px;left:420px;">
         <div class="window-header">
           <div class="window-traffic">
             <div class="traffic-dot traffic-close" data-action="close"></div>
@@ -942,7 +1201,7 @@ POST: Initializing hardware...
 
       <!-- Contact -->
       <div class="window" id="window-contact" data-app="contact"
-           style="top:150px;left:260px;">
+           style="top:160px;left:260px;">
         <div class="window-header">
           <div class="window-traffic">
             <div class="traffic-dot traffic-close" data-action="close"></div>
@@ -983,7 +1242,7 @@ POST: Initializing hardware...
 
       <!-- Notes -->
       <div class="window" id="window-notes" data-app="notes"
-           style="top:130px;left:520px;width:360px;">
+           style="top:140px;left:520px;width:360px;">
         <div class="window-header">
           <div class="window-traffic">
             <div class="traffic-dot traffic-close" data-action="close"></div>
@@ -1004,7 +1263,7 @@ POST: Initializing hardware...
 
       <!-- Terminal -->
       <div class="window" id="window-terminal" data-app="terminal"
-           style="top:180px;left:140px;width:420px;">
+           style="top:190px;left:140px;width:420px;">
         <div class="window-header">
           <div class="window-traffic">
             <div class="traffic-dot traffic-close" data-action="close"></div>
@@ -1030,28 +1289,33 @@ POST: Initializing hardware...
 
       <!-- Browser -->
       <div class="window" id="window-browser" data-app="browser"
-           style="top:100px;left:200px;max-width:820px;">
+           style="top:110px;left:220px;max-width:860px;">
         <div class="window-header">
           <div class="window-traffic">
             <div class="traffic-dot traffic-close" data-action="close"></div>
             <div class="traffic-dot traffic-min" data-action="minimize"></div>
             <div class="traffic-dot traffic-max" data-action="maximize"></div>
           </div>
-          <div class="window-title">Amia Browser – Startpage: Google</div>
+          <div class="window-title">Amia Browser – Smart Preview</div>
         </div>
         <div class="window-body">
-          <div class="browser-bar">
-            <input id="browser-address" class="browser-input" type="text"
-              placeholder="Search or enter URL (default: Google)" />
-            <button id="browser-go" class="browser-btn">Go</button>
-          </div>
-          <p class="muted" style="margin-bottom:6px;">
-            Note: Some sites (including Google) may block embedding in an iframe.
-            If the page doesn’t load, you can still open it in a new tab.
-          </p>
-          <div class="browser-frame-wrapper">
-            <iframe id="browser-frame" class="browser-frame"
-              src="https://www.google.com"></iframe>
+          <div class="browser-layout">
+            <div class="browser-bar">
+              <button class="browser-nav-btn" id="browser-back">⟵</button>
+              <button class="browser-nav-btn" id="browser-forward">⟶</button>
+              <button class="browser-nav-btn" id="browser-reload">⟳</button>
+              <input id="browser-address" class="browser-input" type="text"
+                placeholder="Search or enter URL (default: Google)" />
+              <button id="browser-open" class="browser-nav-btn" title="Open in new tab">🔗</button>
+              <button id="browser-go" class="browser-btn">Go</button>
+            </div>
+            <div id="browser-status" class="browser-status muted">
+              Tip: type anything to search, or paste a URL. Google links open in a new tab and preview via DuckDuckGo.
+            </div>
+            <div class="browser-frame-wrapper">
+              <iframe id="browser-frame" class="browser-frame"
+                src="https://www.google.com"></iframe>
+            </div>
           </div>
         </div>
       </div>
@@ -1059,6 +1323,10 @@ POST: Initializing hardware...
 
     <!-- DOCK -->
     <div id="dock">
+      <div class="dock-item-wrapper">
+        <div class="dock-item" data-app="finder"><span class="dock-emoji">📂</span></div>
+        <div class="dock-dot"></div><div class="dock-label">Finder</div>
+      </div>
       <div class="dock-item-wrapper">
         <div class="dock-item" data-app="about"><span class="dock-emoji">👧</span></div>
         <div class="dock-dot"></div><div class="dock-label">About</div>
@@ -1099,16 +1367,32 @@ POST: Initializing hardware...
       const lockTime = document.getElementById("lock-time");
       const lockDate = document.getElementById("lock-date");
       const desktop = document.getElementById("desktop");
-      const menubarClock = document.getElementById("menubar-clock");
+      const menubarClock = document.getElementById("menu-clock");
       const desktopIcons = document.querySelectorAll("[data-open-app]");
       const dockItems = document.querySelectorAll(".dock-item");
       const windows = document.querySelectorAll(".window");
       const terminalInput = document.getElementById("terminal-input");
       const terminalOutput = document.getElementById("terminal-output");
       const appleLogo = document.querySelector(".menu-logo");
+
+      const ccPanel = document.getElementById("control-center");
+      const ccBtn = document.getElementById("menu-cc");
+      const ccWifiToggle = document.getElementById("cc-wifi-toggle");
+      const ccSoundToggle = document.getElementById("cc-sound-toggle");
+      const ccBrightness = document.getElementById("cc-brightness");
+
       const browserAddress = document.getElementById("browser-address");
       const browserGo = document.getElementById("browser-go");
       const browserFrame = document.getElementById("browser-frame");
+      const browserStatus = document.getElementById("browser-status");
+      const browserBack = document.getElementById("browser-back");
+      const browserForward = document.getElementById("browser-forward");
+      const browserReload = document.getElementById("browser-reload");
+      const browserOpen = document.getElementById("browser-open");
+
+      const finderSidebarItems = document.querySelectorAll(".finder-item");
+      const finderFilesContainer = document.getElementById("finder-files");
+      const finderBreadcrumb = document.getElementById("finder-breadcrumb");
 
       let zIndexCounter = 200;
       let draggingWindow = null;
@@ -1116,6 +1400,9 @@ POST: Initializing hardware...
       let dragOffsetY = 0;
       const isMaximized = {};
       const appState = {};
+
+      const browserHistory = [];
+      let browserIndex = -1;
 
       function ensureAppState(appId) {
         if (!appState[appId]) {
@@ -1126,7 +1413,7 @@ POST: Initializing hardware...
       /* BOOT */
       function startBootSequence() {
         setTimeout(() => { bootText.textContent = "Loading AmiaOS kernel..."; }, 1800);
-        setTimeout(() => { bootText.textContent = "Starting anime glass UI services..."; }, 3600);
+        setTimeout(() => { bootText.textContent = "Starting glass UI services..."; }, 3600);
         setTimeout(() => { bootText.textContent = "Ready. Handing off to display manager."; }, 5200);
         setTimeout(() => {
           bootScreen.classList.add("hidden");
@@ -1160,6 +1447,29 @@ POST: Initializing hardware...
       }
 
       lockScreen.addEventListener("click", unlockToDesktop);
+
+      /* CONTROL CENTER */
+
+      ccBtn.addEventListener("click", () => {
+        ccPanel.classList.toggle("visible");
+      });
+
+      ccWifiToggle.addEventListener("click", () => {
+        ccWifiToggle.classList.toggle("active");
+        ccWifiToggle.textContent = ccWifiToggle.classList.contains("active") ? "On" : "Off";
+      });
+
+      ccSoundToggle.addEventListener("click", () => {
+        ccSoundToggle.classList.toggle("active");
+        ccSoundToggle.textContent = ccSoundToggle.classList.contains("active") ? "On" : "Mute";
+      });
+
+      ccBrightness.addEventListener("input", () => {
+        const val = ccBrightness.value;
+        const factor = val / 100;
+        document.getElementById("desktop-wallpaper").style.filter =
+          `brightness(${factor})`;
+      });
 
       /* WINDOW HELPERS */
       function getWindowByApp(appId) {
@@ -1372,26 +1682,278 @@ POST: Initializing hardware...
         });
       }
 
-      /* BROWSER */
-      function toUrlOrSearch(value) {
-        const trimmed = value.trim();
-        if (!trimmed) return "https://www.google.com";
-        if (/^https?:\/\//i.test(trimmed)) return trimmed;
-        return "https://www.google.com/search?q=" + encodeURIComponent(trimmed);
+      /* FINDER DATA */
+      const finderData = {
+        about: [
+          {
+            icon: "👤",
+            name: "Profile – Gathan (Amia)",
+            meta: "Short bio & background",
+            linkApp: "about"
+          },
+          {
+            icon: "🎯",
+            name: "Goals & Interests",
+            meta: "Where I want to grow",
+            linkApp: "about"
+          }
+        ],
+        projects: [
+          {
+            icon: "🖥️",
+            name: "AmiaOS Desktop",
+            meta: "This portfolio OS project",
+            linkApp: "projects"
+          },
+          {
+            icon: "💻",
+            name: "PC & GPU Troubleshooting",
+            meta: "Custom builds, repairs & tuning",
+            linkApp: "projects"
+          },
+          {
+            icon: "📱",
+            name: "Android ROM Experiments",
+            meta: "EDL, flashing & recovery",
+            linkApp: "projects"
+          }
+        ],
+        notes: [
+          {
+            icon: "📝",
+            name: "Study Notes",
+            meta: "Quick notes from classes",
+            linkApp: "notes"
+          },
+          {
+            icon: "🧠",
+            name: "Ideas & Concepts",
+            meta: "Random ideas to build later",
+            linkApp: "notes"
+          }
+        ],
+        social: [
+          {
+            icon: "🐙",
+            name: "GitHub (future)",
+            meta: "Code & experiments (placeholder)",
+            url: "https://github.com"
+          },
+          {
+            icon: "💼",
+            name: "LinkedIn (future)",
+            meta: "Professional profile (placeholder)",
+            url: "https://linkedin.com"
+          }
+        ],
+        cv: [
+          {
+            icon: "📄",
+            name: "CV – Gathan Alfarabi",
+            meta: "PDF resume (placeholder link)",
+            url: "#"
+          }
+        ],
+        experiments: [
+          {
+            icon: "🧪",
+            name: "OS Concepts & Simulators",
+            meta: "Custom UI/OS mockups",
+            linkApp: "projects"
+          },
+          {
+            icon: "🤖",
+            name: "AI & LLM Experiments",
+            meta: "Using AI tools for learning",
+            linkApp: "projects"
+          }
+        ],
+        hardware: [
+          {
+            icon: "🖥️",
+            name: "PC Builds",
+            meta: "Spec notes & upgrade plans",
+            linkApp: "projects"
+          },
+          {
+            icon: "🔧",
+            name: "Device Repairs",
+            meta: "Troubleshooting logs & fixes",
+            linkApp: "projects"
+          }
+        ]
+      };
+
+      function renderFinderSection(section) {
+        const files = finderData[section] || [];
+        finderFilesContainer.innerHTML = "";
+        files.forEach((file) => {
+          const div = document.createElement("div");
+          div.className = "finder-file";
+          div.innerHTML = `
+            <div class="finder-file-icon">${file.icon}</div>
+            <div class="finder-file-name">${file.name}</div>
+            <div class="finder-file-meta">${file.meta}</div>
+          `;
+          div.addEventListener("dblclick", () => {
+            if (file.linkApp) {
+              showWindow(file.linkApp);
+            } else if (file.url && file.url !== "#") {
+              window.open(file.url, "_blank");
+            }
+          });
+          finderFilesContainer.appendChild(div);
+        });
+
+        const labels = {
+          about: "About Me",
+          projects: "Projects",
+          notes: "Notes",
+          social: "Social Links",
+          cv: "CV & Documents",
+          experiments: "Experiments & OS Dev",
+          hardware: "Hardware / PC Builds"
+        };
+        finderBreadcrumb.textContent = labels[section] || section;
       }
 
-      if (browserGo && browserAddress && browserFrame) {
-        browserGo.addEventListener("click", () => {
-          const url = toUrlOrSearch(browserAddress.value);
-          browserFrame.src = url;
+      finderSidebarItems.forEach((item) => {
+        item.addEventListener("click", () => {
+          finderSidebarItems.forEach((i) => i.classList.remove("active"));
+          item.classList.add("active");
+          const section = item.getAttribute("data-section");
+          renderFinderSection(section);
         });
-        browserAddress.addEventListener("keydown", (e) => {
-          if (e.key === "Enter") {
-            const url = toUrlOrSearch(browserAddress.value);
-            browserFrame.src = url;
-          }
-        });
+      });
+
+      renderFinderSection("about");
+
+      /* BROWSER – SMART MODE */
+
+      function normalizeInput(value) {
+        return value.trim();
       }
+
+      function makeSearchUrl(query) {
+        // default: google search
+        return "https://www.google.com/search?q=" + encodeURIComponent(query);
+      }
+
+      function makeDuckDuckGoUrl(query) {
+        return "https://duckduckgo.com/?q=" + encodeURIComponent(query);
+      }
+
+      function computeTarget(input) {
+        const trimmed = normalizeInput(input);
+        if (!trimmed) {
+          return {
+            displayUrl: "https://www.google.com",
+            embedUrl: "https://www.google.com",
+            note: ""
+          };
+        }
+
+        const looksLikeUrl = /^https?:\/\//i.test(trimmed) || trimmed.includes(".");
+        let url = trimmed;
+        if (!/^https?:\/\//i.test(url) && looksLikeUrl) {
+          url = "https://" + url;
+        }
+
+        if (!looksLikeUrl) {
+          const googleUrl = makeSearchUrl(trimmed);
+          return {
+            displayUrl: googleUrl,
+            embedUrl: googleUrl,
+            note: "Searching via Google…"
+          };
+        }
+
+        return {
+          displayUrl: url,
+          embedUrl: url,
+          note: ""
+        };
+      }
+
+      function loadBrowser(input, openNewTab = false) {
+        const { displayUrl, embedUrl } = computeTarget(input || browserAddress.value);
+
+        let finalEmbed = embedUrl;
+        let statusMsg = "";
+
+        if (displayUrl.includes("google.")) {
+          finalEmbed = makeDuckDuckGoUrl(input || browserAddress.value);
+          statusMsg = "Google opened in a new tab. Showing DuckDuckGo preview here.";
+          window.open(displayUrl, "_blank");
+        }
+
+        browserFrame.src = finalEmbed;
+        browserAddress.value = displayUrl;
+        browserStatus.textContent = statusMsg || ("Loaded: " + displayUrl);
+
+        // history
+        if (!openNewTab) {
+          browserHistory.splice(browserIndex + 1);
+          browserHistory.push(displayUrl);
+          browserIndex = browserHistory.length - 1;
+          updateBrowserNavButtons();
+        }
+      }
+
+      function updateBrowserNavButtons() {
+        browserBack.disabled = browserIndex <= 0;
+        browserForward.disabled = browserIndex >= browserHistory.length - 1;
+      }
+
+      browserGo.addEventListener("click", () => {
+        loadBrowser(browserAddress.value);
+      });
+
+      browserAddress.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") {
+          loadBrowser(browserAddress.value);
+        }
+      });
+
+      browserReload.addEventListener("click", () => {
+        if (browserIndex >= 0) {
+          browserFrame.src = browserFrame.src;
+        }
+      });
+
+      browserBack.addEventListener("click", () => {
+        if (browserIndex > 0) {
+          browserIndex--;
+          const url = browserHistory[browserIndex];
+          browserFrame.src = url.includes("google.") ? makeDuckDuckGoUrl(url) : url;
+          browserAddress.value = url;
+          browserStatus.textContent = "Back: " + url;
+          updateBrowserNavButtons();
+        }
+      });
+
+      browserForward.addEventListener("click", () => {
+        if (browserIndex < browserHistory.length - 1) {
+          browserIndex++;
+          const url = browserHistory[browserIndex];
+          browserFrame.src = url.includes("google.") ? makeDuckDuckGoUrl(url) : url;
+          browserAddress.value = url;
+          browserStatus.textContent = "Forward: " + url;
+          updateBrowserNavButtons();
+        }
+      });
+
+      browserOpen.addEventListener("click", () => {
+        const val = browserAddress.value || "https://www.google.com";
+        const { displayUrl } = computeTarget(val);
+        window.open(displayUrl, "_blank");
+        browserStatus.textContent = "Opened in a new tab: " + displayUrl;
+      });
+
+      // init history with google
+      browserHistory.push("https://www.google.com");
+      browserIndex = 0;
+      updateBrowserNavButtons();
 
       /* PARALLAX */
       document.addEventListener("mousemove", (e) => {
