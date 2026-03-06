@@ -10,7 +10,7 @@
 
     <link rel="preconnect" href="https://api.fontshare.com">
     <link rel="preconnect" href="https://cdn.tailwindcss.com">
-    <link rel="preload" as="image" href="https://i.pinimg.com/736x/30/28/96/3028967420ba01b986c4b81d35aaa481.jpg">
+    <link rel="preload" as="image" href="https://drive.google.com/u/0/drive-viewer/AKGpihbJK2zMhiixBojdl37LfiWeYlm5KHUUObWmmTj2v56QienrUWfUgA2JZOtehBONg9YK8PI8UkRbBd8r7HY3huCkDTjBoB96jIs=s1600-rw-v1?auditContext=forDisplay">
 
     <link href="https://api.fontshare.com/v2/css?f[]=general-sans@200,300,400,500,600,700&display=swap"
         rel="stylesheet">
@@ -36,11 +36,21 @@
                     },
                     animation: {
                         'marquee': 'marquee 25s linear infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'subtle-pulse': 'subtle-pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
                     },
                     keyframes: {
                         marquee: {
                             '0%': { transform: 'translateX(0%)' },
                             '100%': { transform: 'translateX(calc(-100% / 3))' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        'subtle-pulse': {
+                            '0%, 100%': { opacity: 1 },
+                            '50%': { opacity: .7 },
                         }
                     }
                 }
@@ -58,10 +68,10 @@
         /* Scroll Reveal Animation */
         .reveal {
             opacity: 0;
-            transform: translateY(40px);
+            transform: translateY(30px);
             transition-property: opacity, transform;
-            transition-duration: 0.8s;
-            transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+            transition-duration: 0.9s;
+            transition-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
             will-change: opacity, transform;
         }
 
@@ -80,16 +90,34 @@
 
         /* Glass Card Bento Style */
         .glass-card {
-            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
-            box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.005));
+            box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+            position: relative;
+        }
+
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 255, 255, 0.06), transparent 40%);
+            opacity: 0;
+            transition: opacity 0.5s;
+            z-index: 0;
+            pointer-events: none;
         }
 
         .glass-card:hover {
-            transform: translateY(-4px);
-            box-shadow: inset 0 2px 0 0 rgba(255, 255, 255, 0.15), 0 10px 40px -10px rgba(0, 0, 0, 0.5);
-            border-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-5px) scale(1.01);
+            box-shadow: inset 0 2px 0 0 rgba(255, 255, 255, 0.1), 0 20px 40px -10px rgba(0, 0, 0, 0.7);
+            border-color: rgba(255, 255, 255, 0.15);
+        }
+
+        .glass-card:hover::before {
+            opacity: 1;
         }
 
         /* Marquee Masks */
@@ -123,9 +151,11 @@
         <div class="absolute inset-0 bg-black/60 z-[-1]"></div>
         <div class="absolute bottom-0 w-full h-[300px] bg-gradient-to-t from-black to-transparent z-[-1]"></div>
 
-        <nav class="absolute top-0 w-full flex items-center justify-between px-6 md:px-[120px] py-[20px] z-50">
+        <nav class="absolute top-0 w-full flex items-center justify-between px-6 md:px-[120px] py-[20px] z-50 animate-float"
+            style="animation-duration: 8s;">
             <div class="flex items-center gap-[40px]">
-                <div class="text-[25px] font-bold tracking-tight opacity-90 w-[187px]">
+                <div
+                    class="text-[25px] font-bold tracking-tight opacity-90 w-[187px] hover:opacity-100 transition-opacity cursor-default">
                     GTALFR.
                 </div>
 
@@ -172,7 +202,7 @@
             </div>
 
             <h1
-                class="text-[36px] md:text-[56px] font-medium leading-[1.28] max-w-[700px] text-gradient tracking-tight mb-6">
+                class="text-[36px] md:text-[56px] font-medium leading-[1.28] max-w-[700px] text-gradient tracking-tight mb-6 animate-float">
                 Calon Mechanical Engineer.<br>Opreker & Pengembang.
             </h1>
 
@@ -246,64 +276,72 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
 
-                <div class="col-span-1 lg:col-span-2 reveal delay-100">
-                    <div
-                        class="glass-card rounded-2xl p-8 h-full min-h-[240px] relative overflow-hidden flex flex-col justify-end">
+                <div class="col-span-1 lg:col-span-2 group reveal delay-100">
+                    <div class="glass-card rounded-2xl p-8 h-full min-h-[240px] flex flex-col justify-end">
                         <div
-                            class="absolute top-0 right-0 w-[200px] h-[200px] bg-white/5 blur-[50px] rounded-full translate-x-1/2 -translate-y-1/2">
+                            class="absolute top-0 right-0 w-[200px] h-[200px] bg-white/5 blur-[50px] rounded-full translate-x-1/2 -translate-y-1/2 group-hover:bg-white/10 transition-colors duration-500">
                         </div>
                         <h3 class="text-xl font-medium text-white mb-2 relative z-10">Software & Hardware Mastery</h3>
-                        <p class="text-[14px] text-white/50 relative z-10 max-w-[340px]">Ahli dalam perbaikan PC,
+                        <p
+                            class="text-[14px] text-white/50 relative z-10 max-w-[340px] group-hover:text-white/70 transition-colors duration-300">
+                            Ahli dalam perbaikan PC,
                             Laptop, Android & iPhone. Berpengalaman flashing ulang, memperbaiki hardbrick/softbrick,
                             bypass iPhone, rewrite IMEI, instalasi Windows/Linux/Hackintosh, hingga merakit PC.</p>
                     </div>
                 </div>
 
-                <div class="col-span-1 reveal delay-200">
+                <div class="col-span-1 group reveal delay-200">
                     <div class="glass-card rounded-2xl p-8 h-full min-h-[240px] flex flex-col justify-end">
-                        <h3 class="text-xl font-medium text-white mb-2">Teknik Mesin</h3>
-                        <p class="text-[14px] text-white/50">Maintenance alat berat (Excavator, Dump Truck) dan
+                        <h3 class="text-xl font-medium text-white mb-2 relative z-10">Teknik Mesin</h3>
+                        <p
+                            class="text-[14px] text-white/50 relative z-10 group-hover:text-white/70 transition-colors duration-300">
+                            Maintenance alat berat (Excavator, Dump Truck) dan
                             pemahaman mendalam tentang permesinan industri.</p>
                     </div>
                 </div>
 
-                <div class="col-span-1 reveal delay-300">
+                <div class="col-span-1 group reveal delay-300">
                     <div class="glass-card rounded-2xl p-8 h-full min-h-[240px] flex flex-col justify-end">
-                        <h3 class="text-xl font-medium text-white mb-2">Web Dev & AI</h3>
-                        <p class="text-[14px] text-white/50">Menguasai HTML5, CSS, JS, dan Python. Merancang AI Chatbot
+                        <h3 class="text-xl font-medium text-white mb-2 relative z-10">Web Dev & AI</h3>
+                        <p
+                            class="text-[14px] text-white/50 relative z-10 group-hover:text-white/70 transition-colors duration-300">
+                            Menguasai HTML5, CSS, JS, dan Python. Merancang AI Chatbot
                             offline dengan model Gemma.</p>
                     </div>
                 </div>
 
-                <div class="col-span-1 reveal delay-[400ms]">
-                    <div
-                        class="glass-card rounded-2xl p-8 h-full min-h-[240px] relative overflow-hidden flex flex-col justify-end">
+                <div class="col-span-1 group reveal delay-[400ms]">
+                    <div class="glass-card rounded-2xl p-8 h-full min-h-[240px] flex flex-col justify-end">
                         <div
-                            class="absolute top-1/2 left-1/2 w-[150px] h-[150px] bg-white/5 blur-[40px] rounded-full -translate-x-1/2 -translate-y-1/2">
+                            class="absolute top-1/2 left-1/2 w-[150px] h-[150px] bg-white/5 blur-[40px] rounded-full -translate-x-1/2 -translate-y-1/2 group-hover:bg-white/10 transition-colors duration-500">
                         </div>
                         <h3 class="text-xl font-medium text-white mb-2 relative z-10">Kreatif Editing</h3>
-                        <p class="text-[14px] text-white/50 relative z-10">Terampil rekayasa desain, motion graph, efek
+                        <p
+                            class="text-[14px] text-white/50 relative z-10 group-hover:text-white/70 transition-colors duration-300">
+                            Terampil rekayasa desain, motion graph, efek
                             jedag-jedug, komposisi frame dan animasi di Alight Motion.</p>
                     </div>
                 </div>
 
-                <div class="col-span-1 reveal delay-[500ms]">
-                    <div
-                        class="glass-card rounded-2xl p-8 h-full min-h-[240px] relative overflow-hidden flex flex-col justify-end">
+                <div class="col-span-1 group reveal delay-[500ms]">
+                    <div class="glass-card rounded-2xl p-8 h-full min-h-[240px] flex flex-col justify-end">
                         <h3 class="text-xl font-medium text-white mb-2 relative z-10">Visual Lensa</h3>
-                        <p class="text-[14px] text-white/50 relative z-10">Hobi eksplorasi di bidang Fotografi,
+                        <p
+                            class="text-[14px] text-white/50 relative z-10 group-hover:text-white/70 transition-colors duration-300">
+                            Hobi eksplorasi di bidang Fotografi,
                             Videografi, dan meracik scene naratif Cinematography.</p>
                     </div>
                 </div>
 
-                <div class="col-span-1 lg:col-span-3 reveal delay-[600ms]">
-                    <div
-                        class="glass-card rounded-2xl p-8 h-full min-h-[200px] relative overflow-hidden flex flex-col justify-end">
+                <div class="col-span-1 lg:col-span-3 group reveal delay-[600ms]">
+                    <div class="glass-card rounded-2xl p-8 h-full min-h-[200px] flex flex-col justify-end">
                         <div
-                            class="absolute bottom-0 left-0 w-[200px] h-[200px] bg-white/5 blur-[50px] rounded-full -translate-x-1/2 translate-y-1/2">
+                            class="absolute bottom-0 left-0 w-[200px] h-[200px] bg-white/5 blur-[50px] rounded-full -translate-x-1/2 translate-y-1/2 group-hover:bg-white/10 transition-colors duration-500">
                         </div>
                         <h3 class="text-xl font-medium text-white mb-2 relative z-10">Penulis & Audiophile</h3>
-                        <p class="text-[14px] text-white/50 relative z-10 max-w-2xl">Audiophile penikmat (KZ EDC Pro,
+                        <p
+                            class="text-[14px] text-white/50 relative z-10 max-w-2xl group-hover:text-white/70 transition-colors duration-300">
+                            Audiophile penikmat (KZ EDC Pro,
                             Space Travel) serta anime. Kreatif merancang plot, script, dan light novel dengan skenario
                             'what if'. Waifu: Airi Momoi &gt;&lt;</p>
                     </div>
@@ -358,16 +396,34 @@
                 melakukan riset AI offline dan porting sistem operasi.
             </p>
 
-            <a href="https://github.com/slayedkaito" target="_blank" rel="noopener noreferrer"
-                class="group flex items-center gap-2 text-[15px] font-medium text-white mb-16 hover:text-white/80 transition-colors">
-                Lihat Proyek di GitHub
-                <span class="transition-transform group-hover:translate-x-1">→</span>
-            </a>
+            <div class="flex flex-col sm:flex-row items-center gap-4 md:gap-8 mb-16">
+                <a href="https://github.com/slayedkaito" target="_blank" rel="noopener noreferrer"
+                    class="group flex items-center gap-2 text-[15px] font-medium text-white hover:text-white/80 transition-colors">
+                    Lihat Proyek di GitHub
+                    <span class="transition-transform group-hover:translate-x-1">→</span>
+                </a>
 
-            <div class="w-full max-w-[700px] relative text-left reveal delay-200">
-                <div class="absolute inset-0 bg-white/5 blur-[60px] rounded-2xl"></div>
+                <div class="hidden sm:block w-[1px] h-4 bg-white/20"></div>
 
-                <div class="relative bg-[#09090b] border border-white/10 rounded-xl overflow-hidden shadow-2xl">
+                <a href="https://slayedkaito.github.io/XfTest" target="_blank" rel="noopener noreferrer"
+                    class="group flex items-center gap-2 text-[15px] font-medium text-[#27c93f] hover:text-[#27c93f]/80 transition-colors">
+                    <span class="relative flex h-2 w-2">
+                        <span
+                            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#27c93f] opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-[#27c93f]"></span>
+                    </span>
+                    Jalankan Web Stress Test
+                    <span class="transition-transform group-hover:translate-x-1">↗</span>
+                </a>
+            </div>
+
+            <div class="w-full max-w-[700px] relative text-left reveal delay-200 group">
+                <div
+                    class="absolute inset-0 bg-white/5 blur-[60px] rounded-2xl group-hover:bg-[#27c93f]/10 transition-colors duration-700">
+                </div>
+
+                <div
+                    class="relative bg-[#09090b] border border-white/10 rounded-xl overflow-hidden shadow-2xl transition-transform duration-500 group-hover:-translate-y-2">
                     <div class="absolute inset-0 noise-bg mix-blend-overlay"></div>
 
                     <div class="flex items-center px-4 py-3 border-b border-white/5 bg-white/[0.02]">
@@ -461,23 +517,38 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // Intersection Observer for scroll animations
             const observerOptions = {
                 root: null,
-                rootMargin: '0px',
-                threshold: 0.15
+                rootMargin: '0px 0px -50px 0px',
+                threshold: 0.1
             };
 
             const observer = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        entry.target.classList.add('active');
-                        observer.unobserve(entry.target); // Run once
+                        // Use requestAnimationFrame for smooth layout execution
+                        requestAnimationFrame(() => {
+                            entry.target.classList.add('active');
+                        });
+                        observer.unobserve(entry.target);
                     }
                 });
             }, observerOptions);
 
             const revealElements = document.querySelectorAll('.reveal');
             revealElements.forEach(el => observer.observe(el));
+
+            // Mouse tracking for advanced glass-card glow effect
+            document.querySelectorAll('.glass-card').forEach(card => {
+                card.addEventListener('mousemove', e => {
+                    const rect = card.getBoundingClientRect();
+                    const x = ((e.clientX - rect.left) / card.clientWidth) * 100;
+                    const y = ((e.clientY - rect.top) / card.clientHeight) * 100;
+                    card.style.setProperty('--mouse-x', `${x}%`);
+                    card.style.setProperty('--mouse-y', `${y}%`);
+                });
+            });
         });
     </script>
 </body>
