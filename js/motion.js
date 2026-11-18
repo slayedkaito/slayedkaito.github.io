@@ -1,8 +1,8 @@
 /**
- * Idle-sleeping lerped scroll choreography + scroll-reactive contextual background.
- * - Hero (#tentang) stays untouched with its own photo backdrop.
- * - Below Hero, dark ambient orbs glide smoothly with scroll (GPU translate3d)
- *   and crossfade contextual mood palettes based on the active section in view.
+ * Apple-style fluid scroll choreography engine.
+ * - Frame-rate-independent exponential damping (identical feel on 60Hz, 120Hz & 144Hz).
+ * - Zero layout reflow inside rAF (metrics cached via ResizeObserver / resize).
+ * - Auto-sleeps at 0% CPU when scrolling settles.
  */
 export function initScrollMotion(prefersReducedMotion, onScrollNavbar) {
     const progressBar = document.getElementById('scroll-progress');
@@ -11,17 +11,61 @@ export function initScrollMotion(prefersReducedMotion, onScrollNavbar) {
     const heroContent = document.getElementById('hero-content');
     const heroScrollCue = document.getElementById('hero-scroll-cue');
     const iosGallery = document.getElementById('ios-gallery');
-    const parallaxItems = Array.from(document.querySelectorAll('[data-parallax-speed]'));
+    const parallaxItems = Array.from(document.querySelectorAll('[data-parallax-speed]'))
+        .map(el => ({
+            el,
+            frame: el.querySelector('.device-frame'),
+            speed: Number(el.dataset.parallaxSpeed) || 0,
+        }))
+        .filter(item => item.frame);
 
-    // Contextual dynamic ambient background elements
     const ambientStage = document.getElementById('ambient-stage');
     const moodLayers = Array.from(document.querySelectorAll('[data-ambient-mood]'));
     const moodSections = Array.from(document.querySelectorAll('[data-bg-mood]'));
     const primaryOrbs = Array.from(document.querySelectorAll('.ambient-orb-primary'));
     const secondaryOrbs = Array.from(document.querySelectorAll('.ambient-orb-secondary'));
 
-    let currentMood = 'keahlian';
+    // Cached layout metrics (never read layout inside rAF!)
+    const metrics = {
+        vh: window.innerHeight || 1,
+        vw: window.innerWidth || 1,
+        maxScroll: 1,
+        heroH: window.innerHeight || 1,
+        galleryTop: 0,
+        galleryH: 0,
+    };
 
+    const measureLayout = () => {
+        const y = window.scrollY;
+        metrics.vh = window.innerHeight || 1;
+        metrics.vw = window.innerWidth || 1;
+        metrics.maxScroll = Math.max(1, document.documentElement.scrollHeight - metrics.vh);
+        metrics.heroH = heroSection ? heroSection.offsetHeight || metrics.vh : metrics.vh;
+
+        if (iosGallery) {
+            const rect = iosGallery.getBoundingClientRect();
+            metrics.galleryTop = rect.top + y;
+            metrics.galleryH = rect.height || 1;
+        }
+    };
+
+    measureLayout();
+
+    // Re-measure when document height shifts (e.g. TikTok embed finishes loading)
+    if ('ResizeObserver' in window) {
+        let resizeDebounce = 0;
+        const ro = new ResizeObserver(() => {
+            clearTimeout(resizeDebounce);
+            resizeDebounce = setTimeout(() => {
+                measureLayout();
+                kickLoop();
+            }, 120);
+        });
+        ro.observe(document.body);
+    }
+
+    // Contextual dark/light mood switching per visible section
+    let currentMood = 'keahlian';
     const setActiveMood = moodName => {
         if (!moodName || moodName === currentMood) return;
         currentMood = moodName;
@@ -30,7 +74,6 @@ export function initScrollMotion(prefersReducedMotion, onScrollNavbar) {
         });
     };
 
-    // Observe which content section is currently centered in viewport to crossfade dark mood
     if ('IntersectionObserver' in window && moodSections.length && moodLayers.length) {
         const moodObserver = new IntersectionObserver(entries => {
             entries.forEach(entry => {
@@ -46,107 +89,112 @@ export function initScrollMotion(prefersReducedMotion, onScrollNavbar) {
     let targetY = window.scrollY;
     let smoothY = window.scrollY;
     let motionRaf = 0;
+    let lastTime = 0;
 
-    const renderFrame = () => {
+    // Damping stiffness (higher = tighter, lower = silkier Apple inertia)
+    const LAMBDA = 7.8;
+
+    const renderFrame = now => {
+        const dt = lastTime ? Math.min(0.05, (now - lastTime) / 1000) : 0.016;
+        lastTime = now;
+
         const diff = targetY - smoothY;
-        if (Math.abs(diff) < 0.15) {
+        if (Math.abs(diff) < 0.08) {
             smoothY = targetY;
         } else {
-            smoothY += diff * 0.11;
+            const alpha = 1 - Math.exp(-LAMBDA * dt);
+            smoothY += diff * alpha;
         }
 
-        const vh = window.innerHeight || 1;
-        const maxScroll = Math.max(1, document.documentElement.scrollHeight - vh);
+        const { vh, vw, maxScroll, heroH, galleryTop, galleryH } = metrics;
         const scrollProgress = Math.min(1, Math.max(0, smoothY / maxScroll));
 
-        // 1. Reading progress hairline
+        // 1. Top reading progress hairline
         if (progressBar) {
             progressBar.style.transform = `scaleX(${scrollProgress.toFixed(4)})`;
         }
 
-        // 2. Keep Hero background untouched; reveal dynamic contextual backdrop once leaving Hero
-        const heroH = heroSection ? heroSection.offsetHeight || vh : vh;
+        // 2. Keep Hero background untouched; reveal contextual backdrop smoothly below Hero
         if (ambientStage) {
-            const pastHero = smoothY > heroH * 0.42;
-            ambientStage.classList.toggle('is-visible', pastHero);
+            ambientStage.classList.toggle('is-visible', smoothY > heroH * 0.4);
         }
 
         if (!prefersReducedMotion) {
-            // 3. Scroll-driven movement of ambient orbs (pure GPU translate3d, 0 repaint)
-            if (ambientStage && smoothY > heroH * 0.3) {
-                const postHeroRatio = Math.min(1, Math.max(0, (smoothY - heroH * 0.4) / Math.max(1, maxScroll - heroH * 0.4)));
+            // 3. Scroll-driven contextual ambient orbs (GPU translate3d only)
+            if (ambientStage && smoothY > heroH * 0.25) {
+                const startY = heroH * 0.38;
+                const postHeroRatio = Math.min(1, Math.max(0, (smoothY - startY) / Math.max(1, maxScroll - startY)));
                 const wave = Math.sin(postHeroRatio * Math.PI * 2);
                 const cosWave = Math.cos(postHeroRatio * Math.PI * 1.5);
 
-                const pX = (postHeroRatio * 28 + wave * 6).toFixed(2);
-                const pY = (postHeroRatio * 34 - cosWave * 5).toFixed(2);
-                const pScale = (1 + Math.sin(postHeroRatio * Math.PI) * 0.1).toFixed(3);
+                const pX = (postHeroRatio * 26 + wave * 5.5).toFixed(2);
+                const pY = (postHeroRatio * 32 - cosWave * 5).toFixed(2);
+                const pScale = (1 + Math.sin(postHeroRatio * Math.PI) * 0.09).toFixed(3);
 
-                const sX = (-postHeroRatio * 26 - wave * 5).toFixed(2);
-                const sY = (-postHeroRatio * 30 + cosWave * 6).toFixed(2);
-                const sScale = (1.04 - Math.sin(postHeroRatio * Math.PI) * 0.08).toFixed(3);
+                const sX = (-postHeroRatio * 24 - wave * 5).toFixed(2);
+                const sY = (-postHeroRatio * 28 + cosWave * 5.5).toFixed(2);
+                const sScale = (1.04 - Math.sin(postHeroRatio * Math.PI) * 0.07).toFixed(3);
 
                 const pTransform = `translate3d(${pX}vw, ${pY}vh, 0) scale(${pScale})`;
                 const sTransform = `translate3d(${sX}vw, ${sY}vh, 0) scale(${sScale})`;
 
-                primaryOrbs.forEach(orb => { orb.style.transform = pTransform; });
-                secondaryOrbs.forEach(orb => { orb.style.transform = sTransform; });
+                for (let i = 0; i < primaryOrbs.length; i++) primaryOrbs[i].style.transform = pTransform;
+                for (let i = 0; i < secondaryOrbs.length; i++) secondaryOrbs[i].style.transform = sTransform;
             }
 
-            // 4. Hero scroll-out cinematic depth
+            // 4. Apple-style Hero scroll-out depth choreography
             if (heroSection) {
                 const heroP = Math.min(1.15, Math.max(0, smoothY / heroH));
 
                 if (heroBgImg && heroP <= 1.15) {
-                    const bgShift = (smoothY * 0.2).toFixed(1);
-                    const bgScale = (1.05 + heroP * 0.08).toFixed(4);
+                    const bgShift = (smoothY * 0.18).toFixed(2);
+                    const bgScale = (1.04 + heroP * 0.09).toFixed(4);
                     heroBgImg.style.transform = `translate3d(0, ${bgShift}px, 0) scale(${bgScale})`;
                 }
 
                 if (heroContent && heroP <= 1.15) {
-                    const fadeP = Math.min(1, heroP * 1.25);
-                    const liftY = (-fadeP * 34).toFixed(1);
-                    const contentScale = (1 - fadeP * 0.045).toFixed(4);
-                    const contentOpacity = Math.max(0, 1 - fadeP * 1.15).toFixed(3);
+                    const t = Math.min(1, heroP * 1.2);
+                    // Smooth ease-out curve for graceful exit
+                    const eased = 1 - Math.pow(1 - t, 2.2);
+                    const liftY = (-eased * 36).toFixed(2);
+                    const contentScale = (1 - eased * 0.045).toFixed(4);
+                    const contentOpacity = Math.max(0, 1 - t * 1.18).toFixed(3);
                     heroContent.style.transform = `translate3d(0, ${liftY}px, 0) scale(${contentScale})`;
                     heroContent.style.opacity = contentOpacity;
                 }
 
                 if (heroScrollCue) {
-                    heroScrollCue.style.opacity = Math.max(0, 1 - smoothY / 140).toFixed(3);
+                    heroScrollCue.style.opacity = Math.max(0, 1 - smoothY / 130).toFixed(3);
                 }
             }
 
-            // 5. Tri-device opposing scroll parallax (tablet/desktop >= 640px)
+            // 5. Zero-reflow Apple tri-device opposing scroll parallax (tablet/desktop >= 640px)
             if (iosGallery && parallaxItems.length) {
-                if (window.innerWidth >= 640) {
-                    const gRect = iosGallery.getBoundingClientRect();
-                    if (gRect.bottom > -120 && gRect.top < vh + 120) {
-                        const centerOffset = ((gRect.top + gRect.height * 0.5) - vh * 0.5) / (vh * 0.85);
+                if (vw >= 640) {
+                    const viewTop = galleryTop - smoothY;
+                    const viewBottom = viewTop + galleryH;
+                    if (viewBottom > -140 && viewTop < vh + 140) {
+                        const centerOffset = ((viewTop + galleryH * 0.5) - vh * 0.5) / (vh * 0.85);
                         const clamped = Math.max(-1, Math.min(1, centerOffset));
-                        parallaxItems.forEach(item => {
-                            const speed = Number(item.dataset.parallaxSpeed) || 0;
-                            const frame = item.querySelector('.device-frame');
-                            if (frame) {
-                                frame.style.translate = `0 ${(clamped * speed).toFixed(1)}px`;
-                            }
-                        });
+                        for (let i = 0; i < parallaxItems.length; i++) {
+                            const { frame, speed } = parallaxItems[i];
+                            frame.style.translate = `0 ${(clamped * speed).toFixed(1)}px`;
+                        }
                     }
                 } else {
-                    parallaxItems.forEach(item => {
-                        const frame = item.querySelector('.device-frame');
-                        if (frame && frame.style.translate) {
-                            frame.style.translate = '';
-                        }
-                    });
+                    for (let i = 0; i < parallaxItems.length; i++) {
+                        const { frame } = parallaxItems[i];
+                        if (frame.style.translate) frame.style.translate = '';
+                    }
                 }
             }
         }
 
-        if (Math.abs(targetY - smoothY) >= 0.15) {
+        if (Math.abs(targetY - smoothY) >= 0.08) {
             motionRaf = requestAnimationFrame(renderFrame);
         } else {
             motionRaf = 0;
+            lastTime = 0;
         }
     };
 
@@ -154,11 +202,16 @@ export function initScrollMotion(prefersReducedMotion, onScrollNavbar) {
         targetY = window.scrollY;
         onScrollNavbar?.(targetY);
         if (!motionRaf) {
+            lastTime = 0;
             motionRaf = requestAnimationFrame(renderFrame);
         }
     };
 
     window.addEventListener('scroll', kickLoop, { passive: true });
-    window.addEventListener('resize', kickLoop, { passive: true });
+    window.addEventListener('resize', () => {
+        measureLayout();
+        kickLoop();
+    }, { passive: true });
+
     kickLoop();
 }

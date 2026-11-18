@@ -1,5 +1,5 @@
 /**
- * Dark / Light theme switcher with localStorage persistence & theme-color sync.
+ * Dark / Light theme switcher with smooth macOS-style crossfade & localStorage persistence.
  */
 const STORAGE_KEY = 'gtalfr-theme';
 
@@ -7,9 +7,19 @@ export function initTheme() {
     const root = document.documentElement;
     const toggleBtn = document.getElementById('theme-toggle');
     const metaThemeColor = document.querySelector('meta[name="theme-color"]');
+    let transitionTimer = 0;
 
-    const applyTheme = theme => {
+    const applyTheme = (theme, animate = false) => {
         const isLight = theme === 'light';
+
+        if (animate && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            clearTimeout(transitionTimer);
+            root.classList.add('theme-transition');
+            transitionTimer = setTimeout(() => {
+                root.classList.remove('theme-transition');
+            }, 380);
+        }
+
         root.dataset.theme = isLight ? 'light' : 'dark';
         root.style.colorScheme = isLight ? 'light' : 'dark';
 
@@ -30,18 +40,17 @@ export function initTheme() {
         }
     };
 
-    // Sync initial state (already set pre-paint in <head>)
     const initial = root.dataset.theme === 'light' ? 'light' : 'dark';
-    applyTheme(initial);
+    applyTheme(initial, false);
 
     if (toggleBtn) {
         toggleBtn.addEventListener('click', () => {
             const next = root.dataset.theme === 'light' ? 'dark' : 'light';
-            applyTheme(next);
+            applyTheme(next, true);
             try {
                 localStorage.setItem(STORAGE_KEY, next);
             } catch {
-                // Ignore storage restrictions in private browsing
+                // Ignore storage restrictions
             }
         });
     }

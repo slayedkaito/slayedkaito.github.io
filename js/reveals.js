@@ -1,12 +1,12 @@
 /**
- * Architectural scroll reveals, cascading bento stagger, and hairline dividers.
+ * Fluid Apple ease-out-quint scroll reveals, cascading stagger, and hairline dividers.
  */
 export function initReveals(prefersReducedMotion) {
-    // Auto-assign cascading stagger delays inside grouped grids
+    // Tight, fluid cascading stagger inside grouped grids
     document.querySelectorAll('[data-stagger-group]').forEach(group => {
         const items = group.querySelectorAll(':scope > .reveal');
         items.forEach((item, index) => {
-            item.style.setProperty('--reveal-delay', `${index * 85}ms`);
+            item.style.setProperty('--reveal-delay', `${index * 65}ms`);
         });
     });
 
@@ -29,7 +29,7 @@ export function initReveals(prefersReducedMotion) {
             requestAnimationFrame(() => el.classList.add('active'));
             obs.unobserve(el);
         });
-    }, { rootMargin: '0px 0px -60px 0px', threshold: 0.08 });
+    }, { rootMargin: '0px 0px -50px 0px', threshold: 0.06 });
 
     revealTargets.forEach(el => revealObserver.observe(el));
 
@@ -39,7 +39,7 @@ export function initReveals(prefersReducedMotion) {
             requestAnimationFrame(() => entry.target.classList.add('divider-active'));
             obs.unobserve(entry.target);
         });
-    }, { rootMargin: '0px 0px -40px 0px', threshold: 0.01 });
+    }, { rootMargin: '0px 0px -30px 0px', threshold: 0.01 });
 
     dividerTargets.forEach(el => dividerObserver.observe(el));
 }

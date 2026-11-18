@@ -156,26 +156,55 @@
   will-change: transform;
 }
 
-/* Executive staggered hero entrance */
+/* Executive staggered hero entrance (Apple ease-out-quint) */
 .hero-stagger {
-  animation: heroGlide 0.85s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: heroGlide 0.95s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
-.hero-stagger-1 { animation-delay: 0.04s; }
-.hero-stagger-2 { animation-delay: 0.14s; }
-.hero-stagger-3 { animation-delay: 0.24s; }
-.hero-stagger-4 { animation-delay: 0.34s; }
-.hero-stagger-5 { animation-delay: 0.50s; }
+.hero-stagger-1 { animation-delay: 0.03s; }
+.hero-stagger-2 { animation-delay: 0.12s; }
+.hero-stagger-3 { animation-delay: 0.21s; }
+.hero-stagger-4 { animation-delay: 0.30s; }
+.hero-stagger-5 { animation-delay: 0.45s; }
 
 @keyframes heroGlide {
   from {
     opacity: 0.01;
-    transform: translate3d(0, 22px, 0);
+    transform: translate3d(0, 20px, 0) scale(0.992);
   }
   to {
     opacity: 1;
-    transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0) scale(1);
   }
+}
+
+/* Tactile Apple press feedback on interactive pills & buttons */
+a.rounded-full,
+button.rounded-full {
+  transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+a.rounded-full:active,
+button.rounded-full:active {
+  transform: scale(0.965);
+}
+
+/* Temporary macOS-style crossfade ONLY while clicking theme toggle (0 scroll cost) */
+html.theme-transition body,
+html.theme-transition .ambient-bg,
+html.theme-transition .glass-card,
+html.theme-transition .device-frame,
+html.theme-transition .nav-bar-inner,
+html.theme-transition #navbar,
+html.theme-transition footer {
+  transition: background-color 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    color 0.3s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease !important;
 }
 
 /* Minimal luxury scroll cue at hero bottom */
@@ -203,29 +232,29 @@
   100% { transform: translateY(200%); }
 }
 
-/* Lightweight GPU-composited scroll reveal */
+/* Fluid Apple GPU-composited scroll reveal */
 .reveal {
   opacity: 0;
-  transform: perspective(1100px) translate3d(0, 32px, 0) rotateX(2.8deg) scale(0.98);
-  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translate3d(0, 28px, 0) scale(0.985);
+  transition: opacity 0.95s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 1.05s cubic-bezier(0.22, 1, 0.36, 1);
   transition-delay: var(--reveal-delay, 0ms);
   will-change: opacity, transform;
 }
 
 .reveal.active {
   opacity: 1;
-  transform: perspective(1100px) translate3d(0, 0, 0) rotateX(0deg) scale(1);
+  transform: translate3d(0, 0, 0) scale(1);
 }
 
 /* Editorial masked heading reveal */
 .heading-reveal {
   opacity: 0;
-  transform: translate3d(0, 24px, 0);
+  transform: translate3d(0, 22px, 0);
   clip-path: inset(0 0 100% 0);
-  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 0.95s cubic-bezier(0.16, 1, 0.3, 1),
-    clip-path 0.95s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 1.05s cubic-bezier(0.22, 1, 0.36, 1),
+    clip-path 1.05s cubic-bezier(0.22, 1, 0.36, 1);
   transition-delay: var(--reveal-delay, 0ms);
   will-change: opacity, transform, clip-path;
 }
