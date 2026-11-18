@@ -1325,7 +1325,8 @@ html[data-theme='light'] footer .text-white\/90 {
   color: #0f172a;
 }
 
-html[data-theme='light'] main > section:not(.hero-surface) .text-white\/90 {
+html[data-theme='light'] main > section:not(.hero-surface) .text-white\/90,
+html[data-theme='light'] main > section:not(.hero-surface) .text-white\/80 {
   color: #1e293b;
 }
 
@@ -1341,7 +1342,8 @@ html[data-theme='light'] footer .text-white\/55 {
   color: #475569;
 }
 
-html[data-theme='light'] main > section:not(.hero-surface) .group:hover .group-hover\:text-white\/85 {
+html[data-theme='light'] main > section:not(.hero-surface) .group:hover .group-hover\:text-white\/85,
+html[data-theme='light'] main > section:not(.hero-surface) .group:hover .group-hover\:text-white {
   color: #0f172a;
 }
 

@@ -41,18 +41,18 @@
     <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
     <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
     <link rel="preload" as="image" type="image/webp" href="assets/hero-bg.webp" fetchpriority="high">
-    <link rel="modulepreload" href="js/main.js?v=20261118-16">
-    <link rel="modulepreload" href="js/theme.js?v=20261118-16">
-    <link rel="modulepreload" href="js/motion.js?v=20261118-16">
-    <link rel="modulepreload" href="js/navigation.js?v=20261118-16">
-    <link rel="modulepreload" href="js/dock.js?v=20261118-16">
-    <link rel="modulepreload" href="js/reveals.js?v=20261118-16">
+    <link rel="modulepreload" href="js/main.js?v=20261118-17">
+    <link rel="modulepreload" href="js/theme.js?v=20261118-17">
+    <link rel="modulepreload" href="js/motion.js?v=20261118-17">
+    <link rel="modulepreload" href="js/navigation.js?v=20261118-17">
+    <link rel="modulepreload" href="js/dock.js?v=20261118-17">
+    <link rel="modulepreload" href="js/reveals.js?v=20261118-17">
 
     <!-- Fonts -->
     <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
 
     <!-- Compiled & Minified Production Stylesheet (cache-busted) -->
-    <link rel="stylesheet" href="assets/styles.css?v=20261118-16">
+    <link rel="stylesheet" href="assets/styles.css?v=20261118-17">
 
     <noscript>
         <style>
@@ -564,15 +564,34 @@
                                     dan suhu.
                                 </p>
                             </div>
-                            <div class="flex flex-wrap gap-2 relative z-10">
-                                <span
-                                    class="tech-tag text-[11px] font-mono px-2.5 py-1 rounded bg-white/5 text-white/75 border border-white/10">Darwin 22.5 / XNU</span>
-                                <span
-                                    class="tech-tag text-[11px] font-mono px-2.5 py-1 rounded bg-white/5 text-white/75 border border-white/10">Mu-Silicium UEFI</span>
-                                <span
-                                    class="tech-tag text-[11px] font-mono px-2.5 py-1 rounded bg-white/5 text-white/75 border border-white/10">IOKit &amp; AMFI/SEP Patch</span>
-                                <span
-                                    class="tech-tag text-[11px] font-mono px-2.5 py-1 rounded bg-white/5 text-white/75 border border-white/10">Mesa / Freedreno</span>
+                            <div class="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-white/10 relative z-10">
+                                <div class="flex flex-wrap gap-2">
+                                    <span
+                                        class="tech-tag text-[11px] font-mono px-2.5 py-1 rounded bg-white/5 text-white/75 border border-white/10">Darwin 22.5 / XNU</span>
+                                    <span
+                                        class="tech-tag text-[11px] font-mono px-2.5 py-1 rounded bg-white/5 text-white/75 border border-white/10">Mu-Silicium UEFI</span>
+                                    <span
+                                        class="tech-tag text-[11px] font-mono px-2.5 py-1 rounded bg-white/5 text-white/75 border border-white/10">IOKit &amp; AMFI/SEP Patch</span>
+                                    <span
+                                        class="tech-tag text-[11px] font-mono px-2.5 py-1 rounded bg-white/5 text-white/75 border border-white/10">Mesa / Freedreno</span>
+                                </div>
+
+                                <div class="flex flex-wrap items-center gap-2.5">
+                                    <a href="https://github.com/slayedkaito/xnu-kernel-peridot-amiaxf" target="_blank" rel="noopener noreferrer"
+                                        class="btn-primary inline-flex items-center gap-1.5 bg-white text-black px-4 py-2 rounded-full text-[13px] font-medium hover:bg-gray-200 transition-colors">
+                                        <svg class="w-4 h-4 shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+                                        </svg>
+                                        <span>Repo Kernel</span>
+                                        <span class="btn-arrow btn-arrow-right" aria-hidden="true">&rarr;</span>
+                                    </a>
+
+                                    <a href="https://hakios-developers.com/#/port/peridot" target="_blank" rel="noopener noreferrer"
+                                        class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-[13px] font-medium text-white/90 border border-white/20 bg-white/5 hover:bg-white/10 hover:text-white transition-colors">
+                                        <span>Portal HakiOS</span>
+                                        <span class="btn-arrow btn-arrow-up-right" aria-hidden="true">&#8599;</span>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </article>
@@ -702,6 +721,18 @@
 
                 </div>
 
+                <!-- Explore All GitHub Repositories Button -->
+                <div class="w-full flex justify-center -mt-14 mb-20 reveal">
+                    <a href="https://github.com/slayedkaito?tab=repositories" target="_blank" rel="noopener noreferrer"
+                        class="group inline-flex items-center gap-3 px-6 py-3 rounded-full border border-white/20 bg-white/5 hover:bg-white/10 text-white text-[14px] font-medium backdrop-blur-md transition-colors">
+                        <svg class="w-4 h-4 shrink-0 text-white/80" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+                        </svg>
+                        <span>Lihat Semua Repositori di GitHub</span>
+                        <span class="btn-arrow btn-arrow-right text-white/60 group-hover:text-white" aria-hidden="true">&rarr;</span>
+                    </a>
+                </div>
+
                 <!-- Pencapaian Boot Native iOS 16.5 Gallery -->
                 <div class="w-full">
                     <div class="text-center max-w-2xl mx-auto mb-14">
@@ -774,6 +805,24 @@
                         </figure>
 
                     </div>
+
+                    <!-- Action Buttons for HakiOS Peridot Port -->
+                    <div class="mt-12 flex flex-wrap items-center justify-center gap-3.5 reveal">
+                        <a href="https://hakios-developers.com/#/port/peridot" target="_blank" rel="noopener noreferrer"
+                            class="btn-primary inline-flex items-center gap-2 bg-white text-black px-6 py-2.5 rounded-full text-[14px] font-medium hover:bg-gray-200 transition-colors">
+                            <span>Portal Porting HakiOS (Peridot)</span>
+                            <span class="btn-arrow btn-arrow-up-right" aria-hidden="true">&#8599;</span>
+                        </a>
+
+                        <a href="https://github.com/slayedkaito/xnu-kernel-peridot-amiaxf" target="_blank" rel="noopener noreferrer"
+                            class="inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-[14px] font-medium text-white/90 border border-white/20 bg-white/5 hover:bg-white/10 hover:text-white transition-colors">
+                            <svg class="w-4 h-4 shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+                            </svg>
+                            <span>Source Code Kernel XNU</span>
+                            <span class="btn-arrow btn-arrow-right" aria-hidden="true">&rarr;</span>
+                        </a>
+                    </div>
                 </div>
 
             </div>
@@ -815,9 +864,9 @@
                                     <span class="btn-arrow btn-arrow-up-right" aria-hidden="true">&#8599;</span>
                                 </a>
 
-                                <a href="https://github.com/slayedkaito" target="_blank" rel="noopener noreferrer"
+                                <a href="https://github.com/slayedkaito?tab=repositories" target="_blank" rel="noopener noreferrer"
                                     class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-[14px] font-medium text-white/90 border border-white/20 bg-white/5 hover:bg-white/10 hover:text-white transition-colors">
-                                    GitHub
+                                    Repositori GitHub
                                     <span class="btn-arrow btn-arrow-right" aria-hidden="true">&rarr;</span>
                                 </a>
                             </div>
@@ -929,7 +978,7 @@
         </button>
     </div>
 
-    <script type="module" src="js/main.js?v=20261118-16"></script>
+    <script type="module" src="js/main.js?v=20261118-17"></script>
 </body>
 
 </html>
