@@ -667,14 +667,16 @@ html[data-theme='light'] #navbar.nav-scrolled .nav-link::after {
   background: #0f172a;
 }
 
-html[data-theme='light'] #navbar.nav-scrolled .theme-toggle-btn,
+html[data-theme='light'] #navbar.nav-scrolled .nav-sep {
+  background-color: rgba(15, 23, 42, 0.18);
+}
+
 html[data-theme='light'] #navbar.nav-scrolled .mobile-menu-trigger,
 html[data-theme='light'] #navbar.nav-scrolled .nav-cta {
   border-color: rgba(15, 23, 42, 0.16);
   background-color: rgba(15, 23, 42, 0.045);
 }
 
-html[data-theme='light'] #navbar.nav-scrolled .theme-toggle-btn:hover,
 html[data-theme='light'] #navbar.nav-scrolled .mobile-menu-trigger:hover {
   background-color: rgba(15, 23, 42, 0.1);
 }
