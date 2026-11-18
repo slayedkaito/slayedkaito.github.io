@@ -1,11 +1,11 @@
-import { initTheme } from './theme.js?v=20261118-15';
-import { initReveals } from './reveals.js?v=20261118-15';
-import { initNavigation } from './navigation.js?v=20261118-15';
-import { initMobileDock } from './dock.js?v=20261118-15';
-import { initGlassSpotlight } from './glass.js?v=20261118-15';
-import { initScrollMotion } from './motion.js?v=20261118-15';
-import { initLightbox } from './lightbox.js?v=20261118-15';
-import { initTikTokEmbed } from './tiktok.js?v=20261118-15';
+import { initTheme } from './theme.js?v=20261118-16';
+import { initReveals } from './reveals.js?v=20261118-16';
+import { initNavigation } from './navigation.js?v=20261118-16';
+import { initMobileDock, initDesktopNavLens } from './dock.js?v=20261118-16';
+import { initGlassSpotlight } from './glass.js?v=20261118-16';
+import { initScrollMotion } from './motion.js?v=20261118-16';
+import { initLightbox } from './lightbox.js?v=20261118-16';
+import { initTikTokEmbed } from './tiktok.js?v=20261118-16';
 
 document.addEventListener('DOMContentLoaded', () => {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -14,7 +14,11 @@ document.addEventListener('DOMContentLoaded', () => {
     initTheme();
     initReveals(prefersReducedMotion);
     const { moveLensToId } = initMobileDock(prefersReducedMotion);
-    const { updateNavbar } = initNavigation(moveLensToId);
+    const { moveNavLensToId } = initDesktopNavLens(prefersReducedMotion);
+    const { updateNavbar } = initNavigation(activeId => {
+        moveLensToId(activeId);
+        moveNavLensToId(activeId);
+    });
     initGlassSpotlight(prefersReducedMotion, isFinePointer);
     initScrollMotion(prefersReducedMotion, updateNavbar);
     initLightbox();

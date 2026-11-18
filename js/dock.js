@@ -1,8 +1,7 @@
 /**
- * iOS 26 Liquid Glass interactive mobile dock controller:
- * - Sliding elastic glass lens pill (#dock-lens) between active tabs.
- * - Thumb press & horizontal drag-to-scrub across dock items.
- * - Tactile icon spring bounce + subtle haptic pulse (when supported).
+ * iOS 26 / macOS Tahoe interactive Liquid Glass navigation lenses:
+ * 1) initMobileDock: sliding elastic lens, thumb drag-to-scrub, spring bounce & haptics.
+ * 2) initDesktopNavLens: sliding elastic lens on desktop menu bar with hover follow & press spring.
  */
 export function initMobileDock(prefersReducedMotion) {
     const dock = document.getElementById('mobile-dock');
@@ -61,13 +60,11 @@ export function initMobileDock(prefersReducedMotion) {
     const triggerBounce = el => {
         if (prefersReducedMotion || !el) return;
         el.classList.remove('is-bouncing');
-        // Restart animation cleanly
         void el.offsetWidth;
         el.classList.add('is-bouncing');
         el.addEventListener('animationend', () => el.classList.remove('is-bouncing'), { once: true });
     };
 
-    // Tactile press feedback on all dock buttons (including theme toggle)
     allButtons.forEach(btn => {
         btn.addEventListener('pointerdown', () => {
             btn.classList.add('is-pressed');
@@ -89,7 +86,6 @@ export function initMobileDock(prefersReducedMotion) {
         btn.addEventListener('pointerleave', release, { passive: true });
     });
 
-    // Click handler for immediate elastic pill glide on tap
     tabLinks.forEach(link => {
         link.addEventListener('click', () => {
             activeLink = link;
@@ -98,7 +94,6 @@ export function initMobileDock(prefersReducedMotion) {
         });
     });
 
-    // iOS 26 Thumb Drag-to-Scrub across dock tabs
     const cacheTabMetrics = () => {
         dockRect = dock.getBoundingClientRect();
         tabRects = tabLinks.map(el => ({
@@ -134,7 +129,6 @@ export function initMobileDock(prefersReducedMotion) {
         const minLeft = first.left;
         const maxLeft = last.left + last.width - first.width;
 
-        // Track thumb smoothly inside dock rail
         const relX = e.clientX - dockRect.left;
         let closest = tabRects[0];
         let minDist = Infinity;
@@ -173,7 +167,6 @@ export function initMobileDock(prefersReducedMotion) {
             tabLinks.forEach(l => l.classList.toggle('is-active', l === target));
             positionLens(target, { elastic: true });
             triggerBounce(target);
-            // Navigate to the scrubbed section
             target.click();
         } else if (activeLink) {
             positionLens(activeLink, { elastic: false });
@@ -185,7 +178,6 @@ export function initMobileDock(prefersReducedMotion) {
     window.addEventListener('pointerup', finishDrag, { passive: true });
     window.addEventListener('pointercancel', finishDrag, { passive: true });
 
-    // Re-align lens on resize or when dock becomes visible
     window.addEventListener('resize', () => {
         if (activeLink) positionLens(activeLink, { immediate: true });
     }, { passive: true });
@@ -199,6 +191,103 @@ export function initMobileDock(prefersReducedMotion) {
             if (!match) return;
             activeLink = match;
             positionLens(match, { elastic: true });
+        }
+    };
+}
+
+export function initDesktopNavLens(prefersReducedMotion) {
+    const container = document.getElementById('desktop-nav-links');
+    const lens = document.getElementById('nav-lens');
+    const navLinks = Array.from(document.querySelectorAll('[data-nav-link]'));
+
+    if (!container || !lens || !navLinks.length) {
+        return { moveNavLensToId() {} };
+    }
+
+    let activeLink = navLinks[0];
+    let isHoveringNav = false;
+    let stretchTimer = 0;
+
+    const positionLens = (targetEl, { elastic = false, immediate = false } = {}) => {
+        if (!targetEl) return;
+        const left = targetEl.offsetLeft;
+        const width = targetEl.offsetWidth;
+        if (!width) return;
+
+        if (immediate || prefersReducedMotion) {
+            lens.classList.add('no-transition');
+        } else {
+            lens.classList.remove('no-transition');
+        }
+
+        lens.style.width = `${width}px`;
+        lens.style.transform = `translate3d(${left}px, 0, 0)`;
+        lens.classList.add('is-ready');
+
+        if (elastic && !prefersReducedMotion) {
+            clearTimeout(stretchTimer);
+            lens.classList.add('is-stretching');
+            stretchTimer = setTimeout(() => {
+                lens.classList.remove('is-stretching');
+            }, 220);
+        }
+
+        if (immediate) {
+            requestAnimationFrame(() => lens.classList.remove('no-transition'));
+        }
+    };
+
+    navLinks.forEach(link => {
+        link.addEventListener('mouseenter', () => {
+            isHoveringNav = true;
+            lens.classList.add('is-hovering');
+            positionLens(link, { elastic: true });
+        });
+
+        link.addEventListener('focus', () => {
+            positionLens(link, { elastic: true });
+        });
+
+        link.addEventListener('pointerdown', () => {
+            link.classList.add('is-pressed');
+            lens.classList.add('is-pressed');
+        }, { passive: true });
+
+        const release = () => {
+            link.classList.remove('is-pressed');
+            lens.classList.remove('is-pressed');
+        };
+
+        link.addEventListener('pointerup', release, { passive: true });
+        link.addEventListener('pointerleave', release, { passive: true });
+        link.addEventListener('pointercancel', release, { passive: true });
+
+        link.addEventListener('click', () => {
+            activeLink = link;
+            positionLens(link, { elastic: true });
+        });
+    });
+
+    container.addEventListener('mouseleave', () => {
+        isHoveringNav = false;
+        lens.classList.remove('is-hovering');
+        if (activeLink) positionLens(activeLink, { elastic: true });
+    });
+
+    window.addEventListener('resize', () => {
+        if (activeLink) positionLens(activeLink, { immediate: true });
+    }, { passive: true });
+
+    requestAnimationFrame(() => positionLens(activeLink, { immediate: true }));
+
+    return {
+        moveNavLensToId(sectionId) {
+            const match = navLinks.find(l => l.dataset.navLink === sectionId);
+            if (!match) return;
+            activeLink = match;
+            if (!isHoveringNav) {
+                positionLens(match, { elastic: true });
+            }
         }
     };
 }
