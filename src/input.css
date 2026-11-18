@@ -1378,6 +1378,14 @@ html[data-theme='light'] main > section:not(.hero-surface) .bg-white\/10 {
   background-color: rgba(15, 23, 42, 0.08);
 }
 
+html[data-theme='light'] .text-emerald-400 {
+  color: #059669;
+}
+
+html[data-theme='light'] .bg-emerald-400 {
+  background-color: #059669;
+}
+
 html[data-theme='light'] main > section:not(.hero-surface) a.bg-white {
   background-color: #0f172a;
   color: #ffffff;
