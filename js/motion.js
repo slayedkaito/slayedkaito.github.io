@@ -91,8 +91,8 @@ export function initScrollMotion(prefersReducedMotion, onScrollNavbar) {
     let motionRaf = 0;
     let lastTime = 0;
 
-    // Damping stiffness (higher = tighter, lower = silkier Apple inertia)
-    const LAMBDA = 7.8;
+    // Calm, luxurious Apple inertia damping (identical across 60Hz/120Hz/144Hz)
+    const LAMBDA = 5.4;
 
     const renderFrame = now => {
         const dt = lastTime ? Math.min(0.05, (now - lastTime) / 1000) : 0.016;

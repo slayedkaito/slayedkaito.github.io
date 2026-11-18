@@ -2,11 +2,11 @@
  * Fluid Apple ease-out-quint scroll reveals, cascading stagger, and hairline dividers.
  */
 export function initReveals(prefersReducedMotion) {
-    // Tight, fluid cascading stagger inside grouped grids
+    // Calm, unhurried cascading stagger inside grouped grids
     document.querySelectorAll('[data-stagger-group]').forEach(group => {
         const items = group.querySelectorAll(':scope > .reveal');
         items.forEach((item, index) => {
-            item.style.setProperty('--reveal-delay', `${index * 65}ms`);
+            item.style.setProperty('--reveal-delay', `${index * 115}ms`);
         });
     });
 

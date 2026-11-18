@@ -46,7 +46,7 @@ export function initTheme() {
             root.classList.add('theme-transition');
             transitionTimer = setTimeout(() => {
                 root.classList.remove('theme-transition');
-            }, 560);
+            }, 760);
         }
         applyDomTheme(nextTheme);
     };

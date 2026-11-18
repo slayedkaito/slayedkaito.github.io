@@ -52,7 +52,7 @@ export function initNavigation() {
             const distance = targetY - startY;
             if (Math.abs(distance) < 2) return;
 
-            const duration = Math.min(920, Math.max(460, Math.abs(distance) * 0.45));
+            const duration = Math.min(1250, Math.max(680, Math.abs(distance) * 0.6));
             const startTime = performance.now();
 
             const easeInOutQuint = t =>
@@ -96,20 +96,32 @@ export function initNavigation() {
 
     if (menuBtn && mobileMenu) {
         let isOpen = false;
+        let closeTimer = 0;
 
         const setMenuState = open => {
+            clearTimeout(closeTimer);
             isOpen = open;
             menuBtn.classList.toggle('is-open', open);
             mobileMenu.classList.toggle('is-open', open);
             menuBtn.setAttribute('aria-expanded', String(open));
             menuBtn.setAttribute('aria-label', open ? 'Tutup menu navigasi' : 'Buka menu navigasi');
             mobileMenu.setAttribute('aria-hidden', String(!open));
+
             if ('inert' in mobileMenu) {
-                mobileMenu.inert = !open;
+                if (open) {
+                    mobileMenu.inert = false;
+                } else {
+                    // Wait for graceful reverse-cascade & fold-up animation before setting inert
+                    closeTimer = setTimeout(() => {
+                        if (!isOpen) mobileMenu.inert = true;
+                    }, 680);
+                }
             }
         };
 
-        setMenuState(false);
+        menuBtn.setAttribute('aria-expanded', 'false');
+        mobileMenu.setAttribute('aria-hidden', 'true');
+        if ('inert' in mobileMenu) mobileMenu.inert = true;
 
         menuBtn.addEventListener('click', e => {
             e.stopPropagation();
