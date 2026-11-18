@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="Portofolio Gathan Alfarabi Agusti — Mahasiswa D4 Teknik Mesin (TMPP) Politeknik Negeri Sriwijaya, Rekayasa Sistem, Kernel Porting, dan Pengembangan Perangkat Lunak.">
+        content="Portofolio Gathan Alfarabi Agusti — Mahasiswa D4 Teknik Mesin (TMPP) Politeknik Negeri Sriwijaya, Rekayasa Sistem, Porting Kernel Darwin/XNU (iOS 16.5 pada POCO F6), dan Pengembangan Perangkat Lunak.">
     <meta name="author" content="Gathan Alfarabi Agusti">
     <meta name="theme-color" content="#000000">
     <meta name="color-scheme" content="dark">
@@ -21,17 +21,17 @@
     <meta property="og:site_name" content="Gathan Alfarabi Agusti">
     <meta property="og:title" content="Gathan Alfarabi Agusti | Mechanical Engineering &amp; Systems Developer">
     <meta property="og:description"
-        content="Portofolio profesional Gathan Alfarabi Agusti — Teknik Mesin, pemeliharaan alat berat, porting kernel Darwin/XNU, infrastruktur perangkat keras, dan pengembangan AI.">
+        content="Portofolio profesional Gathan Alfarabi Agusti — Teknik Mesin, pemeliharaan alat berat, porting kernel Darwin 22.5 (iOS 16.5 native di POCO F6), infrastruktur perangkat keras, dan pengembangan AI.">
     <meta property="og:url" content="https://slayedkaito.github.io/">
     <meta property="og:image" content="https://slayedkaito.github.io/assets/hero-bg.jpg">
-    <meta property="og:image:width" content="736">
-    <meta property="og:image:height" content="736">
+    <meta property="og:image:width" content="1600">
+    <meta property="og:image:height" content="2133">
 
     <!-- Twitter / X Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Gathan Alfarabi Agusti | Mechanical Engineering &amp; Systems Developer">
     <meta name="twitter:description"
-        content="Mahasiswa D4 Teknik Mesin (TMPP) Polsri, Rekayasa Sistem, Kernel Porting, dan Pengembangan Perangkat Lunak.">
+        content="Mahasiswa D4 Teknik Mesin (TMPP) Polsri, Rekayasa Sistem, Porting Kernel Darwin/XNU, dan Pengembangan Perangkat Lunak.">
     <meta name="twitter:image" content="https://slayedkaito.github.io/assets/hero-bg.jpg">
 
     <!-- Resource Hints & Preloads -->
@@ -92,7 +92,8 @@
         ],
         "sameAs": [
             "https://github.com/slayedkaito",
-            "https://instagram.com/gtalfr"
+            "https://instagram.com/gtalfr",
+            "https://www.tiktok.com/@amiaxf"
         ]
     }
     </script>
@@ -100,6 +101,7 @@
 
 <body class="antialiased bg-black text-white selection:bg-white/20 selection:text-white">
 
+    <div id="scroll-progress" class="scroll-progress" aria-hidden="true"></div>
     <a href="#main-content" class="skip-link">Lewati ke konten utama</a>
 
     <header>
@@ -124,6 +126,10 @@
                         <a href="#proyek" data-nav-link="proyek"
                             class="nav-link text-[14px] font-medium text-white/75 hover:text-white transition-colors">
                             Proyek
+                        </a>
+                        <a href="#publikasi" data-nav-link="publikasi"
+                            class="nav-link text-[14px] font-medium text-white/75 hover:text-white transition-colors">
+                            Publikasi
                         </a>
                     </div>
                 </div>
@@ -165,6 +171,10 @@
                         class="mobile-nav-link px-3 py-2.5 rounded-lg text-[15px] font-medium text-white/85 hover:text-white hover:bg-white/5 transition-colors">
                         Proyek
                     </a>
+                    <a href="#publikasi"
+                        class="mobile-nav-link px-3 py-2.5 rounded-lg text-[15px] font-medium text-white/85 hover:text-white hover:bg-white/5 transition-colors">
+                        Publikasi
+                    </a>
                     <div class="pt-3 mt-2 border-t border-white/10">
                         <a href="https://instagram.com/gtalfr" target="_blank" rel="noopener noreferrer"
                             class="w-full bg-white text-black px-6 py-3 rounded-full text-[14px] font-medium flex items-center justify-center hover:bg-gray-100 transition-colors">
@@ -178,51 +188,58 @@
 
     <main id="main-content">
 
-        <!-- Hero Section -->
+        <!-- Hero Section (isolated stacking context with positive z-index layers) -->
         <section id="tentang"
-            class="relative min-h-screen w-full flex flex-col items-center justify-center overflow-hidden pt-28 pb-20 md:pt-36 md:pb-24">
+            class="relative isolate min-h-screen w-full flex flex-col items-center justify-center overflow-hidden pt-28 pb-20 md:pt-36 md:pb-24">
 
-            <picture aria-hidden="true" class="absolute inset-0 w-full h-full z-[-2] pointer-events-none">
-                <source srcset="assets/hero-bg.webp" type="image/webp">
-                <img src="assets/hero-bg.jpg" alt="" width="736" height="736"
-                    class="w-full h-full object-cover object-center" fetchpriority="high" decoding="async">
-            </picture>
-
-            <div aria-hidden="true" class="absolute inset-0 bg-black/70 z-[-1]"></div>
-            <div aria-hidden="true"
-                class="absolute bottom-0 inset-x-0 h-[280px] bg-gradient-to-t from-black via-black/80 to-transparent z-[-1]">
+            <div id="hero-bg-wrap" aria-hidden="true"
+                class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+                <picture class="block w-full h-full">
+                    <source srcset="assets/hero-bg.webp" type="image/webp">
+                    <img id="hero-bg-img" src="assets/hero-bg.jpg" alt="" width="1600" height="2133"
+                        class="w-full h-full object-cover object-[center_28%] scale-105" fetchpriority="high"
+                        decoding="async">
+                </picture>
             </div>
 
-            <div class="flex flex-col items-center px-6 text-center w-full max-w-[780px] z-10 hero-enter">
+            <div aria-hidden="true"
+                class="absolute inset-0 z-[1] bg-gradient-to-b from-black/65 via-black/55 to-black pointer-events-none">
+            </div>
+            <div aria-hidden="true"
+                class="absolute inset-0 z-[1] bg-[radial-gradient(ellipse_at_center,transparent_20%,rgba(0,0,0,0.72)_100%)] pointer-events-none">
+            </div>
+
+            <div class="relative z-10 flex flex-col items-center px-6 text-center w-full max-w-[780px]">
 
                 <div
-                    class="inline-flex items-center gap-2 bg-white/5 border border-white/15 rounded-full px-4 py-1.5 mb-8 backdrop-blur-md">
+                    class="hero-stagger hero-stagger-1 inline-flex items-center gap-2 bg-black/45 border border-white/20 rounded-full px-4 py-1.5 mb-8 backdrop-blur-md">
                     <p class="text-[13px] font-medium">
-                        <span class="text-white/70">Politeknik Negeri Sriwijaya &bull;</span>
+                        <span class="text-white/75">Politeknik Negeri Sriwijaya &bull;</span>
                         <span class="text-white">D4 Teknik Mesin (TMPP)</span>
                     </p>
                 </div>
 
                 <h1
-                    class="text-[34px] sm:text-[44px] md:text-[54px] font-medium leading-[1.2] max-w-[720px] text-gradient tracking-tight mb-6">
+                    class="hero-stagger hero-stagger-2 text-[34px] sm:text-[44px] md:text-[56px] font-medium leading-[1.18] max-w-[720px] text-gradient tracking-tight mb-6">
                     Rekayasa Mesin,<br>Kernel &amp; Pengembangan Sistem.
                 </h1>
 
-                <p class="text-[15px] md:text-[16px] font-normal text-white/75 max-w-[650px] leading-relaxed mb-10">
+                <p
+                    class="hero-stagger hero-stagger-3 text-[15px] md:text-[16px] font-normal text-white/85 max-w-[650px] leading-relaxed mb-10">
                     Saya Gathan Alfarabi Agusti, mahasiswa D4 Teknik Mesin yang berdomisili di Palembang dan berasal
                     dari Tanjung Enim. Berfokus pada pemeliharaan alat berat dan permesinan industri, porting kernel
                     tingkat rendah, infrastruktur perangkat keras &amp; multi-OS, serta pengembangan aplikasi berbasis
                     kecerdasan buatan.
                 </p>
 
-                <div class="flex flex-wrap items-center justify-center gap-3.5">
+                <div class="hero-stagger hero-stagger-4 flex flex-wrap items-center justify-center gap-3.5">
                     <a href="https://instagram.com/gtalfr" target="_blank" rel="noopener noreferrer"
                         class="bg-white text-black px-8 py-3 rounded-full text-[14px] font-medium inline-flex items-center justify-center hover:bg-gray-200 transition-colors">
                         Hubungi Saya
                     </a>
 
                     <a href="#proyek"
-                        class="px-7 py-3 rounded-full text-[14px] font-medium text-white/90 border border-white/20 bg-white/5 hover:bg-white/10 hover:text-white backdrop-blur-md transition-colors">
+                        class="px-7 py-3 rounded-full text-[14px] font-medium text-white border border-white/25 bg-black/40 hover:bg-white/15 backdrop-blur-md transition-colors">
                         Lihat Proyek &darr;
                     </a>
                 </div>
@@ -364,14 +381,15 @@
         </section>
 
         <!-- Proyek Section -->
-        <section id="proyek" class="relative py-24 md:py-32 px-6 overflow-hidden reveal scroll-mt-24 border-t border-white/10">
+        <section id="proyek"
+            class="relative py-24 md:py-32 px-6 overflow-hidden scroll-mt-24 border-t border-white/10">
 
             <div aria-hidden="true"
                 class="absolute inset-0 bg-grid-pattern mask-radial opacity-40 z-0 pointer-events-none"></div>
 
             <div class="max-w-[1000px] mx-auto relative z-10 flex flex-col items-center">
 
-                <div class="text-center max-w-2xl mx-auto mb-16">
+                <div class="text-center max-w-2xl mx-auto mb-16 reveal">
                     <div
                         class="inline-block px-4 py-1.5 rounded-full border border-white/15 bg-white/5 text-[11px] uppercase tracking-widest text-white/75 mb-6">
                         Proyek Pilihan
@@ -413,7 +431,8 @@
                                         class="text-white font-medium">XNU (AMFI &amp; SEP)</strong>, akselerasi GPU
                                     <strong class="text-white font-medium">Adreno 735</strong> menggunakan <strong
                                         class="text-white font-medium">Mesa/Freedreno</strong> hingga 60 FPS stabil,
-                                    serta optimasi manajemen daya dan suhu.
+                                    dukungan <em>haptic feedback</em> dan tombol fisik, serta optimasi manajemen daya
+                                    dan suhu.
                                 </p>
                             </div>
                             <div class="flex flex-wrap gap-2 relative z-10">
@@ -554,75 +573,146 @@
 
                 </div>
 
-                <!-- Interactive Web Stress Test Showcase -->
-                <div class="w-full max-w-[760px] flex flex-col items-center text-center reveal">
-                    <div class="flex flex-col sm:flex-row items-center gap-4 md:gap-8 mb-10">
-                        <a href="https://github.com/slayedkaito" target="_blank" rel="noopener noreferrer"
-                            class="group flex items-center gap-2 text-[15px] font-medium text-white hover:text-white/80 transition-colors">
-                            Lihat Repositori di GitHub
-                            <span class="transition-transform group-hover:translate-x-1" aria-hidden="true">&rarr;</span>
-                        </a>
-
-                        <div aria-hidden="true" class="hidden sm:block w-[1px] h-4 bg-white/20"></div>
-
-                        <a href="https://slayedkaito.github.io/XfTest" target="_blank" rel="noopener noreferrer"
-                            class="group flex items-center gap-2 text-[15px] font-medium text-white/90 hover:text-white transition-colors">
-                            Demo Web Stress Test (XfTest)
-                            <span class="transition-transform group-hover:translate-x-1" aria-hidden="true">&#8599;</span>
-                        </a>
+                <!-- Pencapaian Boot Native iOS 16.5 Gallery -->
+                <div class="w-full reveal">
+                    <div class="text-center max-w-2xl mx-auto mb-12">
+                        <div
+                            class="inline-block px-4 py-1.5 rounded-full border border-white/15 bg-white/5 text-[11px] font-mono uppercase tracking-widest text-white/75 mb-5">
+                            Dokumentasi Pencapaian &bull; HakiOS Peridot
+                        </div>
+                        <h3 class="text-2xl md:text-3xl font-medium text-white mb-3">
+                            Bukti Boot Native iOS 16.5 pada POCO F6
+                        </h3>
+                        <p class="text-[14px] md:text-[15px] text-white/65 leading-relaxed">
+                            Tangkapan layar langsung dari perangkat POCO F6 yang menjalankan kernel Darwin 22.5 (iOS
+                            16.5) secara native dari RAM. Klik gambar untuk memperbesar detail.
+                        </p>
                     </div>
 
-                    <div class="w-full max-w-[700px] relative text-left group">
-                        <div
-                            class="relative bg-[#09090b]/90 backdrop-blur-xl border border-white/15 rounded-xl overflow-hidden shadow-2xl transition-colors duration-300 group-hover:border-white/25">
-                            <div aria-hidden="true" class="absolute inset-0 noise-bg mix-blend-overlay"></div>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8 w-full max-w-[880px] mx-auto">
 
-                            <div
-                                class="flex items-center justify-between gap-3 px-4 py-3 border-b border-white/10 bg-white/[0.04] relative z-10">
-                                <div class="flex items-center gap-2 shrink-0" aria-hidden="true">
-                                    <span class="w-2.5 h-2.5 rounded-full bg-white/25"></span>
-                                    <span class="w-2.5 h-2.5 rounded-full bg-white/25"></span>
-                                    <span class="w-2.5 h-2.5 rounded-full bg-white/25"></span>
-                                </div>
-                                <div class="text-[12px] text-white/60 font-mono truncate">
-                                    stress_test.js (Web Worker API)
-                                </div>
-                                <button id="copy-code-btn" type="button"
-                                    class="shrink-0 text-[11px] font-mono px-2.5 py-1 rounded border border-white/15 bg-white/5 text-white/75 hover:text-white hover:bg-white/10 transition-colors">
-                                    Salin
-                                </button>
-                            </div>
+                        <figure class="flex flex-col items-center reveal delay-100">
+                            <button type="button" data-lightbox-index="0"
+                                aria-label="Perbesar tangkapan layar iOS 16.5 Lock Screen"
+                                class="device-frame w-full max-w-[260px] rounded-[28px] border border-white/15 bg-[#0a0a0c] p-2 shadow-2xl cursor-zoom-in text-left">
+                                <picture class="block rounded-[20px] overflow-hidden bg-black">
+                                    <source srcset="assets/ios-boot-lockscreen.webp" type="image/webp">
+                                    <img src="assets/ios-boot-lockscreen.jpg"
+                                        alt="Layar kunci iOS 16.5 native berjalan di POCO F6" width="630" height="1400"
+                                        loading="lazy" decoding="async" class="w-full h-auto block">
+                                </picture>
+                            </button>
+                            <figcaption class="mt-4 text-center max-w-[240px]">
+                                <p class="text-[13px] font-medium text-white">01 &bull; Lock Screen iOS 16.5</p>
+                                <p class="text-[12px] text-white/60 mt-1">Boot native selesai hingga antarmuka layar kunci melalui UEFI Mu-Silicium &amp; xnuloader.</p>
+                            </figcaption>
+                        </figure>
 
-                            <div
-                                class="p-5 md:p-6 overflow-x-auto text-[13px] md:text-[14px] leading-relaxed font-mono relative z-10 code-scroll">
-                                <pre><code id="stress-code"><span style="color:#8b949e">/* Spawning CPU threads */</span>
-<span style="color:#f07178">const</span> coreCount = navigator.<span style="color:#82aaff">hardwareConcurrency</span> || <span style="color:#f78c6c">4</span>;
-<span style="color:#f07178">let</span> activeWorkers = [];
+                        <figure class="flex flex-col items-center reveal delay-200">
+                            <button type="button" data-lightbox-index="1"
+                                aria-label="Perbesar tangkapan layar iOS 16.5 Home Screen SpringBoard"
+                                class="device-frame w-full max-w-[260px] rounded-[28px] border border-white/15 bg-[#0a0a0c] p-2 shadow-2xl cursor-zoom-in text-left">
+                                <picture class="block rounded-[20px] overflow-hidden bg-black">
+                                    <source srcset="assets/ios-boot-homescreen.webp" type="image/webp">
+                                    <img src="assets/ios-boot-homescreen.jpg"
+                                        alt="SpringBoard Home Screen iOS 16.5 dengan akselerasi GPU Adreno 735 di POCO F6"
+                                        width="630" height="1400" loading="lazy" decoding="async"
+                                        class="w-full h-auto block">
+                                </picture>
+                            </button>
+                            <figcaption class="mt-4 text-center max-w-[240px]">
+                                <p class="text-[13px] font-medium text-white">02 &bull; Home Screen (SpringBoard)</p>
+                                <p class="text-[12px] text-white/60 mt-1">Rendering UI penuh dengan akselerasi GPU Adreno 735 (Mesa/Freedreno) hingga 60 FPS.</p>
+                            </figcaption>
+                        </figure>
 
-<span style="color:#f07178">function</span> <span style="color:#82aaff">startCPUStress</span>() {
-    <span style="color:#8b949e">// Intensive synchronous calculation loop inside isolated Worker</span>
-    <span style="color:#f07178">const</span> workerCode = <span style="color:#c3e88d">`
-        self.onmessage = function() {
-            while (true) {
-                Math.sqrt(Math.random() * Math.random());
-            }
-        };
-    `</span>;
-    <span style="color:#f07178">const</span> blob = <span style="color:#f07178">new</span> <span style="color:#82aaff">Blob</span>([workerCode], { <span style="color:#c3e88d">type</span>: <span style="color:#c3e88d">'application/javascript'</span> });
-    <span style="color:#f07178">const</span> workerUrl = URL.<span style="color:#82aaff">createObjectURL</span>(blob);
+                        <figure class="flex flex-col items-center reveal delay-300">
+                            <button type="button" data-lightbox-index="2"
+                                aria-label="Perbesar tangkapan layar Settings General About iOS 16.5"
+                                class="device-frame w-full max-w-[260px] rounded-[28px] border border-white/15 bg-[#0a0a0c] p-2 shadow-2xl cursor-zoom-in text-left">
+                                <picture class="block rounded-[20px] overflow-hidden bg-black">
+                                    <source srcset="assets/ios-boot-about.webp" type="image/webp">
+                                    <img src="assets/ios-boot-about.jpg"
+                                        alt="Menu Settings General About menampilkan iOS Version 16.5 dan ramdisk 1 GB pada POCO F6"
+                                        width="630" height="1400" loading="lazy" decoding="async"
+                                        class="w-full h-auto block">
+                                </picture>
+                            </button>
+                            <figcaption class="mt-4 text-center max-w-[240px]">
+                                <p class="text-[13px] font-medium text-white">03 &bull; Settings &rarr; About</p>
+                                <p class="text-[12px] text-white/60 mt-1">Teridentifikasi sebagai iOS 16.5 berjalan langsung pada ramdisk 1 GB (RDW00POCOX5P).</p>
+                            </figcaption>
+                        </figure>
 
-    <span style="color:#f07178">for</span> (<span style="color:#f07178">let</span> i = <span style="color:#f78c6c">0</span>; i &lt; coreCount; i++) {
-        <span style="color:#f07178">const</span> worker = <span style="color:#f07178">new</span> <span style="color:#82aaff">Worker</span>(workerUrl);
-        worker.<span style="color:#82aaff">postMessage</span>(<span style="color:#c3e88d">'start'</span>);
-        activeWorkers.<span style="color:#82aaff">push</span>(worker);
-    }
-    console.<span style="color:#82aaff">log</span>(<span style="color:#c3e88d">`Stressing </span><span style="color:#89ddff">${</span>coreCount<span style="color:#89ddff">}</span><span style="color:#c3e88d"> CPU threads...`</span>);
-}</code></pre>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
+            </div>
+        </section>
+
+        <!-- Publikasi & Dokumentasi Teknis (TikTok @amiaxf) -->
+        <section id="publikasi"
+            class="relative py-24 md:py-28 px-6 overflow-hidden scroll-mt-24 border-t border-white/10">
+            <div class="max-w-[1000px] mx-auto relative z-10">
+                <div class="glass-card rounded-2xl p-8 md:p-10 reveal">
+                    <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+
+                        <div class="lg:col-span-7">
+                            <div class="flex flex-wrap items-center gap-3 mb-4">
+                                <span
+                                    class="px-3 py-1 rounded-full text-[11px] font-mono uppercase tracking-wider bg-white/10 text-white border border-white/15">
+                                    Dokumentasi Publik &bull; TikTok
+                                </span>
+                                <span class="text-[13px] font-mono text-white/65">@amiaxf</span>
+                            </div>
+
+                            <h2 class="text-2xl md:text-3xl font-medium text-white mb-4 leading-snug">
+                                Dokumentasi Eksperimen Sistem di TikTok
+                            </h2>
+
+                            <p class="text-[14px] md:text-[15px] text-white/70 leading-relaxed mb-6">
+                                Melalui akun <strong class="text-white font-medium">@amiaxf</strong>, saya
+                                mendokumentasikan progres teknis dari berbagai eksperimen sistem mobile secara
+                                terbuka&mdash;mencakup perkembangan <em>native boot</em> iOS 16.5 pada POCO F6 (akselerasi
+                                Metal/GPU Adreno 735, dukungan <em>haptic feedback</em>, tombol fisik, dan pengujian
+                                Wi-Fi), kustomisasi antarmuka &amp; <em>jailbreak tweak</em> iOS, hingga porting sistem
+                                operasi Android lintas perangkat.
+                            </p>
+
+                            <div class="flex flex-wrap items-center gap-3.5">
+                                <a href="https://www.tiktok.com/@amiaxf" target="_blank" rel="noopener noreferrer"
+                                    class="inline-flex items-center gap-2 bg-white text-black px-6 py-2.5 rounded-full text-[14px] font-medium hover:bg-gray-200 transition-colors">
+                                    Kunjungi TikTok @amiaxf
+                                    <span aria-hidden="true">&#8599;</span>
+                                </a>
+
+                                <a href="https://github.com/slayedkaito" target="_blank" rel="noopener noreferrer"
+                                    class="inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-[14px] font-medium text-white/90 border border-white/20 bg-white/5 hover:bg-white/10 hover:text-white transition-colors">
+                                    Repositori GitHub
+                                    <span aria-hidden="true">&rarr;</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="lg:col-span-5">
+                            <div class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-1 gap-3.5">
+                                <div class="rounded-xl border border-white/10 bg-white/[0.03] px-5 py-4">
+                                    <p class="text-2xl font-medium text-white tracking-tight">226K+</p>
+                                    <p class="text-[12px] text-white/60 mt-0.5">Penayangan tertinggi (Demo iOS 16 pada POCO F6)</p>
+                                </div>
+                                <div class="rounded-xl border border-white/10 bg-white/[0.03] px-5 py-4">
+                                    <p class="text-2xl font-medium text-white tracking-tight">189K+</p>
+                                    <p class="text-[12px] text-white/60 mt-0.5">Total apresiasi (likes) komunitas</p>
+                                </div>
+                                <div class="rounded-xl border border-white/10 bg-white/[0.03] px-5 py-4">
+                                    <p class="text-2xl font-medium text-white tracking-tight">2,3K+</p>
+                                    <p class="text-[12px] text-white/60 mt-0.5">Pengikut aktif di TikTok @amiaxf</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -662,6 +752,9 @@
                 <a href="https://github.com/slayedkaito" target="_blank" rel="noopener noreferrer"
                     class="text-[13px] text-white/65 hover:text-white transition-colors">GitHub</a>
                 <span class="text-[13px] text-white/30" aria-hidden="true">&bull;</span>
+                <a href="https://www.tiktok.com/@amiaxf" target="_blank" rel="noopener noreferrer"
+                    class="text-[13px] text-white/65 hover:text-white transition-colors">TikTok</a>
+                <span class="text-[13px] text-white/30" aria-hidden="true">&bull;</span>
                 <span class="text-[13px] text-white/65">Palembang, Indonesia</span>
             </div>
 
@@ -670,6 +763,40 @@
             </div>
         </div>
     </footer>
+
+    <!-- Lightbox Modal for iOS Boot Screenshots -->
+    <div id="lightbox" role="dialog" aria-modal="true" aria-labelledby="lightbox-title"
+        class="lightbox-backdrop fixed inset-0 z-[100] bg-black/90 backdrop-blur-xl flex items-center justify-center p-4 sm:p-8">
+        <button id="lightbox-close" type="button" aria-label="Tutup pratinjau"
+            class="absolute top-5 right-5 w-11 h-11 rounded-full border border-white/20 bg-black/60 text-white/85 hover:text-white hover:bg-white/15 inline-flex items-center justify-center transition-colors">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 6l12 12M18 6L6 18" />
+            </svg>
+        </button>
+
+        <button id="lightbox-prev" type="button" aria-label="Gambar sebelumnya"
+            class="hidden sm:inline-flex absolute left-6 w-11 h-11 rounded-full border border-white/20 bg-black/60 text-white/85 hover:text-white hover:bg-white/15 items-center justify-center transition-colors">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+            </svg>
+        </button>
+
+        <div class="lightbox-panel flex flex-col items-center max-w-[92vw] max-h-[90vh]">
+            <img id="lightbox-img" src="assets/ios-boot-lockscreen.webp" alt=""
+                class="max-h-[75vh] w-auto rounded-[24px] border border-white/20 shadow-2xl">
+            <div class="mt-4 text-center max-w-md px-2">
+                <p id="lightbox-title" class="text-[14px] font-medium text-white"></p>
+                <p id="lightbox-desc" class="text-[12px] text-white/65 mt-1"></p>
+            </div>
+        </div>
+
+        <button id="lightbox-next" type="button" aria-label="Gambar berikutnya"
+            class="hidden sm:inline-flex absolute right-6 w-11 h-11 rounded-full border border-white/20 bg-black/60 text-white/85 hover:text-white hover:bg-white/15 items-center justify-center transition-colors">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+        </button>
+    </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -691,7 +818,7 @@
                             obs.unobserve(el);
                         }
                     });
-                }, { rootMargin: '0px 0px -50px 0px', threshold: 0.08 });
+                }, { rootMargin: '0px 0px -45px 0px', threshold: 0.08 });
 
                 revealElements.forEach(el => revealObserver.observe(el));
             }
@@ -726,15 +853,38 @@
                 });
             }
 
-            // 3. Navbar Scroll Styling (passive + rAF)
+            // 3. Scroll-driven Effects: Navbar glass, Reading Progress Bar, Subtle Hero Parallax
             const navbar = document.getElementById('navbar');
+            const progressBar = document.getElementById('scroll-progress');
+            const heroBgImg = document.getElementById('hero-bg-img');
+            const heroSection = document.getElementById('tentang');
+
             const handleScroll = () => {
-                if (window.scrollY > 40) {
-                    navbar.classList.add('bg-black/75', 'backdrop-blur-xl', 'border-white/10', 'py-3.5');
+                const y = window.scrollY;
+
+                // Navbar transition
+                if (y > 40) {
+                    navbar.classList.add('bg-black/80', 'backdrop-blur-xl', 'border-white/10', 'py-3.5');
                     navbar.classList.remove('border-transparent', 'py-5');
                 } else {
-                    navbar.classList.remove('bg-black/75', 'backdrop-blur-xl', 'border-white/10', 'py-3.5');
+                    navbar.classList.remove('bg-black/80', 'backdrop-blur-xl', 'border-white/10', 'py-3.5');
                     navbar.classList.add('border-transparent', 'py-5');
+                }
+
+                // Reading progress bar
+                if (progressBar) {
+                    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+                    const ratio = maxScroll > 0 ? Math.min(1, Math.max(0, y / maxScroll)) : 0;
+                    progressBar.style.transform = `scaleX(${ratio.toFixed(4)})`;
+                }
+
+                // Subtle GPU parallax on hero background
+                if (!prefersReducedMotion && heroBgImg && heroSection) {
+                    const heroHeight = heroSection.offsetHeight;
+                    if (y <= heroHeight) {
+                        const offset = (y * 0.16).toFixed(1);
+                        heroBgImg.style.transform = `translate3d(0, ${offset}px, 0) scale(1.06)`;
+                    }
                 }
             };
 
@@ -752,7 +902,7 @@
 
             // 4. Active Nav Link Highlighting
             const navLinks = document.querySelectorAll('[data-nav-link]');
-            const sections = ['tentang', 'keahlian', 'proyek']
+            const sections = ['tentang', 'keahlian', 'proyek', 'publikasi']
                 .map(id => document.getElementById(id))
                 .filter(Boolean);
 
@@ -810,23 +960,75 @@
                 });
             }
 
-            // 6. Copy Code Button
-            const copyBtn = document.getElementById('copy-code-btn');
-            const codeEl = document.getElementById('stress-code');
-            if (copyBtn && codeEl && navigator.clipboard) {
-                copyBtn.addEventListener('click', async () => {
-                    try {
-                        await navigator.clipboard.writeText(codeEl.textContent);
-                        copyBtn.textContent = 'Disalin!';
-                        copyBtn.classList.add('text-white', 'border-white/40');
-                        setTimeout(() => {
-                            copyBtn.textContent = 'Salin';
-                            copyBtn.classList.remove('text-white', 'border-white/40');
-                        }, 1800);
-                    } catch {
-                        copyBtn.textContent = 'Gagal';
-                        setTimeout(() => { copyBtn.textContent = 'Salin'; }, 1500);
-                    }
+            // 6. Interactive Lightbox for iOS 16.5 Boot Screenshots
+            const slides = [
+                {
+                    src: 'assets/ios-boot-lockscreen.webp',
+                    title: '01 • Lock Screen iOS 16.5 (POCO F6)',
+                    desc: 'Boot native selesai hingga layar kunci iOS 16.5 melalui UEFI Mu-Silicium & xnuloader.'
+                },
+                {
+                    src: 'assets/ios-boot-homescreen.webp',
+                    title: '02 • Home Screen / SpringBoard iOS 16.5',
+                    desc: 'Antarmuka SpringBoard berjalan penuh dengan akselerasi GPU Adreno 735 (Mesa/Freedreno) hingga 60 FPS.'
+                },
+                {
+                    src: 'assets/ios-boot-about.webp',
+                    title: '03 • Settings → General → About (iOS 16.5)',
+                    desc: 'Teridentifikasi sebagai iOS 16.5 berjalan langsung pada ramdisk 1 GB (RDW00POCOX5P) tanpa menyentuh partisi Android.'
+                }
+            ];
+
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const lightboxTitle = document.getElementById('lightbox-title');
+            const lightboxDesc = document.getElementById('lightbox-desc');
+            const lightboxClose = document.getElementById('lightbox-close');
+            const lightboxPrev = document.getElementById('lightbox-prev');
+            const lightboxNext = document.getElementById('lightbox-next');
+            let currentSlide = 0;
+
+            const renderSlide = idx => {
+                currentSlide = (idx + slides.length) % slides.length;
+                const s = slides[currentSlide];
+                lightboxImg.src = s.src;
+                lightboxImg.alt = s.title;
+                lightboxTitle.textContent = s.title;
+                lightboxDesc.textContent = s.desc;
+            };
+
+            const openLightbox = idx => {
+                renderSlide(idx);
+                lightbox.classList.add('open');
+                document.body.classList.add('overflow-hidden');
+                lightboxClose.focus();
+            };
+
+            const closeLightbox = () => {
+                lightbox.classList.remove('open');
+                document.body.classList.remove('overflow-hidden');
+            };
+
+            document.querySelectorAll('[data-lightbox-index]').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    openLightbox(Number(btn.dataset.lightboxIndex));
+                });
+            });
+
+            if (lightbox) {
+                lightboxClose.addEventListener('click', closeLightbox);
+                lightboxPrev.addEventListener('click', () => renderSlide(currentSlide - 1));
+                lightboxNext.addEventListener('click', () => renderSlide(currentSlide + 1));
+
+                lightbox.addEventListener('click', e => {
+                    if (e.target === lightbox) closeLightbox();
+                });
+
+                document.addEventListener('keydown', e => {
+                    if (!lightbox.classList.contains('open')) return;
+                    if (e.key === 'Escape') closeLightbox();
+                    else if (e.key === 'ArrowLeft') renderSlide(currentSlide - 1);
+                    else if (e.key === 'ArrowRight') renderSlide(currentSlide + 1);
                 });
             }
         });
