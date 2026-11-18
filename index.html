@@ -24,8 +24,8 @@
         content="Portofolio profesional Gathan Alfarabi Agusti — Teknik Mesin, pemeliharaan alat berat, porting kernel Darwin 22.5 (iOS 16.5 native di POCO F6), infrastruktur perangkat keras, dan pengembangan AI.">
     <meta property="og:url" content="https://slayedkaito.github.io/">
     <meta property="og:image" content="https://slayedkaito.github.io/assets/hero-bg.jpg">
-    <meta property="og:image:width" content="1600">
-    <meta property="og:image:height" content="2133">
+    <meta property="og:image:width" content="1440">
+    <meta property="og:image:height" content="1920">
 
     <!-- Twitter / X Card -->
     <meta name="twitter:card" content="summary_large_image">
@@ -104,17 +104,21 @@
 
 <body class="antialiased text-white selection:bg-white/20 selection:text-white">
 
-    <!-- Subtle Dark Obsidian-Midnight Ambient Gradient Backdrop -->
-    <div class="ambient-bg" aria-hidden="true"></div>
+    <!-- Ultra-Lightweight Dynamic Dark Obsidian-Midnight Gradient Backdrop -->
+    <div class="ambient-bg" aria-hidden="true">
+        <div class="ambient-orb ambient-orb-1"></div>
+        <div class="ambient-orb ambient-orb-2"></div>
+    </div>
 
-    <!-- Desktop-only Apple Liquid Glass Optical Refraction Filter -->
+    <!-- Desktop-only Pre-baked Optical Lens Refraction Filter (Zero feTurbulence overhead) -->
     <svg width="0" height="0" style="position:absolute;width:0;height:0;overflow:hidden;pointer-events:none"
         aria-hidden="true" focusable="false">
         <defs>
-            <filter id="apple-liquid-refract" x="-5%" y="-5%" width="110%" height="110%">
-                <feTurbulence type="fractalNoise" baseFrequency="0.008 0.012" numOctaves="2" seed="7" result="noise" />
-                <feGaussianBlur in="noise" stdDeviation="2.5" result="smoothNoise" />
-                <feDisplacementMap in="SourceGraphic" in2="smoothNoise" scale="16" xChannelSelector="R"
+            <filter id="apple-liquid-refract" x="-4%" y="-4%" width="108%" height="108%" color-interpolation-filters="sRGB">
+                <feImage
+                    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3CradialGradient id='g' cx='50%25' cy='50%25' r='55%25'%3E%3Cstop offset='0%25' stop-color='%23808080'/%3E%3Cstop offset='68%25' stop-color='%23808080'/%3E%3Cstop offset='100%25' stop-color='%239c6880'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect width='100' height='100' fill='url(%23g)'/%3E%3C/svg%3E"
+                    preserveAspectRatio="none" result="lensMap" />
+                <feDisplacementMap in="SourceGraphic" in2="lensMap" scale="14" xChannelSelector="R"
                     yChannelSelector="G" />
             </filter>
         </defs>
@@ -216,7 +220,7 @@
                 class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
                 <picture class="block w-full h-full">
                     <source srcset="assets/hero-bg.webp" type="image/webp">
-                    <img id="hero-bg-img" src="assets/hero-bg.jpg" alt="" width="1600" height="2133"
+                    <img id="hero-bg-img" src="assets/hero-bg.jpg" alt="" width="1440" height="1920"
                         class="w-full h-full object-cover object-[center_28%] scale-105" fetchpriority="high"
                         decoding="async">
                 </picture>
@@ -311,11 +315,7 @@
         </section>
 
         <!-- Keahlian Section -->
-        <section id="keahlian" class="relative py-24 md:py-32 px-6 overflow-hidden scroll-mt-24">
-            <div id="keahlian-glow" aria-hidden="true"
-                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[720px] h-[720px] bg-white/[0.025] blur-[110px] rounded-full pointer-events-none z-0">
-            </div>
-
+        <section id="keahlian" class="cv-auto relative py-24 md:py-32 px-6 overflow-hidden scroll-mt-24">
             <div class="max-w-[1000px] mx-auto relative z-10">
                 <div class="text-center mb-16">
                     <h2
@@ -332,7 +332,6 @@
 
                     <article class="col-span-1 lg:col-span-2 group reveal">
                         <div class="glass-card rounded-2xl p-7 md:p-8 h-full min-h-[230px] flex flex-col justify-end">
-                            <span class="liquid-refract" aria-hidden="true"></span>
                             <h3 class="text-xl font-medium text-white mb-2.5 relative z-10">Sistem Operasi, Kernel &amp; Perangkat Keras</h3>
                             <p
                                 class="text-[14px] text-white/65 leading-relaxed relative z-10 max-w-[500px] group-hover:text-white/85 transition-colors duration-300">
@@ -346,7 +345,6 @@
 
                     <article class="col-span-1 group reveal delay-200">
                         <div class="glass-card rounded-2xl p-7 md:p-8 h-full min-h-[230px] flex flex-col justify-end">
-                            <span class="liquid-refract" aria-hidden="true"></span>
                             <h3 class="text-xl font-medium text-white mb-2.5 relative z-10">Teknik Mesin &amp; Alat Berat</h3>
                             <p
                                 class="text-[14px] text-white/65 leading-relaxed relative z-10 group-hover:text-white/85 transition-colors duration-300">
@@ -360,7 +358,6 @@
 
                     <article class="col-span-1 group reveal delay-300">
                         <div class="glass-card rounded-2xl p-7 md:p-8 h-full min-h-[230px] flex flex-col justify-end">
-                            <span class="liquid-refract" aria-hidden="true"></span>
                             <h3 class="text-xl font-medium text-white mb-2.5 relative z-10">Pengembangan Web, Otomasi &amp; AI</h3>
                             <p
                                 class="text-[14px] text-white/65 leading-relaxed relative z-10 group-hover:text-white/85 transition-colors duration-300">
@@ -373,7 +370,6 @@
 
                     <article class="col-span-1 group reveal delay-[400ms]">
                         <div class="glass-card rounded-2xl p-7 md:p-8 h-full min-h-[230px] flex flex-col justify-end">
-                            <span class="liquid-refract" aria-hidden="true"></span>
                             <h3 class="text-xl font-medium text-white mb-2.5 relative z-10">Desain Grafis &amp; Motion</h3>
                             <p
                                 class="text-[14px] text-white/65 leading-relaxed relative z-10 group-hover:text-white/85 transition-colors duration-300">
@@ -386,7 +382,6 @@
 
                     <article class="col-span-1 group reveal delay-[500ms]">
                         <div class="glass-card rounded-2xl p-7 md:p-8 h-full min-h-[230px] flex flex-col justify-end">
-                            <span class="liquid-refract" aria-hidden="true"></span>
                             <h3 class="text-xl font-medium text-white mb-2.5 relative z-10">Fotografi &amp; Pengolahan Visual</h3>
                             <p
                                 class="text-[14px] text-white/65 leading-relaxed relative z-10 group-hover:text-white/85 transition-colors duration-300">
@@ -399,7 +394,6 @@
 
                     <article class="col-span-1 md:col-span-2 lg:col-span-3 group reveal delay-[600ms]">
                         <div class="glass-card rounded-2xl p-7 md:p-8 h-full min-h-[180px] flex flex-col justify-end">
-                            <span class="liquid-refract" aria-hidden="true"></span>
                             <h3 class="text-xl font-medium text-white mb-2.5 relative z-10">Penguasaan Bahasa</h3>
                             <p
                                 class="text-[14px] text-white/65 leading-relaxed relative z-10 max-w-2xl group-hover:text-white/85 transition-colors duration-300">
@@ -417,7 +411,7 @@
 
         <!-- Proyek Section -->
         <section id="proyek"
-            class="section-divider relative py-24 md:py-32 px-6 overflow-hidden scroll-mt-24">
+            class="cv-auto section-divider relative py-24 md:py-32 px-6 overflow-hidden scroll-mt-24">
 
             <div aria-hidden="true"
                 class="absolute inset-0 bg-grid-pattern mask-radial opacity-40 z-0 pointer-events-none"></div>
@@ -445,7 +439,6 @@
                     <!-- Project 1: Darwin 22.5 Kernel Porting -->
                     <article class="col-span-1 md:col-span-2 group reveal">
                         <div class="glass-card rounded-2xl p-7 md:p-8 h-full flex flex-col justify-between">
-                            <span class="liquid-refract" aria-hidden="true"></span>
                             <div class="relative z-10">
                                 <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
                                     <span
@@ -487,7 +480,6 @@
                     <!-- Project 2: WhatsApp AI Bot -->
                     <article class="col-span-1 group reveal delay-100">
                         <div class="glass-card rounded-2xl p-7 md:p-8 h-full flex flex-col justify-between">
-                            <span class="liquid-refract" aria-hidden="true"></span>
                             <div class="relative z-10">
                                 <span
                                     class="inline-block px-3 py-1 rounded-full text-[11px] font-mono uppercase tracking-wider bg-white/5 text-white/75 border border-white/10 mb-4">
@@ -520,7 +512,6 @@
                     <!-- Project 3: Local LLM Mobile -->
                     <article class="col-span-1 group reveal delay-200">
                         <div class="glass-card rounded-2xl p-7 md:p-8 h-full flex flex-col justify-between">
-                            <span class="liquid-refract" aria-hidden="true"></span>
                             <div class="relative z-10">
                                 <span
                                     class="inline-block px-3 py-1 rounded-full text-[11px] font-mono uppercase tracking-wider bg-white/5 text-white/75 border border-white/10 mb-4">
@@ -552,7 +543,6 @@
                     <!-- Project 4: PC Assembly, Laptop Maintenance & Multi-OS -->
                     <article class="col-span-1 group reveal delay-300">
                         <div class="glass-card rounded-2xl p-7 md:p-8 h-full flex flex-col justify-between">
-                            <span class="liquid-refract" aria-hidden="true"></span>
                             <div class="relative z-10">
                                 <span
                                     class="inline-block px-3 py-1 rounded-full text-[11px] font-mono uppercase tracking-wider bg-white/5 text-white/75 border border-white/10 mb-4">
@@ -584,7 +574,6 @@
                     <!-- Project 5: Poster Design -->
                     <article class="col-span-1 group reveal delay-[400ms]">
                         <div class="glass-card rounded-2xl p-7 md:p-8 h-full flex flex-col justify-between">
-                            <span class="liquid-refract" aria-hidden="true"></span>
                             <div class="relative z-10">
                                 <span
                                     class="inline-block px-3 py-1 rounded-full text-[11px] font-mono uppercase tracking-wider bg-white/5 text-white/75 border border-white/10 mb-4">
@@ -692,10 +681,9 @@
 
         <!-- Publikasi & Dokumentasi Teknis (TikTok @amiaxf — Official Live Embed) -->
         <section id="publikasi"
-            class="section-divider relative py-24 md:py-28 px-6 overflow-hidden scroll-mt-24">
+            class="cv-auto section-divider relative py-24 md:py-28 px-6 overflow-hidden scroll-mt-24">
             <div class="max-w-[1000px] mx-auto relative z-10">
                 <div class="glass-card rounded-2xl p-6 sm:p-8 md:p-10 reveal">
-                    <span class="liquid-refract" aria-hidden="true"></span>
                     <div class="relative z-10 flex flex-col gap-8">
 
                         <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
@@ -758,7 +746,7 @@
 
         <!-- Final CTA Section -->
         <section
-            class="section-divider relative py-28 md:py-36 px-6 flex flex-col items-center justify-center text-center overflow-hidden">
+            class="cv-auto section-divider relative py-28 md:py-36 px-6 flex flex-col items-center justify-center text-center overflow-hidden">
             <div class="relative z-10 flex flex-col items-center">
                 <h2 class="heading-reveal text-4xl md:text-[56px] font-medium text-gradient leading-tight mb-5">
                     Mari Berkolaborasi.
@@ -925,7 +913,6 @@
             const heroSection = document.getElementById('tentang');
             const heroContent = document.getElementById('hero-content');
             const heroScrollCue = document.getElementById('hero-scroll-cue');
-            const keahlianGlow = document.getElementById('keahlian-glow');
             const iosGallery = document.getElementById('ios-gallery');
             const parallaxItems = Array.from(document.querySelectorAll('[data-parallax-speed]'));
 
@@ -985,12 +972,6 @@
                             const cueOpacity = Math.max(0, 1 - smoothY / 140).toFixed(3);
                             heroScrollCue.style.opacity = cueOpacity;
                         }
-                    }
-
-                    // Ambient radial glow drift behind Keahlian
-                    if (keahlianGlow) {
-                        const drift = ((smoothY - vh) * 0.08).toFixed(1);
-                        keahlianGlow.style.transform = `translate3d(-50%, calc(-50% + ${drift}px), 0)`;
                     }
 
                     // Apple-style tri-device opposing scroll parallax (tablet/desktop >= 640px)
