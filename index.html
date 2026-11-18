@@ -41,17 +41,17 @@
     <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
     <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
     <link rel="preload" as="image" type="image/webp" href="assets/hero-bg.webp" fetchpriority="high">
-    <link rel="modulepreload" href="js/main.js?v=20261118-12">
-    <link rel="modulepreload" href="js/theme.js?v=20261118-12">
-    <link rel="modulepreload" href="js/motion.js?v=20261118-12">
-    <link rel="modulepreload" href="js/navigation.js?v=20261118-12">
-    <link rel="modulepreload" href="js/reveals.js?v=20261118-12">
+    <link rel="modulepreload" href="js/main.js?v=20261118-13">
+    <link rel="modulepreload" href="js/theme.js?v=20261118-13">
+    <link rel="modulepreload" href="js/motion.js?v=20261118-13">
+    <link rel="modulepreload" href="js/navigation.js?v=20261118-13">
+    <link rel="modulepreload" href="js/reveals.js?v=20261118-13">
 
     <!-- Fonts -->
     <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
 
     <!-- Compiled & Minified Production Stylesheet (cache-busted) -->
-    <link rel="stylesheet" href="assets/styles.css?v=20261118-12">
+    <link rel="stylesheet" href="assets/styles.css?v=20261118-13">
 
     <noscript>
         <style>
@@ -130,17 +130,10 @@
         </div>
     </div>
 
-    <!-- Desktop-only Seamless Snell's Law Curved Glass Refraction Filters (Zero inner seam/shape!) -->
+    <!-- Desktop Light-Mode-Only Seamless Snell's Law Curved Glass Refraction Filters -->
     <svg width="0" height="0" style="position:absolute;width:0;height:0;overflow:hidden;pointer-events:none"
         aria-hidden="true" focusable="false">
         <defs>
-            <filter id="real-glass-bar-dark" x="0%" y="0%" width="100%" height="100%" color-interpolation-filters="sRGB">
-                <feImage
-                    href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAAAYCAIAAAAj02USAAAC4UlEQVR42u2aSa4rOQwEg4N87r7dP5Lrlzj0QrLf60WfoJQQCC+8KgSSSYny588/aYQRzjTuz7mMS7mEtxAcPVEB7+ZqruJK7s+ZSQSRZOKWAA0tlOBCKVFIQtEFfb7kcyUCSislRBNFFpk/xy0+iAgttHBfZJBBJp30Aeix9IAIZphhDk4okfssQtwDaQSAaq43cxKTCDKo40DPlgqmuOPOGNjgciI3Hpm4TaSQposI7sm8mZMIKqk6DvRoB1JBFTeGMwavF38Hb98OVInbjTjSvK+Nzrw/fJ0MdBgSTLcJDWe8GAN/8TYqqMDtRovrZk7uyT23/WRSRdXh59kOBLoAMobzmrwG40YHN/QCqIJIZmx0Fj254nMfB3o6RCKYYIYHHozJGLhTRhVuFyk7Fn2H+0XPCUBHKwaVYokZnhsjd8TIxvWiINdgVj/BedXmONDTM5CAFqJoobmtyAw1Clwuqsneiad6554+zevoYx8iSO88pLlTkQotuLw3Lt9Kb3IOP0eri/G5KZTat4urNjjX91//rUdH/2NIv6v3GxFEEEV0v33IJ34fEzraTakBeiXj2j+k8b5QdiZS3XXxdAzpaFnIgmbl4zVmZVKJgNeFNma4Y44aaoihRekxocPPz0heSSX5eQirRAXPCynccMfHxsiMtB2zjwM9GqCmmu59O7gvCycRdGKK500HDmMwBj7wQThmlIKeb/h4hj47QAudOfe+hoI4njcVaDCM14vXYL4IJ51UVKnTxR7cv1buySKCGdz33teoxJ2qBVCSgV+Mv4zBeDE/JpR6WtjTW9jXfuavVR83spHCc5K5VxD9zcu5B2MQTvieyI4e7kDLfta+RgRmtCNNFr7f3mNHa3szPhtoa7Y/DvRkVe930sVQFuZ4fxZeG1+Lid9F1yi4scIE+14tHj14hs8VohsUdzp/zeaN/96wzyKKWHN/QiHnSfXhDAkIoqjhQhUlVNKf0epfPAJTB+y92ckAAAAASUVORK5CYII="
-                    preserveAspectRatio="none" result="barMapDark" />
-                <feDisplacementMap in="SourceGraphic" in2="barMapDark" scale="22" xChannelSelector="R"
-                    yChannelSelector="G" />
-            </filter>
             <filter id="real-glass-bar-light" x="0%" y="0%" width="100%" height="100%" color-interpolation-filters="sRGB">
                 <feImage
                     href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAAAYCAIAAAAj02USAAAC4UlEQVR42u2aSa4rOQwEg4N87r7dP5Lrlzj0QrLf60WfoJQQCC+8KgSSSYny588/aYQRzjTuz7mMS7mEtxAcPVEB7+ZqruJK7s+ZSQSRZOKWAA0tlOBCKVFIQtEFfb7kcyUCSislRBNFFpk/xy0+iAgttHBfZJBBJp30Aeix9IAIZphhDk4okfssQtwDaQSAaq43cxKTCDKo40DPlgqmuOPOGNjgciI3Hpm4TaSQposI7sm8mZMIKqk6DvRoB1JBFTeGMwavF38Hb98OVInbjTjSvK+Nzrw/fJ0MdBgSTLcJDWe8GAN/8TYqqMDtRovrZk7uyT23/WRSRdXh59kOBLoAMobzmrwG40YHN/QCqIJIZmx0Fj254nMfB3o6RCKYYIYHHozJGLhTRhVuFyk7Fn2H+0XPCUBHKwaVYokZnhsjd8TIxvWiINdgVj/BedXmONDTM5CAFqJoobmtyAw1Clwuqsneiad6554+zevoYx8iSO88pLlTkQotuLw3Lt9Kb3IOP0eri/G5KZTat4urNjjX91//rUdH/2NIv6v3GxFEEEV0v33IJ34fEzraTakBeiXj2j+k8b5QdiZS3XXxdAzpaFnIgmbl4zVmZVKJgNeFNma4Y44aaoihRekxocPPz0heSSX5eQirRAXPCynccMfHxsiMtB2zjwM9GqCmmu59O7gvCycRdGKK500HDmMwBj7wQThmlIKeb/h4hj47QAudOfe+hoI4njcVaDCM14vXYL4IJ51UVKnTxR7cv1buySKCGdz33teoxJ2qBVCSgV+Mv4zBeDE/JpR6WtjTW9jXfuavVR83spHCc5K5VxD9zcu5B2MQTvieyI4e7kDLfta+RgRmtCNNFr7f3mNHa3szPhtoa7Y/DvRkVe930sVQFuZ4fxZeG1+Lid9F1yi4scIE+14tHj14hs8VohsUdzp/zeaN/96wzyKKWHN/QiHnSfXhDAkIoqjhQhUlVNKf0epfPAJTB+y92ckAAAAASUVORK5CYII="
@@ -192,8 +185,8 @@
                 </div>
 
                 <div class="relative z-10 flex items-center gap-2.5 sm:gap-3">
-                    <button id="theme-toggle" type="button" aria-label="Ganti ke mode terang" aria-pressed="false"
-                        title="Mode Terang"
+                    <button id="theme-toggle" type="button" data-theme-toggle aria-label="Ganti ke mode terang"
+                        aria-pressed="false" title="Mode Terang"
                         class="theme-toggle-btn inline-flex items-center justify-center w-10 h-10 rounded-full border border-white/25 bg-black/40 text-white hover:bg-white/20 backdrop-blur-md transition-colors">
                         <svg class="icon-sun w-[18px] h-[18px]" width="18" height="18" fill="none" viewBox="0 0 24 24"
                             stroke="currentColor" stroke-width="1.9" aria-hidden="true">
@@ -255,6 +248,60 @@
                     </div>
                 </div>
             </div>
+        </nav>
+
+        <!-- Mobile Post-Hero Floating Bottom Dock (appears after scrolling past Hero) -->
+        <nav id="mobile-dock" aria-label="Navigasi cepat mobile" aria-hidden="true"
+            class="mobile-dock md:hidden flex items-center gap-0.5">
+            <a href="#tentang" data-dock-link="tentang" class="dock-item" aria-label="Tentang">
+                <svg class="w-4 h-4" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                    stroke-width="1.9" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M3 10.5L12 3l9 7.5V20a1 1 0 01-1 1h-5.5v-6.5h-5V21H4a1 1 0 01-1-1v-9.5z" />
+                </svg>
+                <span>Awal</span>
+            </a>
+            <a href="#keahlian" data-dock-link="keahlian" class="dock-item" aria-label="Keahlian">
+                <svg class="w-4 h-4" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                    stroke-width="1.9" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M12 3l8 4.5-8 4.5-8-4.5L12 3zm0 9l8-4.5M12 12l-8-4.5m8 4.5v9m8-4.5l-8 4.5-8-4.5" />
+                </svg>
+                <span>Keahlian</span>
+            </a>
+            <a href="#proyek" data-dock-link="proyek" class="dock-item" aria-label="Proyek">
+                <svg class="w-4 h-4" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                    stroke-width="1.9" aria-hidden="true">
+                    <rect x="3" y="3" width="7.5" height="7.5" rx="1.8" />
+                    <rect x="13.5" y="3" width="7.5" height="7.5" rx="1.8" />
+                    <rect x="3" y="13.5" width="7.5" height="7.5" rx="1.8" />
+                    <rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.8" />
+                </svg>
+                <span>Proyek</span>
+            </a>
+            <a href="#publikasi" data-dock-link="publikasi" class="dock-item" aria-label="Publikasi">
+                <svg class="w-4 h-4" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                    stroke-width="1.9" aria-hidden="true">
+                    <polygon points="9 7 18 12 9 17 9 7" stroke-linejoin="round" />
+                    <rect x="3" y="4" width="18" height="16" rx="3" />
+                </svg>
+                <span>TikTok</span>
+            </a>
+            <span class="dock-sep" aria-hidden="true"></span>
+            <button type="button" data-theme-toggle aria-label="Ganti ke mode terang" aria-pressed="false"
+                title="Mode Terang" class="dock-theme-btn theme-toggle-btn">
+                <svg class="icon-sun w-[17px] h-[17px]" width="17" height="17" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor" stroke-width="1.9" aria-hidden="true">
+                    <circle cx="12" cy="12" r="4" />
+                    <path stroke-linecap="round"
+                        d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41m11.32-11.32l1.41-1.41" />
+                </svg>
+                <svg class="icon-moon w-[17px] h-[17px]" width="17" height="17" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor" stroke-width="1.9" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+                </svg>
+            </button>
         </nav>
     </header>
 
@@ -815,7 +862,7 @@
 
     </main>
 
-    <footer class="border-t border-white/10 px-6 md:px-10 py-8 relative z-10 bg-[#07090f]/75 backdrop-blur-xl">
+    <footer class="border-t border-white/10 px-6 md:px-10 pt-8 pb-24 md:py-8 relative z-10 bg-[#07090f]/75 backdrop-blur-xl">
         <div class="max-w-[1200px] mx-auto flex flex-col md:flex-row items-center justify-between gap-5">
 
             <a href="#tentang"
@@ -876,7 +923,7 @@
         </button>
     </div>
 
-    <script type="module" src="js/main.js?v=20261118-12"></script>
+    <script type="module" src="js/main.js?v=20261118-13"></script>
 </body>
 
 </html>

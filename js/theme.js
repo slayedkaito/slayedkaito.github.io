@@ -1,12 +1,12 @@
 /**
- * Dark / Light theme switcher with velvety macOS-style full-page color & gradient crossfade
- * via View Transitions API, plus full CSS transition fallback.
+ * Dark / Light theme switcher synced across header button & mobile bottom dock,
+ * with velvety full-page View Transitions color crossfade + CSS fallback.
  */
 const STORAGE_KEY = 'gtalfr-theme';
 
 export function initTheme() {
     const root = document.documentElement;
-    const toggleBtn = document.getElementById('theme-toggle');
+    const toggleBtns = document.querySelectorAll('[data-theme-toggle]');
     const metaThemeColor = document.querySelector('meta[name="theme-color"]');
     let transitionTimer = 0;
 
@@ -19,20 +19,19 @@ export function initTheme() {
             metaThemeColor.setAttribute('content', isLight ? '#f5f7fb' : '#07090f');
         }
 
-        if (toggleBtn) {
-            toggleBtn.setAttribute('aria-pressed', String(isLight));
-            toggleBtn.setAttribute(
-                'aria-label',
-                isLight ? 'Ganti ke mode gelap' : 'Ganti ke mode terang'
-            );
-            toggleBtn.setAttribute('title', isLight ? 'Mode Gelap' : 'Mode Terang');
-        }
+        const label = isLight ? 'Ganti ke mode gelap' : 'Ganti ke mode terang';
+        const title = isLight ? 'Mode Gelap' : 'Mode Terang';
+
+        toggleBtns.forEach(btn => {
+            btn.setAttribute('aria-pressed', String(isLight));
+            btn.setAttribute('aria-label', label);
+            btn.setAttribute('title', title);
+        });
     };
 
     const switchThemeSmoothly = nextTheme => {
         const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-        // Native View Transitions smooth full-page color & gradient crossfade (120fps GPU)
         if (!reduced && typeof document.startViewTransition === 'function') {
             document.startViewTransition(() => {
                 applyDomTheme(nextTheme);
@@ -40,7 +39,6 @@ export function initTheme() {
             return;
         }
 
-        // Smooth CSS crossfade fallback for browsers without View Transitions API
         if (!reduced) {
             clearTimeout(transitionTimer);
             root.classList.add('theme-transition');
@@ -54,8 +52,8 @@ export function initTheme() {
     const initial = root.dataset.theme === 'light' ? 'light' : 'dark';
     applyDomTheme(initial);
 
-    if (toggleBtn) {
-        toggleBtn.addEventListener('click', () => {
+    toggleBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
             const next = root.dataset.theme === 'light' ? 'dark' : 'light';
             switchThemeSmoothly(next);
             try {
@@ -64,5 +62,5 @@ export function initTheme() {
                 // Ignore storage restrictions
             }
         });
-    }
+    });
 }

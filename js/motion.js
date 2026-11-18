@@ -216,7 +216,7 @@ export function initScrollMotion(prefersReducedMotion, onScrollNavbar) {
 
     const kickLoop = () => {
         targetY = window.scrollY;
-        onScrollNavbar?.(targetY);
+        onScrollNavbar?.(targetY, metrics.heroH);
         if (!motionRaf) {
             lastTime = 0;
             motionRaf = requestAnimationFrame(renderFrame);
