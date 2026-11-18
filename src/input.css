@@ -262,7 +262,7 @@ html[data-theme='light'] .tech-tag:hover {
   transform-origin: left center;
 }
 
-/* Native View Transitions circular ripple reveal for Dark <-> Light mode */
+/* Velvety macOS-style full-page color & gradient crossfade (zero brightness dip!) */
 ::view-transition-old(root),
 ::view-transition-new(root) {
   animation: none;
@@ -275,30 +275,25 @@ html[data-theme='light'] .tech-tag:hover {
 
 ::view-transition-new(root) {
   z-index: 2;
-  animation: themeRipple 0.62s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: themeFadeIn 0.52s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
-@keyframes themeRipple {
-  from {
-    clip-path: circle(0px at var(--vt-x, 50%) var(--vt-y, 50%));
-  }
-  to {
-    clip-path: circle(var(--vt-r, 150vmax) at var(--vt-x, 50%) var(--vt-y, 50%));
-  }
+@keyframes themeFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 
-/* Graceful fallback crossfade when View Transitions API is unavailable */
-html.theme-transition body,
-html.theme-transition .ambient-bg,
-html.theme-transition .glass-card,
-html.theme-transition .device-frame,
-html.theme-transition .nav-bar-inner,
-html.theme-transition #navbar,
-html.theme-transition footer {
-  transition: background-color 0.4s cubic-bezier(0.22, 1, 0.36, 1),
-    color 0.35s ease,
-    border-color 0.4s ease,
-    box-shadow 0.4s ease !important;
+/* Smooth CSS crossfade fallback when View Transitions API is unavailable */
+html.theme-transition,
+html.theme-transition *,
+html.theme-transition *::before,
+html.theme-transition *::after {
+  transition: background-color 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    color 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    fill 0.45s ease,
+    stroke 0.45s ease !important;
 }
 
 /* Minimal luxury scroll cue at hero bottom */
@@ -515,6 +510,13 @@ html[data-theme='light'] .theme-toggle-btn:hover .icon-moon {
 
 .mobile-drawer-inner {
   overflow: hidden;
+  min-height: 0;
+}
+
+@media (min-width: 768px) {
+  .mobile-drawer {
+    display: none !important;
+  }
 }
 
 .mobile-drawer .mobile-drawer-item {

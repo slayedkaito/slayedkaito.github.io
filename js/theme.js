@@ -1,6 +1,6 @@
 /**
- * Dark / Light theme switcher with Apple/Linear circular View Transition ripple
- * originating from the toggle button, plus graceful crossfade fallback.
+ * Dark / Light theme switcher with velvety macOS-style full-page color & gradient crossfade
+ * via View Transitions API, plus full CSS transition fallback.
  */
 const STORAGE_KEY = 'gtalfr-theme';
 
@@ -29,53 +29,35 @@ export function initTheme() {
         }
     };
 
-    const switchThemeSmoothly = (nextTheme, triggerEl) => {
+    const switchThemeSmoothly = nextTheme => {
         const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-        // Progressive enhancement: Native View Transitions circular ripple from toggle button
-        if (!reduced && typeof document.startViewTransition === 'function' && triggerEl) {
-            const rect = triggerEl.getBoundingClientRect();
-            const x = rect.left + rect.width / 2;
-            const y = rect.top + rect.height / 2;
-            const maxRadius = Math.hypot(
-                Math.max(x, window.innerWidth - x),
-                Math.max(y, window.innerHeight - y)
-            );
-
-            root.style.setProperty('--vt-x', `${x.toFixed(1)}px`);
-            root.style.setProperty('--vt-y', `${y.toFixed(1)}px`);
-            root.style.setProperty('--vt-r', `${Math.ceil(maxRadius)}px`);
-            root.classList.add('vt-active');
-
-            const vt = document.startViewTransition(() => {
+        // Native View Transitions smooth full-page color & gradient crossfade (120fps GPU)
+        if (!reduced && typeof document.startViewTransition === 'function') {
+            document.startViewTransition(() => {
                 applyDomTheme(nextTheme);
-            });
-
-            vt.finished.finally(() => {
-                root.classList.remove('vt-active');
             });
             return;
         }
 
-        // Graceful smooth CSS crossfade fallback
+        // Smooth CSS crossfade fallback for browsers without View Transitions API
         if (!reduced) {
             clearTimeout(transitionTimer);
             root.classList.add('theme-transition');
             transitionTimer = setTimeout(() => {
                 root.classList.remove('theme-transition');
-            }, 420);
+            }, 560);
         }
         applyDomTheme(nextTheme);
     };
 
-    // Sync initial state (already applied pre-paint in <head>)
     const initial = root.dataset.theme === 'light' ? 'light' : 'dark';
     applyDomTheme(initial);
 
     if (toggleBtn) {
         toggleBtn.addEventListener('click', () => {
             const next = root.dataset.theme === 'light' ? 'dark' : 'light';
-            switchThemeSmoothly(next, toggleBtn);
+            switchThemeSmoothly(next);
             try {
                 localStorage.setItem(STORAGE_KEY, next);
             } catch {

@@ -111,14 +111,21 @@ export function initNavigation() {
 
         setMenuState(false);
 
-        menuBtn.addEventListener('click', () => setMenuState(!isOpen));
+        menuBtn.addEventListener('click', e => {
+            e.stopPropagation();
+            setMenuState(!isOpen);
+        });
+
+        mobileMenu.addEventListener('click', e => {
+            e.stopPropagation();
+        });
 
         mobileMenu.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => setMenuState(false));
         });
 
         document.addEventListener('click', e => {
-            if (isOpen && !navbar.contains(e.target)) {
+            if (isOpen && navbar && !navbar.contains(e.target)) {
                 setMenuState(false);
             }
         });
