@@ -1,10 +1,10 @@
-import { initTheme } from './theme.js?v=20261118-13';
-import { initReveals } from './reveals.js?v=20261118-13';
-import { initNavigation } from './navigation.js?v=20261118-13';
-import { initGlassSpotlight } from './glass.js?v=20261118-13';
-import { initScrollMotion } from './motion.js?v=20261118-13';
-import { initLightbox } from './lightbox.js?v=20261118-13';
-import { initTikTokEmbed } from './tiktok.js?v=20261118-13';
+import { initTheme } from './theme.js?v=20261118-14';
+import { initReveals } from './reveals.js?v=20261118-14';
+import { initNavigation } from './navigation.js?v=20261118-14';
+import { initGlassSpotlight } from './glass.js?v=20261118-14';
+import { initScrollMotion } from './motion.js?v=20261118-14';
+import { initLightbox } from './lightbox.js?v=20261118-14';
+import { initTikTokEmbed } from './tiktok.js?v=20261118-14';
 
 document.addEventListener('DOMContentLoaded', () => {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
