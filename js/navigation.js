@@ -1,5 +1,5 @@
 /**
- * Desktop navbar scroll state, active section spy, accessible mobile drawer,
+ * Desktop navbar scroll state, active section spy, animated mobile drawer + burger morph,
  * and Apple-style quintic smooth anchor scrolling.
  */
 export function initNavigation() {
@@ -55,7 +55,6 @@ export function initNavigation() {
             const duration = Math.min(920, Math.max(460, Math.abs(distance) * 0.45));
             const startTime = performance.now();
 
-            // Quintic ease-in-out: silky launch + velvet Apple deceleration
             const easeInOutQuint = t =>
                 t < 0.5 ? 16 * t * t * t * t * t : 1 - Math.pow(-2 * t + 2, 5) / 2;
 
@@ -91,31 +90,41 @@ export function initNavigation() {
         });
     }
 
-    // 3. Accessible mobile drawer toggle
+    // 3. Smoothly animated mobile drawer + 3-bar hamburger morph
     const menuBtn = document.getElementById('mobile-menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
-    const iconOpen = document.getElementById('menu-icon-open');
-    const iconClose = document.getElementById('menu-icon-close');
 
     if (menuBtn && mobileMenu) {
-        const setMenuState = isOpen => {
-            mobileMenu.classList.toggle('hidden', !isOpen);
-            iconOpen?.classList.toggle('hidden', isOpen);
-            iconClose?.classList.toggle('hidden', !isOpen);
-            menuBtn.setAttribute('aria-expanded', String(isOpen));
-            menuBtn.setAttribute('aria-label', isOpen ? 'Tutup menu navigasi' : 'Buka menu navigasi');
+        let isOpen = false;
+
+        const setMenuState = open => {
+            isOpen = open;
+            menuBtn.classList.toggle('is-open', open);
+            mobileMenu.classList.toggle('is-open', open);
+            menuBtn.setAttribute('aria-expanded', String(open));
+            menuBtn.setAttribute('aria-label', open ? 'Tutup menu navigasi' : 'Buka menu navigasi');
+            mobileMenu.setAttribute('aria-hidden', String(!open));
+            if ('inert' in mobileMenu) {
+                mobileMenu.inert = !open;
+            }
         };
 
-        menuBtn.addEventListener('click', () => {
-            setMenuState(mobileMenu.classList.contains('hidden'));
-        });
+        setMenuState(false);
+
+        menuBtn.addEventListener('click', () => setMenuState(!isOpen));
 
         mobileMenu.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => setMenuState(false));
         });
 
+        document.addEventListener('click', e => {
+            if (isOpen && !navbar.contains(e.target)) {
+                setMenuState(false);
+            }
+        });
+
         document.addEventListener('keydown', e => {
-            if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
+            if (e.key === 'Escape' && isOpen) {
                 setMenuState(false);
                 menuBtn.focus();
             }

@@ -1,5 +1,5 @@
 /**
- * Interactive full-screen Lightbox modal for the iOS 16.5 boot screenshots.
+ * Interactive full-screen Lightbox modal with smooth slide crossfade for iOS 16.5 screenshots.
  */
 const IOS_BOOT_SLIDES = [
     {
@@ -31,8 +31,9 @@ export function initLightbox() {
     if (!lightbox || !lightboxImg) return;
 
     let currentSlide = 0;
+    let swapTimer = 0;
 
-    const renderSlide = idx => {
+    const applySlideContent = idx => {
         currentSlide = (idx + IOS_BOOT_SLIDES.length) % IOS_BOOT_SLIDES.length;
         const slide = IOS_BOOT_SLIDES[currentSlide];
         lightboxImg.src = slide.src;
@@ -41,8 +42,24 @@ export function initLightbox() {
         if (lightboxDesc) lightboxDesc.textContent = slide.desc;
     };
 
+    const switchSlide = idx => {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            applySlideContent(idx);
+            return;
+        }
+        clearTimeout(swapTimer);
+        lightboxImg.classList.add('is-switching');
+        swapTimer = setTimeout(() => {
+            applySlideContent(idx);
+            requestAnimationFrame(() => {
+                lightboxImg.classList.remove('is-switching');
+            });
+        }, 140);
+    };
+
     const openLightbox = idx => {
-        renderSlide(idx);
+        lightboxImg.classList.remove('is-switching');
+        applySlideContent(idx);
         lightbox.classList.add('open');
         document.body.classList.add('overflow-hidden');
         lightboxClose?.focus();
@@ -60,8 +77,8 @@ export function initLightbox() {
     });
 
     lightboxClose?.addEventListener('click', closeLightbox);
-    lightboxPrev?.addEventListener('click', () => renderSlide(currentSlide - 1));
-    lightboxNext?.addEventListener('click', () => renderSlide(currentSlide + 1));
+    lightboxPrev?.addEventListener('click', () => switchSlide(currentSlide - 1));
+    lightboxNext?.addEventListener('click', () => switchSlide(currentSlide + 1));
 
     lightbox.addEventListener('click', e => {
         if (e.target === lightbox) closeLightbox();
@@ -70,7 +87,7 @@ export function initLightbox() {
     document.addEventListener('keydown', e => {
         if (!lightbox.classList.contains('open')) return;
         if (e.key === 'Escape') closeLightbox();
-        else if (e.key === 'ArrowLeft') renderSlide(currentSlide - 1);
-        else if (e.key === 'ArrowRight') renderSlide(currentSlide + 1);
+        else if (e.key === 'ArrowLeft') switchSlide(currentSlide - 1);
+        else if (e.key === 'ArrowRight') switchSlide(currentSlide + 1);
     });
 }
