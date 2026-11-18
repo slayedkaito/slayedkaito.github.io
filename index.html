@@ -41,17 +41,18 @@
     <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
     <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
     <link rel="preload" as="image" type="image/webp" href="assets/hero-bg.webp" fetchpriority="high">
-    <link rel="modulepreload" href="js/main.js?v=20261118-14">
-    <link rel="modulepreload" href="js/theme.js?v=20261118-14">
-    <link rel="modulepreload" href="js/motion.js?v=20261118-14">
-    <link rel="modulepreload" href="js/navigation.js?v=20261118-14">
-    <link rel="modulepreload" href="js/reveals.js?v=20261118-14">
+    <link rel="modulepreload" href="js/main.js?v=20261118-15">
+    <link rel="modulepreload" href="js/theme.js?v=20261118-15">
+    <link rel="modulepreload" href="js/motion.js?v=20261118-15">
+    <link rel="modulepreload" href="js/navigation.js?v=20261118-15">
+    <link rel="modulepreload" href="js/dock.js?v=20261118-15">
+    <link rel="modulepreload" href="js/reveals.js?v=20261118-15">
 
     <!-- Fonts -->
     <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
 
     <!-- Compiled & Minified Production Stylesheet (cache-busted) -->
-    <link rel="stylesheet" href="assets/styles.css?v=20261118-14">
+    <link rel="stylesheet" href="assets/styles.css?v=20261118-15">
 
     <noscript>
         <style>
@@ -250,9 +251,10 @@
             </div>
         </nav>
 
-        <!-- Mobile Post-Hero Floating Bottom Dock (appears after scrolling past Hero) -->
+        <!-- Mobile Post-Hero Floating Bottom Dock (iOS 26 interactive sliding lens) -->
         <nav id="mobile-dock" aria-label="Navigasi cepat mobile" aria-hidden="true"
             class="mobile-dock md:hidden flex items-center gap-0.5">
+            <span id="dock-lens" class="dock-lens" aria-hidden="true"></span>
             <a href="#tentang" data-dock-link="tentang" class="dock-item" aria-label="Tentang">
                 <svg class="w-4 h-4" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor"
                     stroke-width="1.9" aria-hidden="true">
@@ -923,7 +925,7 @@
         </button>
     </div>
 
-    <script type="module" src="js/main.js?v=20261118-14"></script>
+    <script type="module" src="js/main.js?v=20261118-15"></script>
 </body>
 
 </html>

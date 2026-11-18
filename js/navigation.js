@@ -2,7 +2,7 @@
  * Desktop navbar scroll state, active section spy, animated mobile drawer + burger morph,
  * mobile post-Hero floating bottom dock, and Apple-style quintic smooth anchor scrolling.
  */
-export function initNavigation() {
+export function initNavigation(onActiveSectionChange) {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const navbar = document.getElementById('navbar');
     const mobileDock = document.getElementById('mobile-dock');
@@ -33,6 +33,8 @@ export function initNavigation() {
                     if (isActive) link.setAttribute('aria-current', 'location');
                     else link.removeAttribute('aria-current');
                 });
+
+                onActiveSectionChange?.(activeId);
             });
         }, { rootMargin: '-35% 0px -55% 0px', threshold: 0 });
 
