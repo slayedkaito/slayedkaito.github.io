@@ -1,7 +1,19 @@
 /**
- * Desktop-only cursor-tracked specular spotlight & prismatic rim on glass cards.
+ * Desktop-only real optical glass refraction feature flag (Chromium desktop)
+ * + cursor-tracked specular spotlight & prismatic rim on glass cards.
  */
 export function initGlassSpotlight(prefersReducedMotion, isFinePointer) {
+    const syncRefractionSupport = () => {
+        const isDesktopChromium =
+            typeof window.chrome !== 'undefined' &&
+            isFinePointer &&
+            window.innerWidth >= 1024;
+        document.documentElement.classList.toggle('has-real-refraction', isDesktopChromium);
+    };
+
+    syncRefractionSupport();
+    window.addEventListener('resize', syncRefractionSupport, { passive: true });
+
     if (prefersReducedMotion || !isFinePointer) return;
 
     document.querySelectorAll('.glass-card').forEach(card => {
