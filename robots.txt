@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://slayedkaito.github.io/sitemap.xml

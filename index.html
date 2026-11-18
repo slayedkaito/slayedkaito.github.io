@@ -5,446 +5,667 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="Portfolio of Gathan Alfarabi Agusti - Mechanical Engineering student, Opreker, dan Developer.">
-    <title>Gathan Alfarabi Agusti | Portfolio</title>
+        content="Portfolio Gathan Alfarabi Agusti (Atha) — Mahasiswa D4 Teknik Mesin (TMPP) Polsri, Darwin/XNU Kernel Porter (iOS 16.5 native di POCO F6), Opreker, &amp; Developer.">
+    <meta name="author" content="Gathan Alfarabi Agusti">
+    <meta name="theme-color" content="#000000">
+    <meta name="color-scheme" content="dark">
+    <title>Gathan Alfarabi Agusti | Mechanical Engineer, Kernel Porter &amp; Developer</title>
 
-    <link rel="preconnect" href="https://api.fontshare.com">
-    <link rel="preconnect" href="https://cdn.tailwindcss.com">
-    <link rel="preload" as="image" href="https://drive.google.com/u/0/drive-viewer/AKGpihbJK2zMhiixBojdl37LfiWeYlm5KHUUObWmmTj2v56QienrUWfUgA2JZOtehBONg9YK8PI8UkRbBd8r7HY3huCkDTjBoB96jIs=s1600-rw-v1?auditContext=forDisplay">
+    <link rel="canonical" href="https://slayedkaito.github.io/">
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23000000' stroke='%23ffffff' stroke-opacity='0.22' stroke-width='2'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' fill='%23ffffff' font-family='system-ui,-apple-system,sans-serif' font-size='32' font-weight='700'%3EG%3C/text%3E%3C/svg%3E">
 
-    <link href="https://api.fontshare.com/v2/css?f[]=general-sans@200,300,400,500,600,700&display=swap"
-        rel="stylesheet">
+    <!-- Open Graph / Social Meta -->
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="id_ID">
+    <meta property="og:site_name" content="GTALFR. Portfolio">
+    <meta property="og:title" content="Gathan Alfarabi Agusti | Mechanical Engineer, Kernel Porter &amp; Developer">
+    <meta property="og:description"
+        content="Dari maintenance alat berat dan permesinan industri, porting kernel Darwin 22.5 (iOS 16.5 native) di POCO F6, hingga perakitan PC, multi-OS, dan bot AI.">
+    <meta property="og:url" content="https://slayedkaito.github.io/">
+    <meta property="og:image" content="https://slayedkaito.github.io/assets/hero-bg.jpg">
+    <meta property="og:image:width" content="736">
+    <meta property="og:image:height" content="736">
 
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Twitter / X Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Gathan Alfarabi Agusti | Mechanical Engineer, Kernel Porter &amp; Developer">
+    <meta name="twitter:description"
+        content="Mahasiswa D4 Teknik Mesin (TMPP) Polsri, Darwin/XNU Kernel Porter, Opreker, &amp; Developer.">
+    <meta name="twitter:image" content="https://slayedkaito.github.io/assets/hero-bg.jpg">
 
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['General Sans', 'sans-serif'],
-                    },
-                    colors: {
-                        black: '#000000',
-                    },
-                    backgroundImage: {
-                        'hero-gradient': 'linear-gradient(144.5deg, #FFFFFF 28%, rgba(0,0,0,0) 115%)',
-                        'grid-pattern': 'linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px)',
-                    },
-                    backgroundSize: {
-                        'grid-pattern': '40px 40px',
-                    },
-                    animation: {
-                        'marquee': 'marquee 25s linear infinite',
-                        'float': 'float 6s ease-in-out infinite',
-                        'subtle-pulse': 'subtle-pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                    },
-                    keyframes: {
-                        marquee: {
-                            '0%': { transform: 'translateX(0%)' },
-                            '100%': { transform: 'translateX(calc(-100% / 3))' },
-                        },
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-10px)' },
-                        },
-                        'subtle-pulse': {
-                            '0%, 100%': { opacity: 1 },
-                            '50%': { opacity: .7 },
-                        }
-                    }
-                }
+    <!-- Resource Hints & Preloads -->
+    <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+    <link rel="preload" as="image" type="image/webp" href="assets/hero-bg.webp" fetchpriority="high">
+
+    <!-- Fonts (only used weights: 300, 400, 500, 600, 700) -->
+    <link href="https://api.fontshare.com/v2/css?f[]=general-sans@300,400,500,600,700&display=swap" rel="stylesheet">
+
+    <!-- Compiled & Minified Production Stylesheet -->
+    <link rel="stylesheet" href="assets/styles.css">
+
+    <noscript>
+        <style>
+            .reveal {
+                opacity: 1 !important;
+                transform: none !important;
             }
-        }
+        </style>
+    </noscript>
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Gathan Alfarabi Agusti",
+        "alternateName": ["Atha", "GTALFR", "slayedkaito"],
+        "url": "https://slayedkaito.github.io/",
+        "image": "https://slayedkaito.github.io/assets/hero-bg.jpg",
+        "jobTitle": "Mechanical Engineering Student, Kernel Porter & Developer",
+        "affiliation": {
+            "@type": "CollegeOrUniversity",
+            "name": "Politeknik Negeri Sriwijaya (Polsri)"
+        },
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Palembang",
+            "addressRegion": "Sumatera Selatan",
+            "addressCountry": "ID"
+        },
+        "knowsAbout": [
+            "Mechanical Engineering",
+            "Heavy Equipment Maintenance",
+            "Darwin/XNU Kernel Porting",
+            "UEFI",
+            "Linux",
+            "Hackintosh",
+            "Node.js",
+            "Python",
+            "Local LLM",
+            "Web Development"
+        ],
+        "sameAs": [
+            "https://github.com/slayedkaito",
+            "https://instagram.com/gtalfr"
+        ]
+    }
     </script>
-
-    <style>
-        body {
-            background-color: #000000;
-            color: #ffffff;
-            overflow-x: hidden;
-        }
-
-        /* Scroll Reveal Animation */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition-property: opacity, transform;
-            transition-duration: 0.9s;
-            transition-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
-            will-change: opacity, transform;
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Smooth Gradients for Text */
-        .text-gradient {
-            background: linear-gradient(144.5deg, #FFFFFF 28%, rgba(0, 0, 0, 0) 115%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        /* Glass Card Bento Style */
-        .glass-card {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01));
-            box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
-            transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
-            position: relative;
-        }
-
-        .glass-card::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 255, 255, 0.06), transparent 40%);
-            opacity: 0;
-            transition: opacity 0.5s;
-            z-index: 0;
-            pointer-events: none;
-        }
-
-        .glass-card:hover {
-            transform: translateY(-5px) scale(1.01);
-            box-shadow: inset 0 2px 0 0 rgba(255, 255, 255, 0.1), 0 20px 40px -10px rgba(0, 0, 0, 0.7);
-            border-color: rgba(255, 255, 255, 0.15);
-        }
-
-        .glass-card:hover::before {
-            opacity: 1;
-        }
-
-        /* Marquee Masks */
-        .mask-edges {
-            -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-        }
-
-        .mask-radial {
-            -webkit-mask-image: radial-gradient(circle at center, black 20%, transparent 70%);
-            mask-image: radial-gradient(circle at center, black 20%, transparent 70%);
-        }
-
-        /* SVG Noise Texture for Code Editor */
-        .noise-bg {
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-            opacity: 0.04;
-            pointer-events: none;
-        }
-    </style>
 </head>
 
-<body class="antialiased selection:bg-white/20 selection:text-white">
+<body class="antialiased bg-black text-white selection:bg-white/20 selection:text-white">
 
-    <section id="tentang" class="relative h-screen min-h-[700px] w-full flex flex-col items-center overflow-hidden">
+    <a href="#main-content" class="skip-link">Lewati ke konten utama</a>
 
-        <img src="https://i.pinimg.com/736x/30/28/96/3028967420ba01b986c4b81d35aaa481.jpg" alt="Background"
-            class="absolute inset-0 w-full h-full object-cover object-center z-[-2]" fetchpriority="high"
-            decoding="async">
+    <header>
+        <nav id="navbar" aria-label="Navigasi utama"
+            class="fixed top-0 inset-x-0 z-50 transition-all duration-300 border-b border-transparent py-5">
+            <div class="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-[100px] flex items-center justify-between gap-4">
+                <div class="flex items-center gap-10">
+                    <a href="#tentang"
+                        class="text-[22px] sm:text-[25px] font-bold tracking-tight text-white/95 hover:text-white transition-colors shrink-0">
+                        GTALFR.
+                    </a>
 
-        <div class="absolute inset-0 bg-black/60 z-[-1]"></div>
-        <div class="absolute bottom-0 w-full h-[300px] bg-gradient-to-t from-black to-transparent z-[-1]"></div>
-
-        <nav id="navbar"
-            class="fixed top-0 w-full flex items-center justify-between px-6 md:px-[120px] py-[20px] z-50 transition-all duration-300 border-b border-transparent">
-            <div class="flex items-center gap-[40px]">
-                <div
-                    class="text-[25px] font-bold tracking-tight opacity-90 w-[187px] hover:opacity-100 transition-opacity cursor-default">
-                    GTALFR.
+                    <div class="hidden md:flex items-center space-x-[30px]">
+                        <a href="#tentang" data-nav-link="tentang"
+                            class="nav-link text-[14px] font-medium text-white/80 hover:text-white transition-colors">
+                            Tentang
+                        </a>
+                        <a href="#keahlian" data-nav-link="keahlian"
+                            class="nav-link text-[14px] font-medium text-white/80 hover:text-white transition-colors">
+                            Keahlian
+                        </a>
+                        <a href="#setup" data-nav-link="setup"
+                            class="nav-link text-[14px] font-medium text-white/80 hover:text-white transition-colors">
+                            Setup
+                        </a>
+                        <a href="#proyek" data-nav-link="proyek"
+                            class="nav-link text-[14px] font-medium text-white/80 hover:text-white transition-colors">
+                            Proyek
+                        </a>
+                    </div>
                 </div>
 
-                <div class="hidden md:flex items-center space-x-[30px]">
+                <div class="flex items-center gap-3">
+                    <div class="hidden md:block relative group rounded-full border border-white/20 p-[1px]">
+                        <div aria-hidden="true"
+                            class="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-[1px] bg-white/60 blur-[2px] transition-all group-hover:bg-white group-hover:blur-[3px]">
+                        </div>
+                        <a href="https://instagram.com/gtalfr" target="_blank" rel="noopener noreferrer"
+                            class="relative bg-black text-white px-7 py-2.5 rounded-full text-[14px] font-medium flex items-center justify-center z-10 transition-colors group-hover:bg-[#0e0e0e]">
+                            Hubungi Saya
+                        </a>
+                    </div>
+
+                    <button id="mobile-menu-btn" type="button" aria-label="Buka menu navigasi"
+                        aria-expanded="false" aria-controls="mobile-menu"
+                        class="md:hidden inline-flex items-center justify-center w-11 h-11 rounded-full border border-white/15 bg-white/5 text-white/90 hover:text-white hover:bg-white/10 transition-colors">
+                        <svg id="menu-icon-open" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                            stroke-width="1.8" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M4 12h16M4 17h16" />
+                        </svg>
+                        <svg id="menu-icon-close" class="w-5 h-5 hidden" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 6l12 12M18 6L6 18" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Navigation Drawer -->
+            <div id="mobile-menu"
+                class="md:hidden hidden border-t border-white/10 bg-black/95 backdrop-blur-xl mt-4 px-6 py-5">
+                <div class="flex flex-col space-y-1">
                     <a href="#tentang"
-                        class="flex items-center gap-1 text-[14px] font-medium text-white/90 hover:text-white transition-colors">
+                        class="mobile-nav-link px-3 py-2.5 rounded-lg text-[15px] font-medium text-white/85 hover:text-white hover:bg-white/5 transition-colors">
                         Tentang
                     </a>
                     <a href="#keahlian"
-                        class="flex items-center gap-1 text-[14px] font-medium text-white/90 hover:text-white transition-colors">
+                        class="mobile-nav-link px-3 py-2.5 rounded-lg text-[15px] font-medium text-white/85 hover:text-white hover:bg-white/5 transition-colors">
                         Keahlian
                     </a>
-                    <a href="#proyek"
-                        class="flex items-center gap-1 text-[14px] font-medium text-white/90 hover:text-white transition-colors">
-                        Proyek
-                    </a>
                     <a href="#setup"
-                        class="flex items-center gap-1 text-[14px] font-medium text-white/90 hover:text-white transition-colors">
+                        class="mobile-nav-link px-3 py-2.5 rounded-lg text-[15px] font-medium text-white/85 hover:text-white hover:bg-white/5 transition-colors">
                         Setup
                     </a>
+                    <a href="#proyek"
+                        class="mobile-nav-link px-3 py-2.5 rounded-lg text-[15px] font-medium text-white/85 hover:text-white hover:bg-white/5 transition-colors">
+                        Proyek
+                    </a>
+                    <div class="pt-3 mt-2 border-t border-white/10">
+                        <a href="https://instagram.com/gtalfr" target="_blank" rel="noopener noreferrer"
+                            class="w-full bg-white text-black px-6 py-3 rounded-full text-[14px] font-medium flex items-center justify-center hover:bg-gray-100 transition-colors">
+                            Hubungi Saya di Instagram
+                        </a>
+                    </div>
                 </div>
-            </div>
-
-            <div class="relative group cursor-pointer rounded-full border border-white/20 p-[0.6px]">
-                <div
-                    class="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-[1px] bg-white/60 blur-[2px] transition-all group-hover:bg-white group-hover:blur-[3px]">
-                </div>
-                <a href="https://instagram.com/gtalfr" target="_blank"
-                    class="relative bg-black text-white px-[29px] py-[11px] rounded-full text-[14px] font-medium flex items-center justify-center z-10 transition-colors group-hover:bg-[#0a0a0a]">
-                    Hubungi Saya
-                </a>
             </div>
         </nav>
+    </header>
 
-        <div class="flex-1 flex flex-col items-center pt-[200px] md:pt-[280px] px-6 text-center w-full z-10 reveal">
+    <main id="main-content">
 
-            <div
-                class="flex items-center gap-2 bg-white/5 border border-white/20 rounded-full px-5 py-2 mb-8 backdrop-blur-2xl shadow-xl">
-                <div class="w-1.5 h-1.5 bg-white rounded-full animate-pulse"></div>
-                <p class="text-[13px] font-medium">
-                    <span class="text-white/60">Mahasiswa Polsri &bull;</span>
-                    <span class="text-white">D4 Teknik Mesin</span>
+        <!-- Hero Section -->
+        <section id="tentang"
+            class="relative min-h-screen w-full flex flex-col items-center justify-center overflow-hidden pt-28 pb-20 md:pt-36 md:pb-24">
+
+            <picture aria-hidden="true" class="absolute inset-0 w-full h-full z-[-2] pointer-events-none">
+                <source srcset="assets/hero-bg.webp" type="image/webp">
+                <img src="assets/hero-bg.jpg" alt="" width="736" height="736"
+                    class="w-full h-full object-cover object-center" fetchpriority="high" decoding="async">
+            </picture>
+
+            <div aria-hidden="true" class="absolute inset-0 bg-black/65 z-[-1]"></div>
+            <div aria-hidden="true"
+                class="absolute bottom-0 inset-x-0 h-[280px] bg-gradient-to-t from-black via-black/75 to-transparent z-[-1]">
+            </div>
+
+            <div class="flex flex-col items-center px-6 text-center w-full max-w-[820px] z-10 hero-enter">
+
+                <div
+                    class="inline-flex items-center gap-2.5 bg-white/5 border border-white/20 rounded-full px-5 py-2 mb-8 backdrop-blur-xl shadow-xl">
+                    <span class="w-1.5 h-1.5 bg-white rounded-full animate-pulse" aria-hidden="true"></span>
+                    <p class="text-[13px] font-medium">
+                        <span class="text-white/70">Mahasiswa Polsri &bull;</span>
+                        <span class="text-white">D4 Teknik Mesin (TMPP)</span>
+                    </p>
+                </div>
+
+                <h1
+                    class="text-[36px] sm:text-[44px] md:text-[56px] font-medium leading-[1.22] max-w-[740px] text-gradient tracking-tight mb-6 animate-float">
+                    Calon Mechanical Engineer.<br>Kernel Porter &amp; Developer.
+                </h1>
+
+                <p class="text-[15px] md:text-[16px] font-normal text-white/75 max-w-[680px] leading-relaxed mb-10">
+                    Saya Gathan Alfarabi Agusti (Atha). Berdomisili di Palembang, berasal dari Tanjung Enim. Dari
+                    maintenance alat berat dan permesinan industri, porting kernel Darwin 22.5 untuk menjalankan iOS
+                    16.5 native di POCO F6, hingga merakit PC, optimasi multi-OS, dan membangun bot AI—saya merancang
+                    serta mengoprek sistem fisik maupun digital.
                 </p>
+
+                <div class="flex flex-wrap items-center justify-center gap-4">
+                    <div class="relative group rounded-full border border-white/20 p-[1px]">
+                        <div aria-hidden="true"
+                            class="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-[1px] bg-white blur-[2px] transition-all group-hover:blur-[4px]">
+                        </div>
+                        <a href="https://instagram.com/gtalfr" target="_blank" rel="noopener noreferrer"
+                            class="relative bg-white text-black px-8 py-3 rounded-full text-[14px] font-medium flex items-center justify-center z-10 hover:bg-gray-100 transition-colors">
+                            Hubungi Saya
+                        </a>
+                    </div>
+
+                    <a href="#proyek"
+                        class="px-7 py-3 rounded-full text-[14px] font-medium text-white/90 border border-white/15 bg-white/5 hover:bg-white/10 hover:text-white backdrop-blur-md transition-colors">
+                        Lihat Proyek &darr;
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Marquee Strip -->
+        <section aria-label="Sorotan teknologi dan disiplin" class="py-12 border-b border-white/10 reveal">
+            <div class="max-w-7xl mx-auto overflow-hidden mask-edges relative">
+                <div class="flex w-max animate-marquee hover:[animation-play-state:paused] items-center">
+                    <div class="flex items-center space-x-20 md:space-x-24 px-10 md:px-12">
+                        <span class="text-lg md:text-xl font-bold tracking-tighter text-white/60">DARWIN 22.5 / XNU</span>
+                        <span class="text-lg md:text-xl font-medium tracking-wide text-white/55 italic">iOS 16.5 on POCO F6</span>
+                        <span class="text-lg md:text-xl font-bold text-white/70">NODE.JS &amp; GEMINI API</span>
+                        <span class="text-base md:text-lg font-light tracking-[0.3em] text-white/55">H A C K I N T O S H</span>
+                        <span class="text-lg md:text-xl font-semibold text-white/60">Local LLM (Llama &amp; Qwen)</span>
+                        <span class="text-lg md:text-xl font-medium tracking-wide text-white/55">Mechanical Engineering</span>
+                        <span class="text-lg md:text-xl font-bold tracking-widest text-white/55">ALIGHT MOTION</span>
+                    </div>
+                    <div class="flex items-center space-x-20 md:space-x-24 px-10 md:px-12" aria-hidden="true">
+                        <span class="text-lg md:text-xl font-bold tracking-tighter text-white/60">DARWIN 22.5 / XNU</span>
+                        <span class="text-lg md:text-xl font-medium tracking-wide text-white/55 italic">iOS 16.5 on POCO F6</span>
+                        <span class="text-lg md:text-xl font-bold text-white/70">NODE.JS &amp; GEMINI API</span>
+                        <span class="text-base md:text-lg font-light tracking-[0.3em] text-white/55">H A C K I N T O S H</span>
+                        <span class="text-lg md:text-xl font-semibold text-white/60">Local LLM (Llama &amp; Qwen)</span>
+                        <span class="text-lg md:text-xl font-medium tracking-wide text-white/55">Mechanical Engineering</span>
+                        <span class="text-lg md:text-xl font-bold tracking-widest text-white/55">ALIGHT MOTION</span>
+                    </div>
+                    <div class="flex items-center space-x-20 md:space-x-24 px-10 md:px-12" aria-hidden="true">
+                        <span class="text-lg md:text-xl font-bold tracking-tighter text-white/60">DARWIN 22.5 / XNU</span>
+                        <span class="text-lg md:text-xl font-medium tracking-wide text-white/55 italic">iOS 16.5 on POCO F6</span>
+                        <span class="text-lg md:text-xl font-bold text-white/70">NODE.JS &amp; GEMINI API</span>
+                        <span class="text-base md:text-lg font-light tracking-[0.3em] text-white/55">H A C K I N T O S H</span>
+                        <span class="text-lg md:text-xl font-semibold text-white/60">Local LLM (Llama &amp; Qwen)</span>
+                        <span class="text-lg md:text-xl font-medium tracking-wide text-white/55">Mechanical Engineering</span>
+                        <span class="text-lg md:text-xl font-bold tracking-widest text-white/55">ALIGHT MOTION</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Keahlian Section -->
+        <section id="keahlian" class="relative py-24 md:py-32 px-6 overflow-hidden scroll-mt-24">
+            <div aria-hidden="true"
+                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-white/[0.025] blur-[100px] rounded-full pointer-events-none z-0">
             </div>
 
-            <h1
-                class="text-[36px] md:text-[56px] font-medium leading-[1.28] max-w-[700px] text-gradient tracking-tight mb-6 animate-float">
-                Calon Mechanical Engineer.<br>Opreker & Pengembang.
-            </h1>
+            <div class="max-w-[1000px] mx-auto relative z-10">
+                <div class="text-center mb-16 reveal">
+                    <h2
+                        class="text-3xl md:text-4xl font-medium mb-4 bg-gradient-to-b from-white to-white/60 bg-clip-text text-transparent">
+                        Keahlian Lintas Disiplin
+                    </h2>
+                    <p class="text-white/65 text-[15px] max-w-lg mx-auto leading-relaxed">
+                        Dari ruang mesin hingga kernel level. Menggabungkan ketelitian mekanik dengan rekayasa sistem
+                        dan komputasi.
+                    </p>
+                </div>
 
-            <p class="text-[15px] font-normal text-white/70 max-w-[680px] leading-relaxed mb-10">
-                Saya Gathan Alfarabi Agusti. Berdomisili di Palembang, berasal dari Tanjung Enim. Dari maintenance alat
-                berat hingga membangun AI chatbot, serta memperbaiki hardbrick smartphone hingga merakit PC—saya
-                membangun dan memperbaiki sistem fisik maupun digital.
-            </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
 
-            <div class="relative group cursor-pointer rounded-full border border-white/20 p-[0.6px]">
+                    <article class="col-span-1 lg:col-span-2 group reveal delay-100">
+                        <div class="glass-card rounded-2xl p-7 md:p-8 h-full min-h-[240px] flex flex-col justify-end">
+                            <div aria-hidden="true"
+                                class="absolute top-0 right-0 w-[200px] h-[200px] bg-white/5 blur-[50px] rounded-full translate-x-1/2 -translate-y-1/2 group-hover:bg-white/10 transition-colors duration-500">
+                            </div>
+                            <h3 class="text-xl font-medium text-white mb-2.5 relative z-10">Kernel Porting, OS &amp; Hardware</h3>
+                            <p
+                                class="text-[14px] text-white/65 leading-relaxed relative z-10 max-w-[490px] group-hover:text-white/85 transition-colors duration-300">
+                                Porting kernel Darwin 22.5 (iOS 16.5 native) di POCO F6 via UEFI (Mu-Silicium) &amp;
+                                xnuloader. Berpengalaman merakit PC, maintenance laptop, instalasi Custom ROM, KernelSU
+                                Next/SuSFS, Jailbreak (Dopamine), serta instalasi ulang &amp; optimasi Windows, Linux
+                                (CachyOS), dan Hackintosh.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="col-span-1 group reveal delay-200">
+                        <div class="glass-card rounded-2xl p-7 md:p-8 h-full min-h-[240px] flex flex-col justify-end">
+                            <h3 class="text-xl font-medium text-white mb-2.5 relative z-10">Teknik Mesin &amp; Alat Berat</h3>
+                            <p
+                                class="text-[14px] text-white/65 leading-relaxed relative z-10 group-hover:text-white/85 transition-colors duration-300">
+                                Lulusan Teknik Alat Berat SMK Bukit Asam dengan pengalaman PKL di subkontraktor PT PAMA.
+                                Menguasai mechanical drafting, perawatan alat berat, serta diagnostik mesin industri
+                                (alignment, transmisi, &amp; mesin sekrap).
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="col-span-1 group reveal delay-300">
+                        <div class="glass-card rounded-2xl p-7 md:p-8 h-full min-h-[240px] flex flex-col justify-end">
+                            <h3 class="text-xl font-medium text-white mb-2.5 relative z-10">Web Dev, Bot &amp; Local AI</h3>
+                            <p
+                                class="text-[14px] text-white/65 leading-relaxed relative z-10 group-hover:text-white/85 transition-colors duration-300">
+                                Menguasai HTML5, CSS, Vanilla JS, Node.js, dan Python. Membangun bot WhatsApp otomatis
+                                berbasis Gemini API serta deployment Local LLM (Llama 3.2 3B &amp; Qwen 2.5) offline di
+                                Android via ChatterUI.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="col-span-1 group reveal delay-[400ms]">
+                        <div class="glass-card rounded-2xl p-7 md:p-8 h-full min-h-[240px] flex flex-col justify-end">
+                            <div aria-hidden="true"
+                                class="absolute top-1/2 left-1/2 w-[150px] h-[150px] bg-white/5 blur-[40px] rounded-full -translate-x-1/2 -translate-y-1/2 group-hover:bg-white/10 transition-colors duration-500">
+                            </div>
+                            <h3 class="text-xl font-medium text-white mb-2.5 relative z-10">Desain Poster &amp; Motion</h3>
+                            <p
+                                class="text-[14px] text-white/65 leading-relaxed relative z-10 group-hover:text-white/85 transition-colors duration-300">
+                                Merancang poster promosi dan materi visual untuk kebutuhan PT Bukit Asam Tbk serta
+                                berbagai proyek poster lainnya, lengkap dengan animasi grafis di Canva dan Alight
+                                Motion.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="col-span-1 group reveal delay-[500ms]">
+                        <div class="glass-card rounded-2xl p-7 md:p-8 h-full min-h-[240px] flex flex-col justify-end">
+                            <h3 class="text-xl font-medium text-white mb-2.5 relative z-10">Visual &amp; Astrofotografi</h3>
+                            <p
+                                class="text-[14px] text-white/65 leading-relaxed relative z-10 group-hover:text-white/85 transition-colors duration-300">
+                                Eksplorasi fotografi lanskap, sinematografi, dan astrofotografi langit malam menggunakan
+                                sensor smartphone serta teknik image stacking via Sequator.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="col-span-1 md:col-span-2 lg:col-span-3 group reveal delay-[600ms]">
+                        <div class="glass-card rounded-2xl p-7 md:p-8 h-full min-h-[200px] flex flex-col justify-end">
+                            <div aria-hidden="true"
+                                class="absolute bottom-0 left-0 w-[200px] h-[200px] bg-white/5 blur-[50px] rounded-full -translate-x-1/2 translate-y-1/2 group-hover:bg-white/10 transition-colors duration-500">
+                            </div>
+                            <h3 class="text-xl font-medium text-white mb-2.5 relative z-10">Penulis Fiksi &amp; Audiophile</h3>
+                            <p
+                                class="text-[14px] text-white/65 leading-relaxed relative z-10 max-w-2xl group-hover:text-white/85 transition-colors duration-300">
+                                Audiophile penikmat IEM &amp; TWS (KZ EDC Pro, Moondrop Space Travel) serta kultur
+                                anime. Kreatif merancang plot, script, dan light novel dengan skenario &lsquo;what
+                                if&rsquo;. Waifu: Airi Momoi &gt;&lt;
+                            </p>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Setup Section -->
+        <section id="setup" class="w-full py-16 reveal relative z-10 scroll-mt-24">
+            <h2 class="sr-only">Perangkat Utama dan Target Sertifikasi</h2>
+            <div class="border-y border-white/10 bg-black/50 backdrop-blur-xl w-full shadow-2xl relative">
                 <div
-                    class="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-[1px] bg-white blur-[2px] transition-all group-hover:blur-[4px]">
-                </div>
-                <a href="https://instagram.com/gtalfr" target="_blank"
-                    class="relative bg-white text-black px-[29px] py-[11px] rounded-full text-[14px] font-medium flex items-center justify-center z-10 hover:bg-gray-100 transition-colors">
-                    Hubungi Saya
-                </a>
-            </div>
-        </div>
-    </section>
+                    class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-white/10">
 
-    <section class="py-12 border-b border-white/5 reveal">
-        <div class="max-w-7xl mx-auto overflow-hidden mask-edges relative">
-            <div class="flex w-max animate-marquee hover:[animation-play-state:paused] items-center">
-                <div class="flex items-center space-x-24 px-12">
-                    <span class="text-xl font-bold tracking-tighter opacity-50">PYTHON</span>
-                    <span class="text-xl font-medium tracking-wide opacity-40 italic">HyperOS Port</span>
-                    <span class="text-xl font-bold opacity-60">STREAMLIT</span>
-                    <span class="text-lg font-light tracking-[0.3em] opacity-40">H A C K I N T O S H</span>
-                    <span class="text-xl font-semibold opacity-50">Gemma AI</span>
-                    <span class="text-xl font-medium tracking-wide opacity-40">SolidWorks</span>
-                    <span class="text-xl font-bold tracking-widest opacity-40">ALIGHT MOTION</span>
-                </div>
-                <div class="flex items-center space-x-24 px-12" aria-hidden="true">
-                    <span class="text-xl font-bold tracking-tighter opacity-50">PYTHON</span>
-                    <span class="text-xl font-medium tracking-wide opacity-40 italic">HyperOS Port</span>
-                    <span class="text-xl font-bold opacity-60">STREAMLIT</span>
-                    <span class="text-lg font-light tracking-[0.3em] opacity-40">H A C K I N T O S H</span>
-                    <span class="text-xl font-semibold opacity-50">Gemma AI</span>
-                    <span class="text-xl font-medium tracking-wide opacity-40">SolidWorks</span>
-                    <span class="text-xl font-bold tracking-widest opacity-40">ALIGHT MOTION</span>
-                </div>
-                <div class="flex items-center space-x-24 px-12" aria-hidden="true">
-                    <span class="text-xl font-bold tracking-tighter opacity-50">PYTHON</span>
-                    <span class="text-xl font-medium tracking-wide opacity-40 italic">HyperOS Port</span>
-                    <span class="text-xl font-bold opacity-60">STREAMLIT</span>
-                    <span class="text-lg font-light tracking-[0.3em] opacity-40">H A C K I N T O S H</span>
-                    <span class="text-xl font-semibold opacity-50">Gemma AI</span>
-                    <span class="text-xl font-medium tracking-wide opacity-40">SolidWorks</span>
-                    <span class="text-xl font-bold tracking-widest opacity-40">ALIGHT MOTION</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="keahlian" class="relative py-32 px-6 overflow-hidden">
-        <div
-            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-white/[0.02] blur-[120px] rounded-full pointer-events-none z-0">
-        </div>
-
-        <div class="max-w-[1000px] mx-auto relative z-10">
-            <div class="text-center mb-16 reveal">
-                <h2
-                    class="text-3xl md:text-4xl font-medium mb-4 bg-gradient-to-b from-white to-white/40 bg-clip-text text-transparent">
-                    Keahlian Lintas Disiplin
-                </h2>
-                <p class="text-white/50 text-[15px] max-w-lg mx-auto">
-                    Dari ruang mesin hingga command line. Menggabungkan ketelitian mekanik dengan logika komputasi.
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-
-                <div class="col-span-1 lg:col-span-2 group reveal delay-100">
-                    <div class="glass-card rounded-2xl p-8 h-full min-h-[240px] flex flex-col justify-end">
-                        <div
-                            class="absolute top-0 right-0 w-[200px] h-[200px] bg-white/5 blur-[50px] rounded-full translate-x-1/2 -translate-y-1/2 group-hover:bg-white/10 transition-colors duration-500">
-                        </div>
-                        <h3 class="text-xl font-medium text-white mb-2 relative z-10">Software & Hardware Mastery</h3>
-                        <p
-                            class="text-[14px] text-white/50 relative z-10 max-w-[340px] group-hover:text-white/70 transition-colors duration-300">
-                            Ahli dalam perbaikan PC,
-                            Laptop, Android & iPhone. Berpengalaman flashing ulang, memperbaiki hardbrick/softbrick,
-                            bypass iPhone, rewrite IMEI, instalasi Windows/Linux/Hackintosh, hingga merakit PC.</p>
-                    </div>
-                </div>
-
-                <div class="col-span-1 group reveal delay-200">
-                    <div class="glass-card rounded-2xl p-8 h-full min-h-[240px] flex flex-col justify-end">
-                        <h3 class="text-xl font-medium text-white mb-2 relative z-10">Teknik Mesin</h3>
-                        <p
-                            class="text-[14px] text-white/50 relative z-10 group-hover:text-white/70 transition-colors duration-300">
-                            Maintenance alat berat (Excavator, Dump Truck) dan
-                            pemahaman mendalam tentang permesinan industri.</p>
-                    </div>
-                </div>
-
-                <div class="col-span-1 group reveal delay-300">
-                    <div class="glass-card rounded-2xl p-8 h-full min-h-[240px] flex flex-col justify-end">
-                        <h3 class="text-xl font-medium text-white mb-2 relative z-10">Web Dev & AI</h3>
-                        <p
-                            class="text-[14px] text-white/50 relative z-10 group-hover:text-white/70 transition-colors duration-300">
-                            Menguasai HTML5, CSS, JS, dan Python. Merancang AI Chatbot
-                            offline dengan model Gemma.</p>
-                    </div>
-                </div>
-
-                <div class="col-span-1 group reveal delay-[400ms]">
-                    <div class="glass-card rounded-2xl p-8 h-full min-h-[240px] flex flex-col justify-end">
-                        <div
-                            class="absolute top-1/2 left-1/2 w-[150px] h-[150px] bg-white/5 blur-[40px] rounded-full -translate-x-1/2 -translate-y-1/2 group-hover:bg-white/10 transition-colors duration-500">
-                        </div>
-                        <h3 class="text-xl font-medium text-white mb-2 relative z-10">Kreatif Editing</h3>
-                        <p
-                            class="text-[14px] text-white/50 relative z-10 group-hover:text-white/70 transition-colors duration-300">
-                            Terampil rekayasa desain, motion graph, efek
-                            jedag-jedug, komposisi frame dan animasi di Alight Motion.</p>
-                    </div>
-                </div>
-
-                <div class="col-span-1 group reveal delay-[500ms]">
-                    <div class="glass-card rounded-2xl p-8 h-full min-h-[240px] flex flex-col justify-end">
-                        <h3 class="text-xl font-medium text-white mb-2 relative z-10">Visual Lensa</h3>
-                        <p
-                            class="text-[14px] text-white/50 relative z-10 group-hover:text-white/70 transition-colors duration-300">
-                            Hobi eksplorasi di bidang Fotografi,
-                            Videografi, dan meracik scene naratif Cinematography.</p>
-                    </div>
-                </div>
-
-                <div class="col-span-1 lg:col-span-3 group reveal delay-[600ms]">
-                    <div class="glass-card rounded-2xl p-8 h-full min-h-[200px] flex flex-col justify-end">
-                        <div
-                            class="absolute bottom-0 left-0 w-[200px] h-[200px] bg-white/5 blur-[50px] rounded-full -translate-x-1/2 translate-y-1/2 group-hover:bg-white/10 transition-colors duration-500">
-                        </div>
-                        <h3 class="text-xl font-medium text-white mb-2 relative z-10">Penulis & Audiophile</h3>
-                        <p
-                            class="text-[14px] text-white/50 relative z-10 max-w-2xl group-hover:text-white/70 transition-colors duration-300">
-                            Audiophile penikmat (KZ EDC Pro,
-                            Space Travel) serta anime. Kreatif merancang plot, script, dan light novel dengan skenario
-                            'what if'. Waifu: Airi Momoi &gt;&lt;</p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <section id="setup" class="w-full py-16 reveal relative z-10">
-        <div class="border-y border-white/10 bg-black/40 backdrop-blur-3xl w-full shadow-2xl relative">
-            <div
-                class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-white/10">
-
-                <div class="flex flex-col items-center justify-center py-10 px-6 text-center">
-                    <h4 class="text-[36px] md:text-[56px] font-medium text-gradient leading-tight mb-2">POCO F6</h4>
-                    <p class="text-[14px] text-white/50 uppercase tracking-widest font-medium">HyperOS 3.0.5.0 Port
-                        (Andro 16)</p>
-                </div>
-
-                <div class="flex flex-col items-center justify-center py-10 px-6 text-center">
-                    <h4 class="text-[36px] md:text-[56px] font-medium text-gradient leading-tight mb-2">Ryzen 5</h4>
-                    <p class="text-[14px] text-white/50 uppercase tracking-widest font-medium">Advan Workplus 6600H</p>
-                </div>
-
-                <div class="flex flex-col items-center justify-center py-10 px-6 text-center">
-                    <h4 class="text-[36px] md:text-[56px] font-medium text-gradient leading-tight mb-2">700 / N5</h4>
-                    <p class="text-[14px] text-white/50 uppercase tracking-widest font-medium">Target TOEIC & JLPT</p>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <section id="proyek" class="relative py-32 px-6 overflow-hidden reveal">
-
-        <div class="absolute inset-0 bg-grid-pattern mask-radial opacity-50 z-0 pointer-events-none"></div>
-
-        <div class="max-w-4xl mx-auto relative z-10 flex flex-col items-center text-center">
-
-            <div
-                class="px-5 py-2 rounded-full border border-white/15 bg-white/5 text-[11px] uppercase tracking-widest text-white/70 mb-8 backdrop-blur-xl shadow-lg">
-                Software & Web Dev Proyek
-            </div>
-
-            <h2 class="text-4xl md:text-[56px] font-medium text-white mb-6 leading-tight">
-                Mengeksploitasi Performa Batas Akhir.
-            </h2>
-            <p class="text-[18px] text-white/50 max-w-[560px] mb-8">
-                Membangun arsitektur Stress Test CPU & GPU berbasis Web Workers dan WebGL. Saya bereksperimen
-                memaksimalkan alokasi rendering thread hingga melampaui batasan normal. Di samping itu, saya juga
-                melakukan riset AI offline dan porting sistem operasi.
-            </p>
-
-            <div class="flex flex-col sm:flex-row items-center gap-4 md:gap-8 mb-16">
-                <a href="https://github.com/slayedkaito" target="_blank" rel="noopener noreferrer"
-                    class="group flex items-center gap-2 text-[15px] font-medium text-white hover:text-white/80 transition-colors">
-                    Lihat Proyek di GitHub
-                    <span class="transition-transform group-hover:translate-x-1">→</span>
-                </a>
-
-                <div class="hidden sm:block w-[1px] h-4 bg-white/20"></div>
-
-                <a href="https://slayedkaito.github.io/XfTest" target="_blank" rel="noopener noreferrer"
-                    class="group flex items-center gap-2 text-[15px] font-medium text-[#27c93f] hover:text-[#27c93f]/80 transition-colors">
-                    <span class="relative flex h-2 w-2">
-                        <span
-                            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#27c93f] opacity-75"></span>
-                        <span class="relative inline-flex rounded-full h-2 w-2 bg-[#27c93f]"></span>
-                    </span>
-                    Jalankan Web Stress Test
-                    <span class="transition-transform group-hover:translate-x-1">↗</span>
-                </a>
-            </div>
-
-            <div class="w-full max-w-[700px] relative text-left reveal delay-200 group mt-4">
-                <div
-                    class="absolute inset-0 bg-white/10 blur-[60px] rounded-2xl group-hover:bg-[#27c93f]/20 transition-colors duration-700">
-                </div>
-
-                <div
-                    class="relative bg-[#09090b]/70 backdrop-blur-3xl border border-white/20 rounded-xl overflow-hidden shadow-2xl transition-transform duration-500 group-hover:-translate-y-2">
-                    <div class="absolute inset-0 noise-bg mix-blend-overlay"></div>
-
-                    <div class="flex items-center px-4 py-3 border-b border-white/10 bg-white/[0.05] backdrop-blur-md">
-                        <div class="flex gap-2">
-                            <div class="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
-                            <div class="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
-                            <div class="w-3 h-3 rounded-full bg-[#27c93f]"></div>
-                        </div>
-                        <div class="absolute left-1/2 -translate-x-1/2 text-[12px] text-white/40 font-mono">
-                            stress_test.js (Web Worker API)
-                        </div>
+                    <div class="flex flex-col items-center justify-center py-10 px-6 text-center">
+                        <h3 class="text-[36px] md:text-[52px] font-medium text-gradient leading-tight mb-2">POCO F6</h3>
+                        <p class="text-[13px] md:text-[14px] text-white/65 uppercase tracking-widest font-medium">
+                            Modded HyperOS &bull; Darwin 22.5 (iOS 16.5) Native Port
+                        </p>
                     </div>
 
+                    <div class="flex flex-col items-center justify-center py-10 px-6 text-center">
+                        <h3 class="text-[36px] md:text-[52px] font-medium text-gradient leading-tight mb-2">Ryzen 5</h3>
+                        <p class="text-[13px] md:text-[14px] text-white/65 uppercase tracking-widest font-medium">
+                            Advan Workplus 6600H &bull; 16GB DDR5
+                        </p>
+                    </div>
+
+                    <div class="flex flex-col items-center justify-center py-10 px-6 text-center">
+                        <h3 class="text-[36px] md:text-[52px] font-medium text-gradient leading-tight mb-2">700 / N5</h3>
+                        <p class="text-[13px] md:text-[14px] text-white/65 uppercase tracking-widest font-medium">
+                            Target TOEIC &amp; JLPT
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Proyek Section -->
+        <section id="proyek" class="relative py-24 md:py-32 px-6 overflow-hidden reveal scroll-mt-24">
+
+            <div aria-hidden="true"
+                class="absolute inset-0 bg-grid-pattern mask-radial opacity-50 z-0 pointer-events-none"></div>
+
+            <div class="max-w-[1000px] mx-auto relative z-10 flex flex-col items-center">
+
+                <div class="text-center max-w-2xl mx-auto mb-16">
                     <div
-                        class="p-6 overflow-x-auto text-[13px] md:text-[14px] leading-relaxed font-mono relative z-10 w-full overflow-hidden whitespace-pre overflow-x-scroll">
-                        <pre><code><span style="color:#6b7280">/* Spawning CPU threads */</span>
+                        class="inline-block px-5 py-2 rounded-full border border-white/15 bg-white/5 text-[11px] uppercase tracking-widest text-white/75 mb-6 backdrop-blur-xl shadow-lg">
+                        Proyek Pilihan &amp; Eksperimen
+                    </div>
+
+                    <h2 class="text-3xl md:text-[52px] font-medium text-white mb-5 leading-tight">
+                        Mengeksploitasi Performa &amp; Arsitektur Sistem.
+                    </h2>
+                    <p class="text-[16px] text-white/65 leading-relaxed">
+                        Dari porting kernel level rendah untuk menjalankan iOS secara native di perangkat Android,
+                        deployment AI lokal dan bot otomasi, hingga eksperimen stress test multi-thread berbasis web.
+                    </p>
+                </div>
+
+                <!-- Featured Projects Bento Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 w-full mb-20 text-left">
+
+                    <!-- Project 1: Darwin 22.5 Kernel Porting -->
+                    <article class="col-span-1 md:col-span-2 group reveal">
+                        <div class="glass-card rounded-2xl p-7 md:p-8 h-full flex flex-col justify-between">
+                            <div aria-hidden="true"
+                                class="absolute top-0 right-0 w-[260px] h-[260px] bg-white/5 blur-[60px] rounded-full translate-x-1/3 -translate-y-1/3 group-hover:bg-white/10 transition-colors duration-500">
+                            </div>
+                            <div class="relative z-10">
+                                <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+                                    <span
+                                        class="px-3 py-1 rounded-full text-[11px] font-mono uppercase tracking-wider bg-white/10 text-white border border-white/15">
+                                        Kernel &amp; Low-Level Porting
+                                    </span>
+                                    <span class="text-[12px] font-mono text-white/60">POCO F6 (peridot) &bull; 60 FPS</span>
+                                </div>
+                                <h3 class="text-xl md:text-2xl font-medium text-white mb-3">
+                                    Porting Kernel Darwin 22.5 (iOS 16.5 Native) pada POCO F6
+                                </h3>
+                                <p class="text-[14px] text-white/70 leading-relaxed max-w-3xl mb-6">
+                                    Berhasil melakukan porting <strong class="text-white font-medium">iOS 16.5 (kernel
+                                        Darwin 22.5)</strong> secara native ke POCO F6 menggunakan boot UEFI (<strong
+                                        class="text-white font-medium">Mu-Silicium</strong>) dan <strong
+                                        class="text-white font-medium">xnuloader</strong> yang berjalan langsung di RAM
+                                    tanpa menyentuh partisi Android. Meliputi penggantian driver <strong
+                                        class="text-white font-medium">IOKit</strong>, patch kernel <strong
+                                        class="text-white font-medium">XNU (AMFI &amp; SEP)</strong>, akselerasi GPU
+                                    <strong class="text-white font-medium">Adreno 735</strong> via <strong
+                                        class="text-white font-medium">Mesa/Freedreno</strong> hingga 60 FPS stabil,
+                                    serta optimasi manajemen daya dan suhu perangkat.
+                                </p>
+                            </div>
+                            <div class="flex flex-wrap gap-2 relative z-10">
+                                <span
+                                    class="text-[11px] font-mono px-2.5 py-1 rounded bg-white/5 text-white/75 border border-white/10">Darwin 22.5 / XNU</span>
+                                <span
+                                    class="text-[11px] font-mono px-2.5 py-1 rounded bg-white/5 text-white/75 border border-white/10">Mu-Silicium UEFI</span>
+                                <span
+                                    class="text-[11px] font-mono px-2.5 py-1 rounded bg-white/5 text-white/75 border border-white/10">IOKit &amp; AMFI/SEP Patch</span>
+                                <span
+                                    class="text-[11px] font-mono px-2.5 py-1 rounded bg-white/5 text-white/75 border border-white/10">Mesa / Freedreno</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 2: WhatsApp AI Bot -->
+                    <article class="col-span-1 group reveal delay-100">
+                        <div class="glass-card rounded-2xl p-7 md:p-8 h-full flex flex-col justify-between">
+                            <div class="relative z-10">
+                                <span
+                                    class="inline-block px-3 py-1 rounded-full text-[11px] font-mono uppercase tracking-wider bg-white/5 text-white/75 border border-white/10 mb-4">
+                                    Automation &amp; AI Integration
+                                </span>
+                                <h3 class="text-xl font-medium text-white mb-2.5">
+                                    Integrasi Bot WhatsApp Berbasis AI
+                                </h3>
+                                <p
+                                    class="text-[14px] text-white/65 leading-relaxed mb-6 group-hover:text-white/85 transition-colors">
+                                    Mengembangkan layanan bot otomatis menggunakan <strong
+                                        class="text-white/90 font-medium">Node.js</strong>, <strong
+                                        class="text-white/90 font-medium">whatsapp-web.js</strong>, dan <strong
+                                        class="text-white/90 font-medium">Chrome Headless</strong> yang terhubung
+                                    langsung dengan <strong class="text-white/90 font-medium">Gemini API</strong> untuk
+                                    pemrosesan bahasa alami.
+                                </p>
+                            </div>
+                            <div class="flex flex-wrap gap-2 relative z-10">
+                                <span
+                                    class="text-[11px] font-mono px-2.5 py-1 rounded bg-white/5 text-white/75 border border-white/10">Node.js</span>
+                                <span
+                                    class="text-[11px] font-mono px-2.5 py-1 rounded bg-white/5 text-white/75 border border-white/10">whatsapp-web.js</span>
+                                <span
+                                    class="text-[11px] font-mono px-2.5 py-1 rounded bg-white/5 text-white/75 border border-white/10">Gemini API</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 3: Local LLM Mobile -->
+                    <article class="col-span-1 group reveal delay-200">
+                        <div class="glass-card rounded-2xl p-7 md:p-8 h-full flex flex-col justify-between">
+                            <div class="relative z-10">
+                                <span
+                                    class="inline-block px-3 py-1 rounded-full text-[11px] font-mono uppercase tracking-wider bg-white/5 text-white/75 border border-white/10 mb-4">
+                                    Edge AI &amp; Offline Inference
+                                </span>
+                                <h3 class="text-xl font-medium text-white mb-2.5">
+                                    Deployment Local LLM pada Mobile
+                                </h3>
+                                <p
+                                    class="text-[14px] text-white/65 leading-relaxed mb-6 group-hover:text-white/85 transition-colors">
+                                    Menguji coba dan mengonfigurasi model bahasa besar lokal (<strong
+                                        class="text-white/90 font-medium">Llama 3.2 3B</strong> dan <strong
+                                        class="text-white/90 font-medium">Qwen 2.5</strong>) agar berjalan secara
+                                    mandiri (offline) di perangkat Android melalui antarmuka <strong
+                                        class="text-white/90 font-medium">ChatterUI</strong>.
+                                </p>
+                            </div>
+                            <div class="flex flex-wrap gap-2 relative z-10">
+                                <span
+                                    class="text-[11px] font-mono px-2.5 py-1 rounded bg-white/5 text-white/75 border border-white/10">Llama 3.2 3B</span>
+                                <span
+                                    class="text-[11px] font-mono px-2.5 py-1 rounded bg-white/5 text-white/75 border border-white/10">Qwen 2.5</span>
+                                <span
+                                    class="text-[11px] font-mono px-2.5 py-1 rounded bg-white/5 text-white/75 border border-white/10">ChatterUI</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 4: PC Assembly, Laptop Maintenance & Multi-OS -->
+                    <article class="col-span-1 group reveal delay-300">
+                        <div class="glass-card rounded-2xl p-7 md:p-8 h-full flex flex-col justify-between">
+                            <div class="relative z-10">
+                                <span
+                                    class="inline-block px-3 py-1 rounded-full text-[11px] font-mono uppercase tracking-wider bg-white/5 text-white/75 border border-white/10 mb-4">
+                                    System Engineering &amp; Hardware
+                                </span>
+                                <h3 class="text-xl font-medium text-white mb-2.5">
+                                    Perakitan PC, Maintenance &amp; Multi-OS
+                                </h3>
+                                <p
+                                    class="text-[14px] text-white/65 leading-relaxed mb-6 group-hover:text-white/85 transition-colors">
+                                    Merakit sistem PC desktop, pemeliharaan &amp; perbaikan hardware laptop, serta
+                                    instalasi ulang dan optimasi sistem operasi secara menyeluruh untuk lingkungan
+                                    <strong class="text-white/90 font-medium">Windows</strong>, <strong
+                                        class="text-white/90 font-medium">Linux</strong>, maupun <strong
+                                        class="text-white/90 font-medium">Hackintosh</strong>.
+                                </p>
+                            </div>
+                            <div class="flex flex-wrap gap-2 relative z-10">
+                                <span
+                                    class="text-[11px] font-mono px-2.5 py-1 rounded bg-white/5 text-white/75 border border-white/10">PC Build</span>
+                                <span
+                                    class="text-[11px] font-mono px-2.5 py-1 rounded bg-white/5 text-white/75 border border-white/10">Windows &amp; Linux</span>
+                                <span
+                                    class="text-[11px] font-mono px-2.5 py-1 rounded bg-white/5 text-white/75 border border-white/10">Hackintosh</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 5: Poster Design -->
+                    <article class="col-span-1 group reveal delay-[400ms]">
+                        <div class="glass-card rounded-2xl p-7 md:p-8 h-full flex flex-col justify-between">
+                            <div class="relative z-10">
+                                <span
+                                    class="inline-block px-3 py-1 rounded-full text-[11px] font-mono uppercase tracking-wider bg-white/5 text-white/75 border border-white/10 mb-4">
+                                    Graphic Design &amp; Visuals
+                                </span>
+                                <h3 class="text-xl font-medium text-white mb-2.5">
+                                    Desain Poster Promosi &amp; Materi Visual
+                                </h3>
+                                <p
+                                    class="text-[14px] text-white/65 leading-relaxed mb-6 group-hover:text-white/85 transition-colors">
+                                    Merancang berbagai poster promosi dan materi visual, termasuk untuk kebutuhan
+                                    <strong class="text-white/90 font-medium">PT Bukit Asam Tbk</strong> serta beragam
+                                    proyek poster dan aset digital lainnya.
+                                </p>
+                            </div>
+                            <div class="flex flex-wrap gap-2 relative z-10">
+                                <span
+                                    class="text-[11px] font-mono px-2.5 py-1 rounded bg-white/5 text-white/75 border border-white/10">PT Bukit Asam Tbk</span>
+                                <span
+                                    class="text-[11px] font-mono px-2.5 py-1 rounded bg-white/5 text-white/75 border border-white/10">Canva</span>
+                                <span
+                                    class="text-[11px] font-mono px-2.5 py-1 rounded bg-white/5 text-white/75 border border-white/10">Alight Motion</span>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+
+                <!-- Interactive Web Stress Test Showcase -->
+                <div class="w-full max-w-[760px] flex flex-col items-center text-center reveal">
+                    <div class="flex flex-col sm:flex-row items-center gap-4 md:gap-8 mb-10">
+                        <a href="https://github.com/slayedkaito" target="_blank" rel="noopener noreferrer"
+                            class="group flex items-center gap-2 text-[15px] font-medium text-white hover:text-white/80 transition-colors">
+                            Lihat Proyek di GitHub
+                            <span class="transition-transform group-hover:translate-x-1" aria-hidden="true">&rarr;</span>
+                        </a>
+
+                        <div aria-hidden="true" class="hidden sm:block w-[1px] h-4 bg-white/20"></div>
+
+                        <a href="https://slayedkaito.github.io/XfTest" target="_blank" rel="noopener noreferrer"
+                            class="group flex items-center gap-2 text-[15px] font-medium text-[#27c93f] hover:text-[#4ade80] transition-colors">
+                            <span class="relative flex h-2 w-2" aria-hidden="true">
+                                <span
+                                    class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#27c93f] opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-2 w-2 bg-[#27c93f]"></span>
+                            </span>
+                            Jalankan Web Stress Test (XfTest)
+                            <span class="transition-transform group-hover:translate-x-1" aria-hidden="true">&#8599;</span>
+                        </a>
+                    </div>
+
+                    <div class="w-full max-w-[700px] relative text-left group">
+                        <div aria-hidden="true"
+                            class="absolute inset-0 bg-white/10 blur-[50px] rounded-2xl group-hover:bg-[#27c93f]/20 transition-colors duration-700">
+                        </div>
+
+                        <div
+                            class="relative bg-[#09090b]/85 backdrop-blur-xl border border-white/20 rounded-xl overflow-hidden shadow-2xl transition-transform duration-500 group-hover:-translate-y-1.5">
+                            <div aria-hidden="true" class="absolute inset-0 noise-bg mix-blend-overlay"></div>
+
+                            <div
+                                class="flex items-center justify-between gap-3 px-4 py-3 border-b border-white/10 bg-white/[0.05] relative z-10">
+                                <div class="flex items-center gap-2 shrink-0" aria-hidden="true">
+                                    <span class="w-3 h-3 rounded-full bg-[#ff5f56]"></span>
+                                    <span class="w-3 h-3 rounded-full bg-[#ffbd2e]"></span>
+                                    <span class="w-3 h-3 rounded-full bg-[#27c93f]"></span>
+                                </div>
+                                <div class="text-[12px] text-white/60 font-mono truncate">
+                                    stress_test.js (Web Worker API)
+                                </div>
+                                <button id="copy-code-btn" type="button"
+                                    class="shrink-0 text-[11px] font-mono px-2.5 py-1 rounded border border-white/15 bg-white/5 text-white/75 hover:text-white hover:bg-white/10 transition-colors">
+                                    Salin
+                                </button>
+                            </div>
+
+                            <div
+                                class="p-5 md:p-6 overflow-x-auto text-[13px] md:text-[14px] leading-relaxed font-mono relative z-10 code-scroll">
+                                <pre><code id="stress-code"><span style="color:#8b949e">/* Spawning CPU threads */</span>
 <span style="color:#f07178">const</span> coreCount = navigator.<span style="color:#82aaff">hardwareConcurrency</span> || <span style="color:#f78c6c">4</span>;
 <span style="color:#f07178">let</span> activeWorkers = [];
 
 <span style="color:#f07178">function</span> <span style="color:#82aaff">startCPUStress</span>() {
-    <span style="color:#6b7280">// Intensive synchronous calculation loop inside isolated Worker</span>
+    <span style="color:#8b949e">// Intensive synchronous calculation loop inside isolated Worker</span>
     <span style="color:#f07178">const</span> workerCode = <span style="color:#c3e88d">`
         self.onmessage = function() {
             while (true) {
@@ -453,63 +674,72 @@
         };
     `</span>;
     <span style="color:#f07178">const</span> blob = <span style="color:#f07178">new</span> <span style="color:#82aaff">Blob</span>([workerCode], { <span style="color:#c3e88d">type</span>: <span style="color:#c3e88d">'application/javascript'</span> });
-    
+    <span style="color:#f07178">const</span> workerUrl = URL.<span style="color:#82aaff">createObjectURL</span>(blob);
+
     <span style="color:#f07178">for</span> (<span style="color:#f07178">let</span> i = <span style="color:#f78c6c">0</span>; i &lt; coreCount; i++) {
-        <span style="color:#f07178">const</span> worker = <span style="color:#f07178">new</span> <span style="color:#82aaff">Worker</span>(URL.<span style="color:#82aaff">createObjectURL</span>(blob));
+        <span style="color:#f07178">const</span> worker = <span style="color:#f07178">new</span> <span style="color:#82aaff">Worker</span>(workerUrl);
         worker.<span style="color:#82aaff">postMessage</span>(<span style="color:#c3e88d">'start'</span>);
         activeWorkers.<span style="color:#82aaff">push</span>(worker);
     }
     console.<span style="color:#82aaff">log</span>(<span style="color:#c3e88d">`Stressing </span><span style="color:#89ddff">${</span>coreCount<span style="color:#89ddff">}</span><span style="color:#c3e88d"> CPU threads...`</span>);
 }</code></pre>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
+            </div>
+        </section>
+
+        <!-- Final CTA Section -->
+        <section
+            class="relative py-28 md:py-40 px-6 flex flex-col items-center justify-center text-center overflow-hidden reveal">
+            <div aria-hidden="true"
+                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-white/[0.03] blur-[90px] rounded-full pointer-events-none z-0">
             </div>
 
-        </div>
-    </section>
+            <div class="relative z-10 flex flex-col items-center">
+                <h2 class="text-4xl md:text-[64px] font-medium text-gradient leading-tight mb-6">
+                    Mari Berkolaborasi.
+                </h2>
+                <p class="text-[16px] text-white/65 max-w-lg mb-12 leading-relaxed">
+                    Baik itu urusan maintenance alat berat, rakit PC, oprek kernel &amp; multi-OS, proyek Web Dev &amp;
+                    AI, atau sekadar touring motor jarak jauh sambil bahas light novel.
+                </p>
 
-    <section class="relative py-40 px-6 flex flex-col items-center justify-center text-center overflow-hidden reveal">
-        <div
-            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-white/[0.03] blur-[100px] rounded-full pointer-events-none z-0">
-        </div>
-
-        <div class="relative z-10 flex flex-col items-center">
-            <h2 class="text-4xl md:text-[64px] font-medium text-gradient leading-tight mb-6">
-                Mari Berkolaborasi.
-            </h2>
-            <p class="text-[16px] text-white/50 max-w-lg mb-12">
-                Baik itu urusan maintenance alat berat, rakit PC, flashing smartphone, proyek Web Dev, atau sekadar
-                touring motor jarak jauh sambil bahas light novel.
-            </p>
-
-            <div class="relative group cursor-pointer rounded-full border border-white/20 p-[0.6px]">
-                <div
-                    class="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-[1px] bg-white blur-[2px] transition-all group-hover:blur-[4px]">
+                <div class="relative group rounded-full border border-white/20 p-[1px]">
+                    <div aria-hidden="true"
+                        class="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-[1px] bg-white blur-[2px] transition-all group-hover:blur-[4px]">
+                    </div>
+                    <a href="https://instagram.com/gtalfr" target="_blank" rel="noopener noreferrer"
+                        class="relative bg-white text-black px-9 py-3.5 rounded-full text-[15px] font-medium flex items-center justify-center z-10 hover:bg-gray-100 transition-colors">
+                        Hubungi Saya di Instagram
+                    </a>
                 </div>
-                <a href="https://instagram.com/gtalfr" target="_blank"
-                    class="relative bg-white text-black px-9 py-3.5 rounded-full text-[15px] font-medium flex items-center justify-center z-10 hover:bg-gray-100 transition-colors">
-                    Hubungi Saya di Instagram
-                </a>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <footer class="border-t border-white/10 px-6 md:px-12 py-8 reveal relative z-10 bg-black/40 backdrop-blur-2xl">
+    </main>
+
+    <footer class="border-t border-white/10 px-6 md:px-12 py-8 reveal relative z-10 bg-black/60 backdrop-blur-xl">
         <div class="max-w-[1400px] mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
 
-            <div class="text-[20px] font-bold tracking-tight text-white/80">
+            <a href="#tentang" class="text-[20px] font-bold tracking-tight text-white/90 hover:text-white transition-colors">
                 GTALFR.
-            </div>
+            </a>
 
-            <div class="flex items-center gap-6">
-                <a href="https://instagram.com/gtalfr" target="_blank"
-                    class="text-[13px] text-white/50 hover:text-white transition-colors">Instagram</a>
-                <span class="text-[13px] text-white/30">|</span>
-                <span class="text-[13px] text-white/50">Deis &bull; Audiophile &bull; Touring &bull; Waifu: Airi Momoi
+            <div class="flex flex-wrap items-center justify-center gap-4 md:gap-6 text-center">
+                <a href="https://instagram.com/gtalfr" target="_blank" rel="noopener noreferrer"
+                    class="text-[13px] text-white/65 hover:text-white transition-colors">Instagram</a>
+                <span class="text-[13px] text-white/35" aria-hidden="true">|</span>
+                <a href="https://github.com/slayedkaito" target="_blank" rel="noopener noreferrer"
+                    class="text-[13px] text-white/65 hover:text-white transition-colors">GitHub</a>
+                <span class="text-[13px] text-white/35" aria-hidden="true">|</span>
+                <span class="text-[13px] text-white/65">Deis &bull; Audiophile &bull; Touring &bull; Waifu: Airi Momoi
                     &gt;&lt;</span>
             </div>
 
-            <div class="text-[13px] text-white/30">
+            <div class="text-[13px] text-white/55">
                 &copy; 2026 Gathan Alfarabi Agusti.
             </div>
         </div>
@@ -517,67 +747,162 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Intersection Observer for scroll animations
-            const observerOptions = {
-                root: null,
-                rootMargin: '0px 0px -50px 0px',
-                threshold: 0.1
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            // 1. Scroll Reveal with will-change cleanup
+            const revealElements = document.querySelectorAll('.reveal');
+            if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+                revealElements.forEach(el => el.classList.add('active'));
+            } else {
+                const revealObserver = new IntersectionObserver((entries, obs) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const el = entry.target;
+                            el.addEventListener('transitionend', () => {
+                                el.style.willChange = 'auto';
+                            }, { once: true });
+                            requestAnimationFrame(() => el.classList.add('active'));
+                            obs.unobserve(el);
+                        }
+                    });
+                }, { rootMargin: '0px 0px -50px 0px', threshold: 0.08 });
+
+                revealElements.forEach(el => revealObserver.observe(el));
+            }
+
+            // 2. Glass Card Mouse Spotlight (desktop fine pointers only, rAF-throttled)
+            if (!prefersReducedMotion && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+                document.querySelectorAll('.glass-card').forEach(card => {
+                    let rect = null;
+                    let rafId = 0;
+
+                    card.addEventListener('mouseenter', () => {
+                        rect = card.getBoundingClientRect();
+                    });
+
+                    card.addEventListener('mousemove', e => {
+                        if (!rect) rect = card.getBoundingClientRect();
+                        const clientX = e.clientX;
+                        const clientY = e.clientY;
+                        if (rafId) return;
+                        rafId = requestAnimationFrame(() => {
+                            const x = ((clientX - rect.left) / rect.width) * 100;
+                            const y = ((clientY - rect.top) / rect.height) * 100;
+                            card.style.setProperty('--mouse-x', `${x.toFixed(2)}%`);
+                            card.style.setProperty('--mouse-y', `${y.toFixed(2)}%`);
+                            rafId = 0;
+                        });
+                    }, { passive: true });
+
+                    card.addEventListener('mouseleave', () => {
+                        rect = null;
+                    });
+                });
+            }
+
+            // 3. Navbar Scroll Styling (passive + rAF)
+            const navbar = document.getElementById('navbar');
+            const handleScroll = () => {
+                if (window.scrollY > 40) {
+                    navbar.classList.add('bg-black/75', 'backdrop-blur-xl', 'border-white/10', 'py-3.5');
+                    navbar.classList.remove('border-transparent', 'py-5');
+                } else {
+                    navbar.classList.remove('bg-black/75', 'backdrop-blur-xl', 'border-white/10', 'py-3.5');
+                    navbar.classList.add('border-transparent', 'py-5');
+                }
             };
 
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        // Use requestAnimationFrame for smooth layout execution
-                        requestAnimationFrame(() => {
-                            entry.target.classList.add('active');
-                        });
-                        observer.unobserve(entry.target);
+            let scrollTicking = false;
+            window.addEventListener('scroll', () => {
+                if (!scrollTicking) {
+                    requestAnimationFrame(() => {
+                        handleScroll();
+                        scrollTicking = false;
+                    });
+                    scrollTicking = true;
+                }
+            }, { passive: true });
+            handleScroll();
+
+            // 4. Active Nav Link Highlighting
+            const navLinks = document.querySelectorAll('[data-nav-link]');
+            const sections = ['tentang', 'keahlian', 'setup', 'proyek']
+                .map(id => document.getElementById(id))
+                .filter(Boolean);
+
+            if ('IntersectionObserver' in window && navLinks.length && sections.length) {
+                const sectionObserver = new IntersectionObserver(entries => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const activeId = entry.target.id;
+                            navLinks.forEach(link => {
+                                const isActive = link.dataset.navLink === activeId;
+                                link.classList.toggle('text-white', isActive);
+                                link.classList.toggle('text-white/75', !isActive);
+                                if (isActive) {
+                                    link.setAttribute('aria-current', 'location');
+                                } else {
+                                    link.removeAttribute('aria-current');
+                                }
+                            });
+                        }
+                    });
+                }, { rootMargin: '-35% 0px -55% 0px', threshold: 0 });
+
+                sections.forEach(section => sectionObserver.observe(section));
+            }
+
+            // 5. Accessible Mobile Navigation Drawer
+            const menuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const iconOpen = document.getElementById('menu-icon-open');
+            const iconClose = document.getElementById('menu-icon-close');
+
+            const setMenuState = isOpen => {
+                mobileMenu.classList.toggle('hidden', !isOpen);
+                iconOpen.classList.toggle('hidden', isOpen);
+                iconClose.classList.toggle('hidden', !isOpen);
+                menuBtn.setAttribute('aria-expanded', String(isOpen));
+                menuBtn.setAttribute('aria-label', isOpen ? 'Tutup menu navigasi' : 'Buka menu navigasi');
+            };
+
+            if (menuBtn && mobileMenu) {
+                menuBtn.addEventListener('click', () => {
+                    const isOpen = mobileMenu.classList.contains('hidden');
+                    setMenuState(isOpen);
+                });
+
+                mobileMenu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => setMenuState(false));
+                });
+
+                document.addEventListener('keydown', e => {
+                    if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
+                        setMenuState(false);
+                        menuBtn.focus();
                     }
                 });
-            }, observerOptions);
+            }
 
-            const revealElements = document.querySelectorAll('.reveal');
-            revealElements.forEach(el => observer.observe(el));
-
-            // Mouse tracking for advanced glass-card glow effect
-            document.querySelectorAll('.glass-card').forEach(card => {
-                card.addEventListener('mousemove', e => {
-                    const rect = card.getBoundingClientRect();
-                    const x = ((e.clientX - rect.left) / card.clientWidth) * 100;
-                    const y = ((e.clientY - rect.top) / card.clientHeight) * 100;
-                    card.style.setProperty('--mouse-x', `${x}%`);
-                    card.style.setProperty('--mouse-y', `${y}%`);
+            // 6. Copy Code Button
+            const copyBtn = document.getElementById('copy-code-btn');
+            const codeEl = document.getElementById('stress-code');
+            if (copyBtn && codeEl && navigator.clipboard) {
+                copyBtn.addEventListener('click', async () => {
+                    try {
+                        await navigator.clipboard.writeText(codeEl.textContent);
+                        copyBtn.textContent = 'Disalin!';
+                        copyBtn.classList.add('text-[#4ade80]', 'border-[#27c93f]/40');
+                        setTimeout(() => {
+                            copyBtn.textContent = 'Salin';
+                            copyBtn.classList.remove('text-[#4ade80]', 'border-[#27c93f]/40');
+                        }, 1800);
+                    } catch {
+                        copyBtn.textContent = 'Gagal';
+                        setTimeout(() => { copyBtn.textContent = 'Salin'; }, 1500);
+                    }
                 });
-            });
-
-            // Dynamic Navbar Scroll Effect
-            const navbar = document.getElementById('navbar');
-
-            // Function to handle scroll and apply styles
-            const handleScroll = () => {
-                if (window.scrollY > 50) {
-                    navbar.classList.add('bg-black/60', 'backdrop-blur-2xl', 'border-white/10', 'py-[15px]');
-                    navbar.classList.remove('border-transparent', 'py-[20px]');
-                } else {
-                    navbar.classList.remove('bg-black/60', 'backdrop-blur-2xl', 'border-white/10', 'py-[15px]');
-                    navbar.classList.add('border-transparent', 'py-[20px]');
-                }
-            };
-
-            // Throttle scroll event using requestAnimationFrame for performance
-            let isScrolling = false;
-            window.addEventListener('scroll', () => {
-                if (!isScrolling) {
-                    window.requestAnimationFrame(() => {
-                        handleScroll();
-                        isScrolling = false;
-                    });
-                    isScrolling = true;
-                }
-            });
-
-            // Check initial scroll position on load
-            handleScroll();
+            }
         });
     </script>
 </body>
