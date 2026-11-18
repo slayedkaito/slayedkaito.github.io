@@ -7,7 +7,7 @@
     <meta name="description"
         content="Portofolio Gathan Alfarabi Agusti — Mahasiswa D4 Teknik Mesin (TMPP) Politeknik Negeri Sriwijaya, Rekayasa Sistem, Porting Kernel Darwin/XNU (iOS 16.5 pada POCO F6), dan Pengembangan Perangkat Lunak.">
     <meta name="author" content="Gathan Alfarabi Agusti">
-    <meta name="theme-color" content="#000000">
+    <meta name="theme-color" content="#07090f">
     <meta name="color-scheme" content="dark">
     <title>Gathan Alfarabi Agusti | Mechanical Engineering &amp; Systems Developer</title>
 
@@ -102,16 +102,33 @@
     </script>
 </head>
 
-<body class="antialiased bg-black text-white selection:bg-white/20 selection:text-white">
+<body class="antialiased text-white selection:bg-white/20 selection:text-white">
+
+    <!-- Subtle Dark Obsidian-Midnight Ambient Gradient Backdrop -->
+    <div class="ambient-bg" aria-hidden="true"></div>
+
+    <!-- Desktop-only Apple Liquid Glass Optical Refraction Filter -->
+    <svg width="0" height="0" style="position:absolute;width:0;height:0;overflow:hidden;pointer-events:none"
+        aria-hidden="true" focusable="false">
+        <defs>
+            <filter id="apple-liquid-refract" x="-5%" y="-5%" width="110%" height="110%">
+                <feTurbulence type="fractalNoise" baseFrequency="0.008 0.012" numOctaves="2" seed="7" result="noise" />
+                <feGaussianBlur in="noise" stdDeviation="2.5" result="smoothNoise" />
+                <feDisplacementMap in="SourceGraphic" in2="smoothNoise" scale="16" xChannelSelector="R"
+                    yChannelSelector="G" />
+            </filter>
+        </defs>
+    </svg>
 
     <div id="scroll-progress" class="scroll-progress" aria-hidden="true"></div>
     <a href="#main-content" class="skip-link">Lewati ke konten utama</a>
 
     <header>
         <nav id="navbar" aria-label="Navigasi utama"
-            class="fixed top-0 inset-x-0 z-50 transition-all duration-300 border-b border-transparent py-5">
-            <div class="max-w-[1200px] mx-auto px-6 md:px-10 flex items-center justify-between gap-4">
-                <div class="flex items-center gap-10">
+            class="fixed top-0 inset-x-0 z-50 transition-all duration-300 border-b border-transparent py-5 px-0 lg:px-6">
+            <div class="nav-bar-inner max-w-[1200px] mx-auto px-6 md:px-10 flex items-center justify-between gap-4">
+                <span class="liquid-refract" aria-hidden="true"></span>
+                <div class="relative z-10 flex items-center gap-10">
                     <a href="#tentang"
                         class="text-[20px] sm:text-[22px] font-bold tracking-tight text-white/95 hover:text-white transition-colors shrink-0">
                         GTALFR.
@@ -137,7 +154,7 @@
                     </div>
                 </div>
 
-                <div class="flex items-center gap-3">
+                <div class="relative z-10 flex items-center gap-3">
                     <a href="https://instagram.com/gtalfr" target="_blank" rel="noopener noreferrer"
                         class="hidden md:inline-flex items-center justify-center rounded-full border border-white/20 bg-white/5 hover:bg-white hover:text-black text-white px-6 py-2 text-[14px] font-medium transition-colors">
                         Hubungi Saya
@@ -160,7 +177,7 @@
 
             <!-- Mobile Navigation Drawer -->
             <div id="mobile-menu"
-                class="md:hidden hidden border-t border-white/10 bg-black/95 backdrop-blur-xl mt-4 px-6 py-5">
+                class="md:hidden hidden border-t border-white/10 bg-[#080b12]/95 backdrop-blur-xl mt-3 px-6 py-5">
                 <div class="flex flex-col space-y-1">
                     <a href="#tentang"
                         class="mobile-nav-link px-3 py-2.5 rounded-lg text-[15px] font-medium text-white/85 hover:text-white hover:bg-white/5 transition-colors">
@@ -189,7 +206,7 @@
         </nav>
     </header>
 
-    <main id="main-content">
+    <main id="main-content" class="relative z-10">
 
         <!-- Hero Section (isolated stacking context with positive z-index layers) -->
         <section id="tentang"
@@ -206,17 +223,18 @@
             </div>
 
             <div aria-hidden="true"
-                class="absolute inset-0 z-[1] bg-gradient-to-b from-black/65 via-black/55 to-black pointer-events-none">
+                class="absolute inset-0 z-[1] bg-gradient-to-b from-[#07090f]/70 via-[#090d16]/55 to-[#07090f] pointer-events-none">
             </div>
             <div aria-hidden="true"
-                class="absolute inset-0 z-[1] bg-[radial-gradient(ellipse_at_center,transparent_20%,rgba(0,0,0,0.72)_100%)] pointer-events-none">
+                class="absolute inset-0 z-[1] bg-[radial-gradient(ellipse_at_center,transparent_18%,rgba(7,9,15,0.72)_100%)] pointer-events-none">
             </div>
 
             <div id="hero-content" class="relative z-10 flex flex-col items-center px-6 text-center w-full max-w-[780px] will-change-transform">
 
                 <div
-                    class="hero-stagger hero-stagger-1 inline-flex items-center gap-2 bg-black/45 border border-white/20 rounded-full px-4 py-1.5 mb-8 backdrop-blur-md">
-                    <p class="text-[13px] font-medium">
+                    class="hero-stagger hero-stagger-1 liquid-pill inline-flex items-center gap-2 rounded-full px-4 py-1.5 mb-8">
+                    <span class="liquid-refract" aria-hidden="true"></span>
+                    <p class="relative z-10 text-[13px] font-medium">
                         <span class="text-white/75">Politeknik Negeri Sriwijaya &bull;</span>
                         <span class="text-white">D4 Teknik Mesin (TMPP)</span>
                     </p>
@@ -242,8 +260,9 @@
                     </a>
 
                     <a href="#proyek"
-                        class="px-7 py-3 rounded-full text-[14px] font-medium text-white border border-white/25 bg-black/40 hover:bg-white/15 backdrop-blur-md transition-colors">
-                        Lihat Proyek &darr;
+                        class="liquid-pill px-7 py-3 rounded-full text-[14px] font-medium text-white hover:bg-white/15 transition-colors inline-flex items-center justify-center">
+                        <span class="liquid-refract" aria-hidden="true"></span>
+                        <span class="relative z-10">Lihat Proyek &darr;</span>
                     </a>
                 </div>
             </div>
@@ -313,6 +332,7 @@
 
                     <article class="col-span-1 lg:col-span-2 group reveal">
                         <div class="glass-card rounded-2xl p-7 md:p-8 h-full min-h-[230px] flex flex-col justify-end">
+                            <span class="liquid-refract" aria-hidden="true"></span>
                             <h3 class="text-xl font-medium text-white mb-2.5 relative z-10">Sistem Operasi, Kernel &amp; Perangkat Keras</h3>
                             <p
                                 class="text-[14px] text-white/65 leading-relaxed relative z-10 max-w-[500px] group-hover:text-white/85 transition-colors duration-300">
@@ -326,6 +346,7 @@
 
                     <article class="col-span-1 group reveal delay-200">
                         <div class="glass-card rounded-2xl p-7 md:p-8 h-full min-h-[230px] flex flex-col justify-end">
+                            <span class="liquid-refract" aria-hidden="true"></span>
                             <h3 class="text-xl font-medium text-white mb-2.5 relative z-10">Teknik Mesin &amp; Alat Berat</h3>
                             <p
                                 class="text-[14px] text-white/65 leading-relaxed relative z-10 group-hover:text-white/85 transition-colors duration-300">
@@ -339,6 +360,7 @@
 
                     <article class="col-span-1 group reveal delay-300">
                         <div class="glass-card rounded-2xl p-7 md:p-8 h-full min-h-[230px] flex flex-col justify-end">
+                            <span class="liquid-refract" aria-hidden="true"></span>
                             <h3 class="text-xl font-medium text-white mb-2.5 relative z-10">Pengembangan Web, Otomasi &amp; AI</h3>
                             <p
                                 class="text-[14px] text-white/65 leading-relaxed relative z-10 group-hover:text-white/85 transition-colors duration-300">
@@ -351,6 +373,7 @@
 
                     <article class="col-span-1 group reveal delay-[400ms]">
                         <div class="glass-card rounded-2xl p-7 md:p-8 h-full min-h-[230px] flex flex-col justify-end">
+                            <span class="liquid-refract" aria-hidden="true"></span>
                             <h3 class="text-xl font-medium text-white mb-2.5 relative z-10">Desain Grafis &amp; Motion</h3>
                             <p
                                 class="text-[14px] text-white/65 leading-relaxed relative z-10 group-hover:text-white/85 transition-colors duration-300">
@@ -363,6 +386,7 @@
 
                     <article class="col-span-1 group reveal delay-[500ms]">
                         <div class="glass-card rounded-2xl p-7 md:p-8 h-full min-h-[230px] flex flex-col justify-end">
+                            <span class="liquid-refract" aria-hidden="true"></span>
                             <h3 class="text-xl font-medium text-white mb-2.5 relative z-10">Fotografi &amp; Pengolahan Visual</h3>
                             <p
                                 class="text-[14px] text-white/65 leading-relaxed relative z-10 group-hover:text-white/85 transition-colors duration-300">
@@ -375,6 +399,7 @@
 
                     <article class="col-span-1 md:col-span-2 lg:col-span-3 group reveal delay-[600ms]">
                         <div class="glass-card rounded-2xl p-7 md:p-8 h-full min-h-[180px] flex flex-col justify-end">
+                            <span class="liquid-refract" aria-hidden="true"></span>
                             <h3 class="text-xl font-medium text-white mb-2.5 relative z-10">Penguasaan Bahasa</h3>
                             <p
                                 class="text-[14px] text-white/65 leading-relaxed relative z-10 max-w-2xl group-hover:text-white/85 transition-colors duration-300">
@@ -420,6 +445,7 @@
                     <!-- Project 1: Darwin 22.5 Kernel Porting -->
                     <article class="col-span-1 md:col-span-2 group reveal">
                         <div class="glass-card rounded-2xl p-7 md:p-8 h-full flex flex-col justify-between">
+                            <span class="liquid-refract" aria-hidden="true"></span>
                             <div class="relative z-10">
                                 <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
                                     <span
@@ -461,6 +487,7 @@
                     <!-- Project 2: WhatsApp AI Bot -->
                     <article class="col-span-1 group reveal delay-100">
                         <div class="glass-card rounded-2xl p-7 md:p-8 h-full flex flex-col justify-between">
+                            <span class="liquid-refract" aria-hidden="true"></span>
                             <div class="relative z-10">
                                 <span
                                     class="inline-block px-3 py-1 rounded-full text-[11px] font-mono uppercase tracking-wider bg-white/5 text-white/75 border border-white/10 mb-4">
@@ -493,6 +520,7 @@
                     <!-- Project 3: Local LLM Mobile -->
                     <article class="col-span-1 group reveal delay-200">
                         <div class="glass-card rounded-2xl p-7 md:p-8 h-full flex flex-col justify-between">
+                            <span class="liquid-refract" aria-hidden="true"></span>
                             <div class="relative z-10">
                                 <span
                                     class="inline-block px-3 py-1 rounded-full text-[11px] font-mono uppercase tracking-wider bg-white/5 text-white/75 border border-white/10 mb-4">
@@ -524,6 +552,7 @@
                     <!-- Project 4: PC Assembly, Laptop Maintenance & Multi-OS -->
                     <article class="col-span-1 group reveal delay-300">
                         <div class="glass-card rounded-2xl p-7 md:p-8 h-full flex flex-col justify-between">
+                            <span class="liquid-refract" aria-hidden="true"></span>
                             <div class="relative z-10">
                                 <span
                                     class="inline-block px-3 py-1 rounded-full text-[11px] font-mono uppercase tracking-wider bg-white/5 text-white/75 border border-white/10 mb-4">
@@ -555,6 +584,7 @@
                     <!-- Project 5: Poster Design -->
                     <article class="col-span-1 group reveal delay-[400ms]">
                         <div class="glass-card rounded-2xl p-7 md:p-8 h-full flex flex-col justify-between">
+                            <span class="liquid-refract" aria-hidden="true"></span>
                             <div class="relative z-10">
                                 <span
                                     class="inline-block px-3 py-1 rounded-full text-[11px] font-mono uppercase tracking-wider bg-white/5 text-white/75 border border-white/10 mb-4">
@@ -665,6 +695,7 @@
             class="section-divider relative py-24 md:py-28 px-6 overflow-hidden scroll-mt-24">
             <div class="max-w-[1000px] mx-auto relative z-10">
                 <div class="glass-card rounded-2xl p-6 sm:p-8 md:p-10 reveal">
+                    <span class="liquid-refract" aria-hidden="true"></span>
                     <div class="relative z-10 flex flex-col gap-8">
 
                         <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
@@ -748,7 +779,7 @@
 
     </main>
 
-    <footer class="border-t border-white/10 px-6 md:px-10 py-8 relative z-10 bg-black">
+    <footer class="border-t border-white/10 px-6 md:px-10 py-8 relative z-10 bg-[#07090f]/75 backdrop-blur-xl">
         <div class="max-w-[1200px] mx-auto flex flex-col md:flex-row items-center justify-between gap-5">
 
             <a href="#tentang"
@@ -904,10 +935,10 @@
 
             const updateNavbar = y => {
                 if (y > 40) {
-                    navbar.classList.add('bg-black/80', 'backdrop-blur-xl', 'border-white/10', 'py-3.5');
+                    navbar.classList.add('nav-scrolled');
                     navbar.classList.remove('border-transparent', 'py-5');
                 } else {
-                    navbar.classList.remove('bg-black/80', 'backdrop-blur-xl', 'border-white/10', 'py-3.5');
+                    navbar.classList.remove('nav-scrolled');
                     navbar.classList.add('border-transparent', 'py-5');
                 }
             };
