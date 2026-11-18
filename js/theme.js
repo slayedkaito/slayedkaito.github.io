@@ -1,12 +1,11 @@
 /**
- * Dark / Light theme switcher synced across desktop nav menu & mobile menu drawer.
+ * Dark / Light theme switcher with localStorage persistence & theme-color sync.
  */
 const STORAGE_KEY = 'gtalfr-theme';
 
 export function initTheme() {
     const root = document.documentElement;
-    const toggleBtns = document.querySelectorAll('[data-theme-toggle]');
-    const toggleLabels = document.querySelectorAll('[data-theme-label]');
+    const toggleBtn = document.getElementById('theme-toggle');
     const metaThemeColor = document.querySelector('meta[name="theme-color"]');
 
     const applyTheme = theme => {
@@ -18,32 +17,32 @@ export function initTheme() {
             metaThemeColor.setAttribute('content', isLight ? '#f5f7fb' : '#07090f');
         }
 
-        const labelText = isLight ? 'Mode Gelap' : 'Mode Terang';
-        const ariaLabel = isLight ? 'Ganti ke mode gelap' : 'Ganti ke mode terang';
-
-        toggleBtns.forEach(btn => {
-            btn.setAttribute('aria-pressed', String(isLight));
-            btn.setAttribute('aria-label', ariaLabel);
-            btn.setAttribute('title', labelText);
-        });
-
-        toggleLabels.forEach(el => {
-            el.textContent = labelText;
-        });
+        if (toggleBtn) {
+            toggleBtn.setAttribute('aria-pressed', String(isLight));
+            toggleBtn.setAttribute(
+                'aria-label',
+                isLight ? 'Ganti ke mode gelap' : 'Ganti ke mode terang'
+            );
+            toggleBtn.setAttribute(
+                'title',
+                isLight ? 'Mode Gelap' : 'Mode Terang'
+            );
+        }
     };
 
+    // Sync initial state (already set pre-paint in <head>)
     const initial = root.dataset.theme === 'light' ? 'light' : 'dark';
     applyTheme(initial);
 
-    toggleBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
+    if (toggleBtn) {
+        toggleBtn.addEventListener('click', () => {
             const next = root.dataset.theme === 'light' ? 'dark' : 'light';
             applyTheme(next);
             try {
                 localStorage.setItem(STORAGE_KEY, next);
             } catch {
-                // Ignore storage restrictions
+                // Ignore storage restrictions in private browsing
             }
         });
-    });
+    }
 }
