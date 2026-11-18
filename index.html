@@ -37,16 +37,21 @@
         content="Mahasiswa D4 Teknik Mesin (TMPP) Polsri, Rekayasa Sistem, Porting Kernel Darwin/XNU, dan Pengembangan Perangkat Lunak.">
     <meta name="twitter:image" content="https://slayedkaito.github.io/assets/hero-bg.jpg">
 
-    <!-- Resource Hints & Preloads -->
+    <!-- Resource Hints, Preloads & Module Preloads (Zero Waterfall) -->
     <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
     <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
     <link rel="preload" as="image" type="image/webp" href="assets/hero-bg.webp" fetchpriority="high">
+    <link rel="modulepreload" href="js/main.js?v=20261118-11">
+    <link rel="modulepreload" href="js/theme.js?v=20261118-11">
+    <link rel="modulepreload" href="js/motion.js?v=20261118-11">
+    <link rel="modulepreload" href="js/navigation.js?v=20261118-11">
+    <link rel="modulepreload" href="js/reveals.js?v=20261118-11">
 
     <!-- Fonts -->
     <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
 
     <!-- Compiled & Minified Production Stylesheet (cache-busted) -->
-    <link rel="stylesheet" href="assets/styles.css?v=20261118-10">
+    <link rel="stylesheet" href="assets/styles.css?v=20261118-11">
 
     <noscript>
         <style>
@@ -107,37 +112,40 @@
 
 <body class="antialiased text-white selection:bg-white/20 selection:text-white">
 
-    <!-- Contextual Scroll-Reactive Dynamic Dark Backdrop (active below Hero) -->
+    <!-- Contextual Scroll-Reactive Dynamic Backdrop (2 GPU tracks = 75% less VRAM) -->
     <div class="ambient-bg" aria-hidden="true">
         <div id="ambient-stage" class="ambient-stage">
-            <div class="ambient-mood mood-keahlian is-active" data-ambient-mood="keahlian">
-                <div class="ambient-orb ambient-orb-primary"></div>
-                <div class="ambient-orb ambient-orb-secondary"></div>
+            <div id="orb-track-primary" class="ambient-track ambient-track-primary">
+                <div class="ambient-mood-orb mood-keahlian is-active" data-ambient-mood="keahlian"></div>
+                <div class="ambient-mood-orb mood-proyek" data-ambient-mood="proyek"></div>
+                <div class="ambient-mood-orb mood-publikasi" data-ambient-mood="publikasi"></div>
+                <div class="ambient-mood-orb mood-kolaborasi" data-ambient-mood="kolaborasi"></div>
             </div>
-            <div class="ambient-mood mood-proyek" data-ambient-mood="proyek">
-                <div class="ambient-orb ambient-orb-primary"></div>
-                <div class="ambient-orb ambient-orb-secondary"></div>
-            </div>
-            <div class="ambient-mood mood-publikasi" data-ambient-mood="publikasi">
-                <div class="ambient-orb ambient-orb-primary"></div>
-                <div class="ambient-orb ambient-orb-secondary"></div>
-            </div>
-            <div class="ambient-mood mood-kolaborasi" data-ambient-mood="kolaborasi">
-                <div class="ambient-orb ambient-orb-primary"></div>
-                <div class="ambient-orb ambient-orb-secondary"></div>
+            <div id="orb-track-secondary" class="ambient-track ambient-track-secondary">
+                <div class="ambient-mood-orb mood-keahlian is-active" data-ambient-mood="keahlian"></div>
+                <div class="ambient-mood-orb mood-proyek" data-ambient-mood="proyek"></div>
+                <div class="ambient-mood-orb mood-publikasi" data-ambient-mood="publikasi"></div>
+                <div class="ambient-mood-orb mood-kolaborasi" data-ambient-mood="kolaborasi"></div>
             </div>
         </div>
     </div>
 
-    <!-- Desktop-only Pre-baked Optical Lens Refraction Filter (Zero feTurbulence overhead) -->
+    <!-- Desktop-only Mathematical 2-Axis Convex Optical Lens Refraction Filters -->
     <svg width="0" height="0" style="position:absolute;width:0;height:0;overflow:hidden;pointer-events:none"
         aria-hidden="true" focusable="false">
         <defs>
             <filter id="apple-liquid-refract" x="-4%" y="-4%" width="108%" height="108%" color-interpolation-filters="sRGB">
                 <feImage
-                    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3CradialGradient id='g' cx='50%25' cy='50%25' r='55%25'%3E%3Cstop offset='0%25' stop-color='%23808080'/%3E%3Cstop offset='68%25' stop-color='%23808080'/%3E%3Cstop offset='100%25' stop-color='%239c6880'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect width='100' height='100' fill='url(%23g)'/%3E%3C/svg%3E"
+                    href="data:image/png;base64,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"
                     preserveAspectRatio="none" result="lensMap" />
-                <feDisplacementMap in="SourceGraphic" in2="lensMap" scale="18" xChannelSelector="R"
+                <feDisplacementMap in="SourceGraphic" in2="lensMap" scale="16" xChannelSelector="R"
+                    yChannelSelector="G" />
+            </filter>
+            <filter id="apple-liquid-refract-light" x="-6%" y="-6%" width="112%" height="112%" color-interpolation-filters="sRGB">
+                <feImage
+                    href="data:image/png;base64,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"
+                    preserveAspectRatio="none" result="lensMapLight" />
+                <feDisplacementMap in="SourceGraphic" in2="lensMapLight" scale="28" xChannelSelector="R"
                     yChannelSelector="G" />
             </filter>
         </defs>
@@ -864,7 +872,7 @@
         </button>
     </div>
 
-    <script type="module" src="js/main.js?v=20261118-10"></script>
+    <script type="module" src="js/main.js?v=20261118-11"></script>
 </body>
 
 </html>

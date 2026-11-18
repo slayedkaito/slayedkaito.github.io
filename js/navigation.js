@@ -150,10 +150,15 @@ export function initNavigation() {
         });
     }
 
+    let lastScrolled = null;
+
     return {
         updateNavbar(scrollY) {
             if (!navbar) return;
-            if (scrollY > 40) {
+            const scrolled = scrollY > 40;
+            if (scrolled === lastScrolled) return;
+            lastScrolled = scrolled;
+            if (scrolled) {
                 navbar.classList.add('nav-scrolled');
                 navbar.classList.remove('border-transparent', 'py-5');
             } else {

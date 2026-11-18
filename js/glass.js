@@ -19,16 +19,22 @@ export function initGlassSpotlight(prefersReducedMotion, isFinePointer) {
             if (rafId) return;
 
             rafId = requestAnimationFrame(() => {
-                const x = ((clientX - rect.left) / rect.width) * 100;
-                const y = ((clientY - rect.top) / rect.height) * 100;
-                card.style.setProperty('--mouse-x', `${x.toFixed(2)}%`);
-                card.style.setProperty('--mouse-y', `${y.toFixed(2)}%`);
+                if (rect) {
+                    const x = ((clientX - rect.left) / rect.width) * 100;
+                    const y = ((clientY - rect.top) / rect.height) * 100;
+                    card.style.setProperty('--mouse-x', `${x.toFixed(2)}%`);
+                    card.style.setProperty('--mouse-y', `${y.toFixed(2)}%`);
+                }
                 rafId = 0;
             });
         }, { passive: true });
 
         card.addEventListener('mouseleave', () => {
             rect = null;
+            if (rafId) {
+                cancelAnimationFrame(rafId);
+                rafId = 0;
+            }
         });
     });
 }
