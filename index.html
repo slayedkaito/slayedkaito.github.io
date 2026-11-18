@@ -47,9 +47,12 @@
 
     <noscript>
         <style>
-            .reveal {
+            .reveal,
+            .heading-reveal {
                 opacity: 1 !important;
                 transform: none !important;
+                clip-path: none !important;
+                filter: none !important;
             }
         </style>
     </noscript>
@@ -209,7 +212,7 @@
                 class="absolute inset-0 z-[1] bg-[radial-gradient(ellipse_at_center,transparent_20%,rgba(0,0,0,0.72)_100%)] pointer-events-none">
             </div>
 
-            <div class="relative z-10 flex flex-col items-center px-6 text-center w-full max-w-[780px]">
+            <div id="hero-content" class="relative z-10 flex flex-col items-center px-6 text-center w-full max-w-[780px] will-change-transform">
 
                 <div
                     class="hero-stagger hero-stagger-1 inline-flex items-center gap-2 bg-black/45 border border-white/20 rounded-full px-4 py-1.5 mb-8 backdrop-blur-md">
@@ -243,6 +246,13 @@
                         Lihat Proyek &darr;
                     </a>
                 </div>
+            </div>
+
+            <!-- Subtle Luxury Scroll Indicator -->
+            <div id="hero-scroll-cue" aria-hidden="true"
+                class="hero-stagger hero-stagger-5 absolute bottom-7 left-1/2 -translate-x-1/2 z-10 hidden sm:flex flex-col items-center gap-2.5 pointer-events-none">
+                <span class="text-[10px] font-mono uppercase tracking-[0.28em] text-white/55">Scroll</span>
+                <div class="scroll-cue-line"></div>
             </div>
         </section>
 
@@ -283,25 +293,25 @@
 
         <!-- Keahlian Section -->
         <section id="keahlian" class="relative py-24 md:py-32 px-6 overflow-hidden scroll-mt-24">
-            <div aria-hidden="true"
-                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-white/[0.02] blur-[100px] rounded-full pointer-events-none z-0">
+            <div id="keahlian-glow" aria-hidden="true"
+                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[720px] h-[720px] bg-white/[0.025] blur-[110px] rounded-full pointer-events-none z-0">
             </div>
 
             <div class="max-w-[1000px] mx-auto relative z-10">
-                <div class="text-center mb-16 reveal">
+                <div class="text-center mb-16">
                     <h2
-                        class="text-3xl md:text-4xl font-medium mb-4 bg-gradient-to-b from-white to-white/60 bg-clip-text text-transparent">
+                        class="heading-reveal text-3xl md:text-4xl font-medium mb-4 bg-gradient-to-b from-white to-white/60 bg-clip-text text-transparent">
                         Kompetensi &amp; Keahlian
                     </h2>
-                    <p class="text-white/65 text-[15px] max-w-lg mx-auto leading-relaxed">
+                    <p class="reveal text-white/65 text-[15px] max-w-lg mx-auto leading-relaxed" style="--reveal-delay: 110ms;">
                         Memadukan ketelitian rekayasa mekanik dengan keahlian sistem operasi, pengembangan perangkat
                         lunak, dan komunikasi visual.
                     </p>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+                <div data-stagger-group class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
 
-                    <article class="col-span-1 lg:col-span-2 group reveal delay-100">
+                    <article class="col-span-1 lg:col-span-2 group reveal">
                         <div class="glass-card rounded-2xl p-7 md:p-8 h-full min-h-[230px] flex flex-col justify-end">
                             <h3 class="text-xl font-medium text-white mb-2.5 relative z-10">Sistem Operasi, Kernel &amp; Perangkat Keras</h3>
                             <p
@@ -382,30 +392,30 @@
 
         <!-- Proyek Section -->
         <section id="proyek"
-            class="relative py-24 md:py-32 px-6 overflow-hidden scroll-mt-24 border-t border-white/10">
+            class="section-divider relative py-24 md:py-32 px-6 overflow-hidden scroll-mt-24">
 
             <div aria-hidden="true"
                 class="absolute inset-0 bg-grid-pattern mask-radial opacity-40 z-0 pointer-events-none"></div>
 
             <div class="max-w-[1000px] mx-auto relative z-10 flex flex-col items-center">
 
-                <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+                <div class="text-center max-w-2xl mx-auto mb-16">
                     <div
-                        class="inline-block px-4 py-1.5 rounded-full border border-white/15 bg-white/5 text-[11px] uppercase tracking-widest text-white/75 mb-6">
+                        class="reveal inline-block px-4 py-1.5 rounded-full border border-white/15 bg-white/5 text-[11px] uppercase tracking-widest text-white/75 mb-6">
                         Proyek Pilihan
                     </div>
 
-                    <h2 class="text-3xl md:text-[48px] font-medium text-white mb-5 leading-tight">
+                    <h2 class="heading-reveal text-3xl md:text-[48px] font-medium text-white mb-5 leading-tight" style="--reveal-delay: 80ms;">
                         Portofolio Teknis &amp; Eksperimen Sistem.
                     </h2>
-                    <p class="text-[15px] md:text-[16px] text-white/65 leading-relaxed">
+                    <p class="reveal text-[15px] md:text-[16px] text-white/65 leading-relaxed" style="--reveal-delay: 160ms;">
                         Kumpulan proyek di bidang rekayasa kernel tingkat rendah, integrasi kecerdasan buatan dan
                         otomasi, pemeliharaan perangkat keras, hingga perancangan materi visual.
                     </p>
                 </div>
 
                 <!-- Featured Projects Bento Grid -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 w-full mb-20 text-left">
+                <div data-stagger-group class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 w-full mb-24 text-left">
 
                     <!-- Project 1: Darwin 22.5 Kernel Porting -->
                     <article class="col-span-1 md:col-span-2 group reveal">
@@ -574,24 +584,24 @@
                 </div>
 
                 <!-- Pencapaian Boot Native iOS 16.5 Gallery -->
-                <div class="w-full reveal">
-                    <div class="text-center max-w-2xl mx-auto mb-12">
+                <div class="w-full">
+                    <div class="text-center max-w-2xl mx-auto mb-14">
                         <div
-                            class="inline-block px-4 py-1.5 rounded-full border border-white/15 bg-white/5 text-[11px] font-mono uppercase tracking-widest text-white/75 mb-5">
+                            class="reveal inline-block px-4 py-1.5 rounded-full border border-white/15 bg-white/5 text-[11px] font-mono uppercase tracking-widest text-white/75 mb-5">
                             Dokumentasi Pencapaian &bull; HakiOS Peridot
                         </div>
-                        <h3 class="text-2xl md:text-3xl font-medium text-white mb-3">
+                        <h3 class="heading-reveal text-2xl md:text-3xl font-medium text-white mb-3" style="--reveal-delay: 80ms;">
                             Bukti Boot Native iOS 16.5 pada POCO F6
                         </h3>
-                        <p class="text-[14px] md:text-[15px] text-white/65 leading-relaxed">
+                        <p class="reveal text-[14px] md:text-[15px] text-white/65 leading-relaxed" style="--reveal-delay: 160ms;">
                             Tangkapan layar langsung dari perangkat POCO F6 yang menjalankan kernel Darwin 22.5 (iOS
                             16.5) secara native dari RAM. Klik gambar untuk memperbesar detail.
                         </p>
                     </div>
 
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8 w-full max-w-[880px] mx-auto">
+                    <div id="ios-gallery" data-stagger-group class="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8 w-full max-w-[880px] mx-auto items-start">
 
-                        <figure class="flex flex-col items-center reveal delay-100">
+                        <figure class="flex flex-col items-center reveal" data-parallax-speed="24">
                             <button type="button" data-lightbox-index="0"
                                 aria-label="Perbesar tangkapan layar iOS 16.5 Lock Screen"
                                 class="device-frame w-full max-w-[260px] rounded-[28px] border border-white/15 bg-[#0a0a0c] p-2 shadow-2xl cursor-zoom-in text-left">
@@ -608,14 +618,14 @@
                             </figcaption>
                         </figure>
 
-                        <figure class="flex flex-col items-center reveal delay-200">
+                        <figure class="flex flex-col items-center reveal" data-parallax-speed="-22">
                             <button type="button" data-lightbox-index="1"
                                 aria-label="Perbesar tangkapan layar iOS 16.5 Home Screen SpringBoard"
-                                class="device-frame w-full max-w-[260px] rounded-[28px] border border-white/15 bg-[#0a0a0c] p-2 shadow-2xl cursor-zoom-in text-left">
+                                class="device-frame w-full max-w-[260px] rounded-[28px] border border-white/20 bg-[#0a0a0c] p-2 shadow-2xl cursor-zoom-in text-left">
                                 <picture class="block rounded-[20px] overflow-hidden bg-black">
                                     <source srcset="assets/ios-boot-homescreen.webp" type="image/webp">
                                     <img src="assets/ios-boot-homescreen.jpg"
-                                        alt="SpringBoard Home Screen iOS 16.5 dengan akselerasi GPU Adreno 735 di POCO F6"
+                                        alt="SpringBoard Home Screen iOS 16.5 dengan akselerasi Metal OSMesa di POCO F6"
                                         width="630" height="1400" loading="lazy" decoding="async"
                                         class="w-full h-auto block">
                                 </picture>
@@ -626,7 +636,7 @@
                             </figcaption>
                         </figure>
 
-                        <figure class="flex flex-col items-center reveal delay-300">
+                        <figure class="flex flex-col items-center reveal" data-parallax-speed="24">
                             <button type="button" data-lightbox-index="2"
                                 aria-label="Perbesar tangkapan layar Settings General About iOS 16.5"
                                 class="device-frame w-full max-w-[260px] rounded-[28px] border border-white/15 bg-[#0a0a0c] p-2 shadow-2xl cursor-zoom-in text-left">
@@ -652,7 +662,7 @@
 
         <!-- Publikasi & Dokumentasi Teknis (TikTok @amiaxf — Official Live Embed) -->
         <section id="publikasi"
-            class="relative py-24 md:py-28 px-6 overflow-hidden scroll-mt-24 border-t border-white/10">
+            class="section-divider relative py-24 md:py-28 px-6 overflow-hidden scroll-mt-24">
             <div class="max-w-[1000px] mx-auto relative z-10">
                 <div class="glass-card rounded-2xl p-6 sm:p-8 md:p-10 reveal">
                     <div class="relative z-10 flex flex-col gap-8">
@@ -667,7 +677,7 @@
                                     <span class="text-[13px] font-mono text-white/65">@amiaxf</span>
                                 </div>
 
-                                <h2 class="text-2xl md:text-3xl font-medium text-white mb-3 leading-snug">
+                                <h2 class="heading-reveal text-2xl md:text-3xl font-medium text-white mb-3 leading-snug">
                                     Dokumentasi Eksperimen Sistem di TikTok
                                 </h2>
 
@@ -717,20 +727,22 @@
 
         <!-- Final CTA Section -->
         <section
-            class="relative py-28 md:py-36 px-6 flex flex-col items-center justify-center text-center overflow-hidden reveal border-t border-white/10">
+            class="section-divider relative py-28 md:py-36 px-6 flex flex-col items-center justify-center text-center overflow-hidden">
             <div class="relative z-10 flex flex-col items-center">
-                <h2 class="text-4xl md:text-[56px] font-medium text-gradient leading-tight mb-5">
+                <h2 class="heading-reveal text-4xl md:text-[56px] font-medium text-gradient leading-tight mb-5">
                     Mari Berkolaborasi.
                 </h2>
-                <p class="text-[15px] md:text-[16px] text-white/65 max-w-lg mb-10 leading-relaxed">
+                <p class="reveal text-[15px] md:text-[16px] text-white/65 max-w-lg mb-10 leading-relaxed" style="--reveal-delay: 110ms;">
                     Terbuka untuk diskusi dan kerja sama di bidang teknik mesin, pemeliharaan perangkat keras, rekayasa
                     sistem, pengembangan web &amp; AI, maupun perancangan materi visual.
                 </p>
 
-                <a href="https://instagram.com/gtalfr" target="_blank" rel="noopener noreferrer"
-                    class="bg-white text-black px-9 py-3.5 rounded-full text-[15px] font-medium inline-flex items-center justify-center hover:bg-gray-200 transition-colors">
-                    Hubungi via Instagram
-                </a>
+                <div class="reveal" style="--reveal-delay: 200ms;">
+                    <a href="https://instagram.com/gtalfr" target="_blank" rel="noopener noreferrer"
+                        class="bg-white text-black px-9 py-3.5 rounded-full text-[15px] font-medium inline-flex items-center justify-center hover:bg-gray-200 transition-colors">
+                        Hubungi via Instagram
+                    </a>
+                </div>
             </div>
         </section>
 
@@ -800,11 +812,23 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            const isFinePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
-            // 1. Scroll Reveal with will-change cleanup
-            const revealElements = document.querySelectorAll('.reveal');
+            // 1. Auto-assign cascading stagger delays inside bento & gallery groups
+            document.querySelectorAll('[data-stagger-group]').forEach(group => {
+                const items = group.querySelectorAll(':scope > .reveal');
+                items.forEach((item, index) => {
+                    item.style.setProperty('--reveal-delay', `${index * 85}ms`);
+                });
+            });
+
+            // 2. Architectural Scroll Reveals (.reveal, .heading-reveal) & Hairline Dividers (.section-divider)
+            const revealTargets = document.querySelectorAll('.reveal, .heading-reveal');
+            const dividerTargets = document.querySelectorAll('.section-divider');
+
             if (prefersReducedMotion || !('IntersectionObserver' in window)) {
-                revealElements.forEach(el => el.classList.add('active'));
+                revealTargets.forEach(el => el.classList.add('active'));
+                dividerTargets.forEach(el => el.classList.add('divider-active'));
             } else {
                 const revealObserver = new IntersectionObserver((entries, obs) => {
                     entries.forEach(entry => {
@@ -817,13 +841,24 @@
                             obs.unobserve(el);
                         }
                     });
-                }, { rootMargin: '0px 0px -45px 0px', threshold: 0.08 });
+                }, { rootMargin: '0px 0px -60px 0px', threshold: 0.08 });
 
-                revealElements.forEach(el => revealObserver.observe(el));
+                revealTargets.forEach(el => revealObserver.observe(el));
+
+                const dividerObserver = new IntersectionObserver((entries, obs) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            requestAnimationFrame(() => entry.target.classList.add('divider-active'));
+                            obs.unobserve(entry.target);
+                        }
+                    });
+                }, { rootMargin: '0px 0px -40px 0px', threshold: 0.01 });
+
+                dividerTargets.forEach(el => dividerObserver.observe(el));
             }
 
-            // 2. Glass Card Mouse Spotlight (desktop fine pointers only, rAF-throttled)
-            if (!prefersReducedMotion && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+            // 3. Glass Card Cursor Specular Spotlight & Border Glow (desktop fine pointers only)
+            if (!prefersReducedMotion && isFinePointer) {
                 document.querySelectorAll('.glass-card').forEach(card => {
                     let rect = null;
                     let rafId = 0;
@@ -852,16 +887,22 @@
                 });
             }
 
-            // 3. Scroll-driven Effects: Navbar glass, Reading Progress Bar, Subtle Hero Parallax
+            // 4. Liquid-Smooth Lerped Scroll Choreography Engine (auto-sleeps when idle)
             const navbar = document.getElementById('navbar');
             const progressBar = document.getElementById('scroll-progress');
             const heroBgImg = document.getElementById('hero-bg-img');
             const heroSection = document.getElementById('tentang');
+            const heroContent = document.getElementById('hero-content');
+            const heroScrollCue = document.getElementById('hero-scroll-cue');
+            const keahlianGlow = document.getElementById('keahlian-glow');
+            const iosGallery = document.getElementById('ios-gallery');
+            const parallaxItems = Array.from(document.querySelectorAll('[data-parallax-speed]'));
 
-            const handleScroll = () => {
-                const y = window.scrollY;
+            let targetY = window.scrollY;
+            let smoothY = window.scrollY;
+            let motionRaf = 0;
 
-                // Navbar transition
+            const updateNavbar = y => {
                 if (y > 40) {
                     navbar.classList.add('bg-black/80', 'backdrop-blur-xl', 'border-white/10', 'py-3.5');
                     navbar.classList.remove('border-transparent', 'py-5');
@@ -869,35 +910,103 @@
                     navbar.classList.remove('bg-black/80', 'backdrop-blur-xl', 'border-white/10', 'py-3.5');
                     navbar.classList.add('border-transparent', 'py-5');
                 }
+            };
 
-                // Reading progress bar
-                if (progressBar) {
-                    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-                    const ratio = maxScroll > 0 ? Math.min(1, Math.max(0, y / maxScroll)) : 0;
+            const renderMotionFrame = () => {
+                const diff = targetY - smoothY;
+                if (Math.abs(diff) < 0.15) {
+                    smoothY = targetY;
+                } else {
+                    smoothY += diff * 0.11;
+                }
+
+                const vh = window.innerHeight;
+                const maxScroll = document.documentElement.scrollHeight - vh;
+
+                // Reading progress bar (lerped)
+                if (progressBar && maxScroll > 0) {
+                    const ratio = Math.min(1, Math.max(0, smoothY / maxScroll));
                     progressBar.style.transform = `scaleX(${ratio.toFixed(4)})`;
                 }
 
-                // Subtle GPU parallax on hero background
-                if (!prefersReducedMotion && heroBgImg && heroSection) {
-                    const heroHeight = heroSection.offsetHeight;
-                    if (y <= heroHeight) {
-                        const offset = (y * 0.16).toFixed(1);
-                        heroBgImg.style.transform = `translate3d(0, ${offset}px, 0) scale(1.06)`;
+                if (!prefersReducedMotion) {
+                    // Hero scroll-out cinematic depth
+                    if (heroSection) {
+                        const heroH = heroSection.offsetHeight || vh;
+                        const progress = Math.min(1.15, Math.max(0, smoothY / heroH));
+
+                        if (heroBgImg && progress <= 1.15) {
+                            const bgShift = (smoothY * 0.2).toFixed(1);
+                            const bgScale = (1.05 + progress * 0.08).toFixed(4);
+                            heroBgImg.style.transform = `translate3d(0, ${bgShift}px, 0) scale(${bgScale})`;
+                        }
+
+                        if (heroContent && progress <= 1.15) {
+                            const fadeP = Math.min(1, progress * 1.25);
+                            const liftY = (-fadeP * 34).toFixed(1);
+                            const contentScale = (1 - fadeP * 0.045).toFixed(4);
+                            const contentOpacity = Math.max(0, 1 - fadeP * 1.15).toFixed(3);
+                            heroContent.style.transform = `translate3d(0, ${liftY}px, 0) scale(${contentScale})`;
+                            heroContent.style.opacity = contentOpacity;
+                        }
+
+                        if (heroScrollCue) {
+                            const cueOpacity = Math.max(0, 1 - smoothY / 140).toFixed(3);
+                            heroScrollCue.style.opacity = cueOpacity;
+                        }
                     }
+
+                    // Ambient radial glow drift behind Keahlian
+                    if (keahlianGlow) {
+                        const drift = ((smoothY - vh) * 0.08).toFixed(1);
+                        keahlianGlow.style.transform = `translate3d(-50%, calc(-50% + ${drift}px), 0)`;
+                    }
+
+                    // Apple-style tri-device opposing scroll parallax (tablet/desktop >= 640px)
+                    if (iosGallery && parallaxItems.length) {
+                        if (window.innerWidth >= 640) {
+                            const gRect = iosGallery.getBoundingClientRect();
+                            if (gRect.bottom > -120 && gRect.top < vh + 120) {
+                                const centerOffset = ((gRect.top + gRect.height * 0.5) - vh * 0.5) / (vh * 0.85);
+                                const clamped = Math.max(-1, Math.min(1, centerOffset));
+                                parallaxItems.forEach(item => {
+                                    const speed = Number(item.dataset.parallaxSpeed) || 0;
+                                    const shift = (clamped * speed).toFixed(1);
+                                    const frame = item.querySelector('.device-frame');
+                                    if (frame) {
+                                        frame.style.translate = `0 ${shift}px`;
+                                    }
+                                });
+                            }
+                        } else {
+                            parallaxItems.forEach(item => {
+                                const frame = item.querySelector('.device-frame');
+                                if (frame && frame.style.translate) {
+                                    frame.style.translate = '';
+                                }
+                            });
+                        }
+                    }
+                }
+
+                if (Math.abs(targetY - smoothY) >= 0.15) {
+                    motionRaf = requestAnimationFrame(renderMotionFrame);
+                } else {
+                    motionRaf = 0;
                 }
             };
 
-            let scrollTicking = false;
-            window.addEventListener('scroll', () => {
-                if (!scrollTicking) {
-                    requestAnimationFrame(() => {
-                        handleScroll();
-                        scrollTicking = false;
-                    });
-                    scrollTicking = true;
+            const kickMotionLoop = () => {
+                targetY = window.scrollY;
+                updateNavbar(targetY);
+                if (!motionRaf) {
+                    motionRaf = requestAnimationFrame(renderMotionFrame);
                 }
-            }, { passive: true });
-            handleScroll();
+            };
+
+            window.addEventListener('scroll', kickMotionLoop, { passive: true });
+            window.addEventListener('resize', kickMotionLoop, { passive: true });
+            kickMotionLoop();
 
             // 4. Active Nav Link Highlighting
             const navLinks = document.querySelectorAll('[data-nav-link]');
