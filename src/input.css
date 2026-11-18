@@ -274,9 +274,20 @@
   background-clip: text;
 }
 
-/* Hero Scrim (smoothly blends hero photo into dark or light canvas) */
+/* Hero Scrim (rich contrast over workshop photo, seamless blend into canvas) */
 .hero-scrim {
-  background: linear-gradient(180deg, rgba(7, 9, 15, 0.7) 0%, rgba(9, 13, 22, 0.55) 55%, #07090f 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(6, 9, 15, 0.78) 0%,
+    rgba(7, 10, 18, 0.68) 48%,
+    rgba(7, 9, 15, 0.84) 84%,
+    #07090f 100%
+  );
+}
+
+.hero-surface #hero-content h1,
+.hero-surface #hero-content p {
+  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.55);
 }
 
 /* Theme toggle icon swap */
@@ -316,6 +327,7 @@ html[data-theme='light'] .icon-moon { display: block; }
 }
 
 .nav-bar-inner {
+  position: relative;
   transition: max-width 0.4s cubic-bezier(0.16, 1, 0.3, 1),
     padding 0.35s cubic-bezier(0.16, 1, 0.3, 1),
     border-radius 0.4s cubic-bezier(0.16, 1, 0.3, 1),
@@ -591,9 +603,9 @@ html[data-theme='light'] .scroll-progress {
 html[data-theme='light'] .hero-scrim {
   background: linear-gradient(
     180deg,
-    rgba(7, 10, 18, 0.62) 0%,
-    rgba(12, 18, 30, 0.44) 52%,
-    rgba(15, 23, 42, 0.56) 84%,
+    rgba(6, 9, 15, 0.74) 0%,
+    rgba(10, 15, 26, 0.62) 50%,
+    rgba(12, 18, 32, 0.74) 82%,
     #f5f7fb 100%
   );
 }
