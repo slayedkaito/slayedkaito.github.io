@@ -41,18 +41,18 @@
     <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
     <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
     <link rel="preload" as="image" type="image/webp" href="assets/hero-bg.webp" fetchpriority="high">
-    <link rel="modulepreload" href="js/main.js?v=20261118-18">
-    <link rel="modulepreload" href="js/theme.js?v=20261118-18">
-    <link rel="modulepreload" href="js/motion.js?v=20261118-18">
-    <link rel="modulepreload" href="js/navigation.js?v=20261118-18">
-    <link rel="modulepreload" href="js/dock.js?v=20261118-18">
-    <link rel="modulepreload" href="js/reveals.js?v=20261118-18">
+    <link rel="modulepreload" href="js/main.js?v=20261120-1">
+    <link rel="modulepreload" href="js/theme.js?v=20261120-1">
+    <link rel="modulepreload" href="js/motion.js?v=20261120-1">
+    <link rel="modulepreload" href="js/navigation.js?v=20261120-1">
+    <link rel="modulepreload" href="js/dock.js?v=20261120-1">
+    <link rel="modulepreload" href="js/reveals.js?v=20261120-1">
 
     <!-- Fonts -->
     <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
 
     <!-- Compiled & Minified Production Stylesheet (cache-busted) -->
-    <link rel="stylesheet" href="assets/styles.css?v=20261118-18">
+    <link rel="stylesheet" href="assets/styles.css?v=20261120-1">
 
     <noscript>
         <style>
@@ -334,27 +334,24 @@
                 class="hero-vignette absolute inset-0 z-[1] bg-[radial-gradient(ellipse_at_center,transparent_18%,rgba(7,9,15,0.72)_100%)] pointer-events-none">
             </div>
 
-            <div id="hero-content" class="relative z-10 flex flex-col items-center px-6 text-center w-full max-w-[780px] will-change-transform">
+            <div id="hero-content" class="relative z-10 flex flex-col items-center px-6 text-center w-full max-w-[800px] will-change-transform">
 
                 <div
-                    class="hero-stagger hero-stagger-1 liquid-pill inline-flex items-center gap-2 rounded-full px-4 py-1.5 mb-8">
-                    <p class="relative z-10 text-[13px] font-medium">
-                        <span class="text-white/75">Politeknik Negeri Sriwijaya &bull;</span>
-                        <span class="text-white">D4 Teknik Mesin (TMPP)</span>
+                    class="hero-stagger hero-stagger-1 liquid-pill inline-flex items-center gap-2.5 rounded-full px-4 py-1.5 mb-7">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" aria-hidden="true"></span>
+                    <p class="relative z-10 text-[12px] font-mono tracking-wide text-white/90">
+                        POLSRI TMPP &bull; TANJUNG ENIM / PALEMBANG
                     </p>
                 </div>
 
                 <h1
-                    class="hero-stagger hero-stagger-2 text-[34px] sm:text-[44px] md:text-[56px] font-medium leading-[1.18] max-w-[720px] text-gradient tracking-tight mb-6">
-                    Rekayasa Mesin,<br>Kernel &amp; Pengembangan Sistem.
+                    class="hero-stagger hero-stagger-2 text-[35px] sm:text-[48px] md:text-[60px] font-semibold leading-[1.12] max-w-[760px] text-gradient tracking-tight mb-6">
+                    Membongkar Mesin Industri,<br class="hidden sm:inline"> Menjalankan Kernel di Snapdragon.
                 </h1>
 
                 <p
-                    class="hero-stagger hero-stagger-3 text-[15px] md:text-[16px] font-normal text-white/85 max-w-[650px] leading-relaxed mb-10">
-                    Saya Gathan Alfarabi Agusti, mahasiswa D4 Teknik Mesin yang berdomisili di Palembang dan berasal
-                    dari Tanjung Enim. Berfokus pada pemeliharaan alat berat dan permesinan industri, porting kernel
-                    tingkat rendah, infrastruktur perangkat keras &amp; multi-OS, serta pengembangan aplikasi berbasis
-                    kecerdasan buatan.
+                    class="hero-stagger hero-stagger-3 text-[15px] md:text-[16px] font-normal text-white/80 max-w-[640px] leading-relaxed mb-10">
+                    Saya <strong class="text-white font-medium">Gathan Alfarabi Agusti (Atha)</strong>. Menghubungkan ketelitian permesinan alat berat dengan rekayasa sistem tingkat rendah—dari toleransi permesinan industri dan transmisi hingga porting native iOS 16.5 (Darwin 22.5) pada POCO F6 serta eksperimen applied AI.
                 </p>
 
                 <div class="hero-stagger hero-stagger-4 flex flex-wrap items-center justify-center gap-3.5">
@@ -365,7 +362,7 @@
 
                     <a href="#proyek"
                         class="liquid-pill px-7 py-3 rounded-full text-[14px] font-medium text-white hover:bg-white/15 transition-colors inline-flex items-center justify-center gap-1.5">
-                        <span class="relative z-10">Lihat Proyek</span>
+                        <span class="relative z-10">Lihat Lab &amp; Proyek</span>
                         <span class="relative z-10 btn-arrow btn-arrow-down" aria-hidden="true">&darr;</span>
                     </a>
                 </div>
@@ -379,36 +376,29 @@
             </div>
         </section>
 
-        <!-- Marquee Strip -->
-        <section aria-label="Bidang fokus utama" class="py-10 border-y border-white/10 reveal">
-            <div class="max-w-7xl mx-auto overflow-hidden mask-edges relative">
-                <div class="flex w-max animate-marquee hover:[animation-play-state:paused] items-center">
-                    <div class="flex items-center space-x-16 md:space-x-20 px-8 md:px-10">
-                        <span class="text-sm md:text-base font-medium tracking-wider uppercase text-white/60">Mechanical Engineering</span>
-                        <span class="text-sm md:text-base font-medium tracking-wider uppercase text-white/60">Heavy Equipment Maintenance</span>
-                        <span class="text-sm md:text-base font-medium tracking-wider uppercase text-white/60">Darwin / XNU Kernel</span>
-                        <span class="text-sm md:text-base font-medium tracking-wider uppercase text-white/60">Node.js &amp; Gemini API</span>
-                        <span class="text-sm md:text-base font-medium tracking-wider uppercase text-white/60">Local LLM</span>
-                        <span class="text-sm md:text-base font-medium tracking-wider uppercase text-white/60">Linux &amp; Multi-OS</span>
-                        <span class="text-sm md:text-base font-medium tracking-wider uppercase text-white/60">Visual Design</span>
+        <!-- Hardware & Engineering Telemetry Strip (Bespoke Technical Ribbon) -->
+        <section aria-label="Spesifikasi &amp; Telemetri Sistem" class="telemetry-strip py-4 reveal">
+            <div class="max-w-[1100px] mx-auto px-6 overflow-x-auto">
+                <div class="flex items-center justify-between min-w-[700px] md:min-w-0 gap-6 text-[12px] font-mono text-white/70">
+                    <div class="flex items-center gap-2 shrink-0">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400" aria-hidden="true"></span>
+                        <span class="text-white/40 uppercase">SOC</span>
+                        <span class="text-white font-medium">Snapdragon 8s Gen 3 (SM8635)</span>
                     </div>
-                    <div class="flex items-center space-x-16 md:space-x-20 px-8 md:px-10" aria-hidden="true">
-                        <span class="text-sm md:text-base font-medium tracking-wider uppercase text-white/60">Mechanical Engineering</span>
-                        <span class="text-sm md:text-base font-medium tracking-wider uppercase text-white/60">Heavy Equipment Maintenance</span>
-                        <span class="text-sm md:text-base font-medium tracking-wider uppercase text-white/60">Darwin / XNU Kernel</span>
-                        <span class="text-sm md:text-base font-medium tracking-wider uppercase text-white/60">Node.js &amp; Gemini API</span>
-                        <span class="text-sm md:text-base font-medium tracking-wider uppercase text-white/60">Local LLM</span>
-                        <span class="text-sm md:text-base font-medium tracking-wider uppercase text-white/60">Linux &amp; Multi-OS</span>
-                        <span class="text-sm md:text-base font-medium tracking-wider uppercase text-white/60">Visual Design</span>
+                    <div class="flex items-center gap-2 shrink-0">
+                        <span class="w-2 h-2 rounded-full bg-cyan-400" aria-hidden="true"></span>
+                        <span class="text-white/40 uppercase">BOOT</span>
+                        <span class="text-white font-medium">Mu-Silicium UEFI + xnuloader</span>
                     </div>
-                    <div class="flex items-center space-x-16 md:space-x-20 px-8 md:px-10" aria-hidden="true">
-                        <span class="text-sm md:text-base font-medium tracking-wider uppercase text-white/60">Mechanical Engineering</span>
-                        <span class="text-sm md:text-base font-medium tracking-wider uppercase text-white/60">Heavy Equipment Maintenance</span>
-                        <span class="text-sm md:text-base font-medium tracking-wider uppercase text-white/60">Darwin / XNU Kernel</span>
-                        <span class="text-sm md:text-base font-medium tracking-wider uppercase text-white/60">Node.js &amp; Gemini API</span>
-                        <span class="text-sm md:text-base font-medium tracking-wider uppercase text-white/60">Local LLM</span>
-                        <span class="text-sm md:text-base font-medium tracking-wider uppercase text-white/60">Linux &amp; Multi-OS</span>
-                        <span class="text-sm md:text-base font-medium tracking-wider uppercase text-white/60">Visual Design</span>
+                    <div class="flex items-center gap-2 shrink-0">
+                        <span class="w-2 h-2 rounded-full bg-blue-400" aria-hidden="true"></span>
+                        <span class="text-white/40 uppercase">TARGET</span>
+                        <span class="text-white font-medium">Darwin 22.5.0 (iOS 16.5 Native)</span>
+                    </div>
+                    <div class="flex items-center gap-2 shrink-0">
+                        <span class="w-2 h-2 rounded-full bg-purple-400" aria-hidden="true"></span>
+                        <span class="text-white/40 uppercase">DISIPLIN</span>
+                        <span class="text-white font-medium">D4 TMPP Polsri &bull; Alat Berat</span>
                     </div>
                 </div>
             </div>
@@ -418,90 +408,142 @@
         <section id="keahlian" data-bg-mood="keahlian" class="cv-auto relative py-24 md:py-32 px-6 overflow-hidden scroll-mt-24">
             <div class="max-w-[1000px] mx-auto relative z-10">
                 <div class="text-center mb-16">
+                    <div
+                        class="reveal inline-block px-3.5 py-1 rounded-full border border-white/15 bg-white/5 text-[11px] font-mono uppercase tracking-widest text-white/75 mb-4">
+                        Matriks Rekayasa
+                    </div>
                     <h2
                         class="heading-reveal text-3xl md:text-4xl font-medium mb-4 bg-gradient-to-b from-white to-white/60 bg-clip-text text-transparent">
-                        Kompetensi &amp; Keahlian
+                        Rekayasa Fisik, Silikon &amp; Kode
                     </h2>
                     <p class="reveal text-white/65 text-[15px] max-w-lg mx-auto leading-relaxed" style="--reveal-delay: 110ms;">
-                        Memadukan ketelitian rekayasa mekanik dengan keahlian sistem operasi, pengembangan perangkat
-                        lunak, dan komunikasi visual.
+                        Bukan sekadar teori. Eksplorasi langsung pada logam permesinan industri, silikon mikroprosesor, dan arsitektur perangkat lunak.
                     </p>
                 </div>
 
                 <div data-stagger-group class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
 
                     <article class="col-span-1 lg:col-span-2 group reveal">
-                        <div class="glass-card rounded-2xl p-7 md:p-8 h-full min-h-[230px] flex flex-col justify-end">
-                            <h3 class="text-xl font-medium text-white mb-2.5 relative z-10">Sistem Operasi, Kernel &amp; Perangkat Keras</h3>
-                            <p
-                                class="text-[14px] text-white/65 leading-relaxed relative z-10 max-w-[500px] group-hover:text-white/85 transition-colors duration-300">
-                                Porting kernel Darwin 22.5 (iOS 16.5 native) via UEFI (Mu-Silicium) dan xnuloader.
-                                Berpengalaman dalam perakitan PC, pemeliharaan perangkat keras laptop, pengelolaan
-                                Custom ROM &amp; lingkungan kernel, serta instalasi dan optimasi Windows, Linux
-                                (CachyOS), dan Hackintosh.
-                            </p>
+                        <div class="glass-card rounded-2xl p-7 md:p-8 h-full min-h-[230px] flex flex-col justify-between">
+                            <div class="relative z-10">
+                                <div class="flex items-center justify-between gap-2 mb-3">
+                                    <span class="text-[11px] font-mono uppercase tracking-wider text-white/50">SYS_01 // KERNEL &amp; LOW-LEVEL</span>
+                                    <span class="text-[11px] font-mono text-cyan-400/90 bg-cyan-400/10 px-2 py-0.5 rounded border border-cyan-400/20">Bare-Metal</span>
+                                </div>
+                                <h3 class="text-xl font-medium text-white mb-2.5">Porting Kernel Darwin/XNU &amp; Bootloader UEFI</h3>
+                                <p
+                                    class="text-[14px] text-white/65 leading-relaxed max-w-[560px] group-hover:text-white/85 transition-colors duration-300">
+                                    Eksperimen bootloader via UEFI Mu-Silicium dan xnuloader untuk boot iOS 16.5 native langsung dari RAM pada POCO F6. Menyesuaikan driver IOKit, patch bypass AMFI/SEP, mengaktifkan akselerasi GPU Adreno 735 via Mesa Freedreno, serta mengelola lingkungan Linux CachyOS dan arsitektur Hackintosh.
+                                </p>
+                            </div>
+                            <div class="flex flex-wrap gap-2 pt-4 border-t border-white/10 relative z-10 mt-4">
+                                <span class="tech-tag text-[11px] font-mono px-2 py-0.5 rounded bg-white/5 text-white/75 border border-white/10">Darwin 22.5</span>
+                                <span class="tech-tag text-[11px] font-mono px-2 py-0.5 rounded bg-white/5 text-white/75 border border-white/10">Mu-Silicium UEFI</span>
+                                <span class="tech-tag text-[11px] font-mono px-2 py-0.5 rounded bg-white/5 text-white/75 border border-white/10">IOKit &amp; AMFI/SEP</span>
+                                <span class="tech-tag text-[11px] font-mono px-2 py-0.5 rounded bg-white/5 text-white/75 border border-white/10">CachyOS &amp; Hackintosh</span>
+                            </div>
                         </div>
                     </article>
 
                     <article class="col-span-1 group reveal delay-200">
-                        <div class="glass-card rounded-2xl p-7 md:p-8 h-full min-h-[230px] flex flex-col justify-end">
-                            <h3 class="text-xl font-medium text-white mb-2.5 relative z-10">Teknik Mesin &amp; Alat Berat</h3>
-                            <p
-                                class="text-[14px] text-white/65 leading-relaxed relative z-10 group-hover:text-white/85 transition-colors duration-300">
-                                Lulusan Teknik Alat Berat SMK Bukit Asam dengan pengalaman praktik kerja industri di
-                                subkontraktor PT PAMA. Menguasai gambar teknik (<em>mechanical drafting</em>),
-                                perawatan alat berat, serta diagnostik mesin industri (<em>alignment</em>, transmisi,
-                                dan mesin sekrap).
-                            </p>
+                        <div class="glass-card rounded-2xl p-7 md:p-8 h-full min-h-[230px] flex flex-col justify-between">
+                            <div class="relative z-10">
+                                <div class="flex items-center justify-between gap-2 mb-3">
+                                    <span class="text-[11px] font-mono uppercase tracking-wider text-white/50">MECH_02 // INDUSTRI</span>
+                                    <span class="text-[11px] font-mono text-amber-400/90 bg-amber-400/10 px-2 py-0.5 rounded border border-amber-400/20">Presisi</span>
+                                </div>
+                                <h3 class="text-xl font-medium text-white mb-2.5">Teknik Mesin &amp; Pemeliharaan Alat Berat</h3>
+                                <p
+                                    class="text-[14px] text-white/65 leading-relaxed group-hover:text-white/85 transition-colors duration-300">
+                                    Lulusan Teknik Alat Berat SMK Bukit Asam &amp; praktik industri di subkontraktor PT PAMA. Terbiasa dengan toleransi presisi (micrometer, dial gauge), alignment transmisi, mesin bubut, serta diagnostik mesin sekrap.
+                                </p>
+                            </div>
+                            <div class="flex flex-wrap gap-2 pt-4 border-t border-white/10 relative z-10 mt-4">
+                                <span class="tech-tag text-[11px] font-mono px-2 py-0.5 rounded bg-white/5 text-white/75 border border-white/10">Mechanical Drafting</span>
+                                <span class="tech-tag text-[11px] font-mono px-2 py-0.5 rounded bg-white/5 text-white/75 border border-white/10">Alignment</span>
+                                <span class="tech-tag text-[11px] font-mono px-2 py-0.5 rounded bg-white/5 text-white/75 border border-white/10">Transmisi Industri</span>
+                            </div>
                         </div>
                     </article>
 
                     <article class="col-span-1 group reveal delay-300">
-                        <div class="glass-card rounded-2xl p-7 md:p-8 h-full min-h-[230px] flex flex-col justify-end">
-                            <h3 class="text-xl font-medium text-white mb-2.5 relative z-10">Pengembangan Web, Otomasi &amp; AI</h3>
-                            <p
-                                class="text-[14px] text-white/65 leading-relaxed relative z-10 group-hover:text-white/85 transition-colors duration-300">
-                                Menguasai HTML5, CSS, JavaScript, Node.js, dan Python. Berpengalaman membangun layanan
-                                bot otomatisasi berbasis Gemini API serta mengimplementasikan <em>Local LLM</em> (Llama
-                                3.2 3B dan Qwen 2.5) secara <em>offline</em> pada perangkat Android.
-                            </p>
+                        <div class="glass-card rounded-2xl p-7 md:p-8 h-full min-h-[230px] flex flex-col justify-between">
+                            <div class="relative z-10">
+                                <div class="flex items-center justify-between gap-2 mb-3">
+                                    <span class="text-[11px] font-mono uppercase tracking-wider text-white/50">AI_03 // APPLIED AI</span>
+                                    <span class="text-[11px] font-mono text-purple-400/90 bg-purple-400/10 px-2 py-0.5 rounded border border-purple-400/20">Edge &amp; Vision</span>
+                                </div>
+                                <h3 class="text-xl font-medium text-white mb-2.5">Edge AI, Computer Vision &amp; Otomasi</h3>
+                                <p
+                                    class="text-[14px] text-white/65 leading-relaxed group-hover:text-white/85 transition-colors duration-300">
+                                    Menjalankan Local LLM (Llama 3.2 3B &amp; Qwen 2.5) secara offline di Android via ChatterUI. Membangun aplikasi pelacak gestur tangan real-time dengan OpenCV &amp; MediaPipe, serta bot otomatisasi berbasis Node.js &amp; Gemini API.
+                                </p>
+                            </div>
+                            <div class="flex flex-wrap gap-2 pt-4 border-t border-white/10 relative z-10 mt-4">
+                                <span class="tech-tag text-[11px] font-mono px-2 py-0.5 rounded bg-white/5 text-white/75 border border-white/10">Local LLM Offline</span>
+                                <span class="tech-tag text-[11px] font-mono px-2 py-0.5 rounded bg-white/5 text-white/75 border border-white/10">OpenCV &amp; MediaPipe</span>
+                                <span class="tech-tag text-[11px] font-mono px-2 py-0.5 rounded bg-white/5 text-white/75 border border-white/10">Node.js</span>
+                            </div>
                         </div>
                     </article>
 
                     <article class="col-span-1 group reveal delay-[400ms]">
-                        <div class="glass-card rounded-2xl p-7 md:p-8 h-full min-h-[230px] flex flex-col justify-end">
-                            <h3 class="text-xl font-medium text-white mb-2.5 relative z-10">Desain Grafis &amp; Motion</h3>
-                            <p
-                                class="text-[14px] text-white/65 leading-relaxed relative z-10 group-hover:text-white/85 transition-colors duration-300">
-                                Merancang poster promosi dan materi komunikasi visual untuk kebutuhan PT Bukit Asam Tbk
-                                serta berbagai proyek desain lainnya, termasuk animasi grafis menggunakan Canva dan
-                                Alight Motion.
-                            </p>
+                        <div class="glass-card rounded-2xl p-7 md:p-8 h-full min-h-[230px] flex flex-col justify-between">
+                            <div class="relative z-10">
+                                <div class="flex items-center justify-between gap-2 mb-3">
+                                    <span class="text-[11px] font-mono uppercase tracking-wider text-white/50">RIG_04 // HARDWARE</span>
+                                    <span class="text-[11px] font-mono text-blue-400/90 bg-blue-400/10 px-2 py-0.5 rounded border border-blue-400/20">Multi-Boot</span>
+                                </div>
+                                <h3 class="text-xl font-medium text-white mb-2.5">Perakitan Rig PC &amp; Diagnostik Hardware</h3>
+                                <p
+                                    class="text-[14px] text-white/65 leading-relaxed group-hover:text-white/85 transition-colors duration-300">
+                                    Perakitan PC desktop performa tinggi, repasting &amp; pemeliharaan jalur thermal laptop, optimasi BIOS/UEFI, serta konfigurasi multi-OS untuk kebutuhan komputasi berat.
+                                </p>
+                            </div>
+                            <div class="flex flex-wrap gap-2 pt-4 border-t border-white/10 relative z-10 mt-4">
+                                <span class="tech-tag text-[11px] font-mono px-2 py-0.5 rounded bg-white/5 text-white/75 border border-white/10">Custom PC Rig</span>
+                                <span class="tech-tag text-[11px] font-mono px-2 py-0.5 rounded bg-white/5 text-white/75 border border-white/10">Thermal Tuning</span>
+                                <span class="tech-tag text-[11px] font-mono px-2 py-0.5 rounded bg-white/5 text-white/75 border border-white/10">Hardware Diagnostics</span>
+                            </div>
                         </div>
                     </article>
 
                     <article class="col-span-1 group reveal delay-[500ms]">
-                        <div class="glass-card rounded-2xl p-7 md:p-8 h-full min-h-[230px] flex flex-col justify-end">
-                            <h3 class="text-xl font-medium text-white mb-2.5 relative z-10">Fotografi &amp; Pengolahan Visual</h3>
-                            <p
-                                class="text-[14px] text-white/65 leading-relaxed relative z-10 group-hover:text-white/85 transition-colors duration-300">
-                                Eksplorasi fotografi lanskap, sinematografi, dan astrofotografi langit malam dengan
-                                memanfaatkan teknik <em>image stacking</em> melalui Sequator untuk detail visual yang
-                                presisi.
-                            </p>
+                        <div class="glass-card rounded-2xl p-7 md:p-8 h-full min-h-[230px] flex flex-col justify-between">
+                            <div class="relative z-10">
+                                <div class="flex items-center justify-between gap-2 mb-3">
+                                    <span class="text-[11px] font-mono uppercase tracking-wider text-white/50">OPTIC_05 // IMAGING</span>
+                                    <span class="text-[11px] font-mono text-indigo-400/90 bg-indigo-400/10 px-2 py-0.5 rounded border border-indigo-400/20">Stacking</span>
+                                </div>
+                                <h3 class="text-xl font-medium text-white mb-2.5">Astrofotografi &amp; Sequator Stacking</h3>
+                                <p
+                                    class="text-[14px] text-white/65 leading-relaxed group-hover:text-white/85 transition-colors duration-300">
+                                    Eksplorasi fotografi malam dan langit berbintang memanfaatkan multi-exposure stacking melalui Sequator untuk meminimalkan sensor noise dan mempertegas detail konstelasi langit malam.
+                                </p>
+                            </div>
+                            <div class="flex flex-wrap gap-2 pt-4 border-t border-white/10 relative z-10 mt-4">
+                                <span class="tech-tag text-[11px] font-mono px-2 py-0.5 rounded bg-white/5 text-white/75 border border-white/10">Sequator Stacking</span>
+                                <span class="tech-tag text-[11px] font-mono px-2 py-0.5 rounded bg-white/5 text-white/75 border border-white/10">Night Sky Imaging</span>
+                                <span class="tech-tag text-[11px] font-mono px-2 py-0.5 rounded bg-white/5 text-white/75 border border-white/10">Noise Reduction</span>
+                            </div>
                         </div>
                     </article>
 
                     <article class="col-span-1 md:col-span-2 lg:col-span-3 group reveal delay-[600ms]">
-                        <div class="glass-card rounded-2xl p-7 md:p-8 h-full min-h-[180px] flex flex-col justify-end">
-                            <h3 class="text-xl font-medium text-white mb-2.5 relative z-10">Penguasaan Bahasa</h3>
-                            <p
-                                class="text-[14px] text-white/65 leading-relaxed relative z-10 max-w-2xl group-hover:text-white/85 transition-colors duration-300">
-                                Menguasai <strong class="text-white/90 font-medium">Bahasa Indonesia</strong>, <strong
-                                    class="text-white/90 font-medium">Bahasa Inggris</strong>, dan <strong
-                                    class="text-white/90 font-medium">Bahasa Jepang</strong> untuk mendukung pemahaman
-                                dokumentasi teknis, komunikasi profesional, serta kolaborasi lintas disiplin.
-                            </p>
+                        <div class="glass-card rounded-2xl p-7 md:p-8 h-full min-h-[160px] flex flex-col justify-between">
+                            <div class="relative z-10">
+                                <div class="flex items-center justify-between gap-2 mb-3">
+                                    <span class="text-[11px] font-mono uppercase tracking-wider text-white/50">LANG_06 // LINGUISTIK TEKNIK</span>
+                                    <span class="text-[11px] font-mono text-emerald-400/90 bg-emerald-400/10 px-2 py-0.5 rounded border border-emerald-400/20">Multi-Bahasa</span>
+                                </div>
+                                <h3 class="text-xl font-medium text-white mb-2">Komunikasi Teknis Tiga Bahasa</h3>
+                                <p
+                                    class="text-[14px] text-white/65 leading-relaxed max-w-3xl group-hover:text-white/85 transition-colors duration-300">
+                                    <strong class="text-white/90 font-medium">Bahasa Indonesia</strong> (Native), <strong
+                                        class="text-white/90 font-medium">Bahasa Inggris</strong> (pemahaman dokumentasi kernel, repositori teknis global, dan komunikasi profesional), serta <strong
+                                        class="text-white/90 font-medium">Bahasa Jepang</strong> (pemahaman manual teknis &amp; dasar komunikasi).
+                                </p>
+                            </div>
                         </div>
                     </article>
 
@@ -520,16 +562,15 @@
 
                 <div class="text-center max-w-2xl mx-auto mb-16">
                     <div
-                        class="reveal inline-block px-4 py-1.5 rounded-full border border-white/15 bg-white/5 text-[11px] uppercase tracking-widest text-white/75 mb-6">
-                        Proyek Pilihan
+                        class="reveal inline-block px-4 py-1.5 rounded-full border border-white/15 bg-white/5 text-[11px] font-mono uppercase tracking-widest text-white/75 mb-4">
+                        Lab &amp; Catatan Proyek
                     </div>
 
-                    <h2 class="heading-reveal text-3xl md:text-[48px] font-medium text-white mb-5 leading-tight" style="--reveal-delay: 80ms;">
-                        Portofolio Teknis &amp; Eksperimen Sistem.
+                    <h2 class="heading-reveal text-3xl md:text-[46px] font-medium text-white mb-4 leading-tight" style="--reveal-delay: 80ms;">
+                        Eksperimen Silikon, Mesin &amp; Web
                     </h2>
                     <p class="reveal text-[15px] md:text-[16px] text-white/65 leading-relaxed" style="--reveal-delay: 160ms;">
-                        Kumpulan proyek di bidang rekayasa kernel tingkat rendah, integrasi kecerdasan buatan dan
-                        otomasi, pemeliharaan perangkat keras, hingga perancangan materi visual.
+                        Implementasi rekayasa langsung yang diuji pada perangkat keras fisik, bootloader, dan lingkungan produksi.
                     </p>
                 </div>
 
@@ -545,24 +586,32 @@
                                         class="px-3 py-1 rounded-full text-[11px] font-mono uppercase tracking-wider bg-white/10 text-white border border-white/15">
                                         Kernel &amp; Low-Level Porting
                                     </span>
-                                    <span class="text-[12px] font-mono text-white/60">POCO F6 (peridot) &bull; 60 FPS</span>
+                                    <span class="text-[12px] font-mono text-cyan-400">POCO F6 (peridot) &bull; Qualcomm SM8635</span>
                                 </div>
                                 <h3 class="text-xl md:text-2xl font-medium text-white mb-3">
                                     Porting Kernel Darwin 22.5 (iOS 16.5 Native) pada POCO F6
                                 </h3>
-                                <p class="text-[14px] text-white/70 leading-relaxed max-w-3xl mb-6">
-                                    Melakukan porting <strong class="text-white font-medium">iOS 16.5 (kernel Darwin
-                                        22.5)</strong> secara native ke perangkat POCO F6 melalui boot UEFI (<strong
-                                        class="text-white font-medium">Mu-Silicium</strong>) dan <strong
-                                        class="text-white font-medium">xnuloader</strong> yang berjalan langsung di RAM
-                                    tanpa memodifikasi partisi Android. Mencakup penyesuaian driver <strong
-                                        class="text-white font-medium">IOKit</strong>, patch kernel <strong
-                                        class="text-white font-medium">XNU (AMFI &amp; SEP)</strong>, akselerasi GPU
-                                    <strong class="text-white font-medium">Adreno 735</strong> menggunakan <strong
-                                        class="text-white font-medium">Mesa/Freedreno</strong> hingga 60 FPS stabil,
-                                    dukungan <em>haptic feedback</em> dan tombol fisik, serta optimasi manajemen daya
-                                    dan suhu.
+                                <p class="text-[14px] text-white/70 leading-relaxed max-w-3xl mb-4">
+                                    Porting <strong class="text-white font-medium">iOS 16.5 (kernel Darwin 22.5)</strong> secara native ke POCO F6 (peridot) melalui bootloader UEFI (<strong class="text-white font-medium">Mu-Silicium</strong>) dan <strong class="text-white font-medium">xnuloader</strong> yang berjalan langsung di RAM tanpa menyentuh partisi Android. Mencakup penyesuaian driver <strong class="text-white font-medium">IOKit</strong>, patch bypass <strong class="text-white font-medium">AMFI &amp; SEP</strong>, serta akselerasi grafis GPU <strong class="text-white font-medium">Adreno 735</strong> via <strong class="text-white font-medium">Freedreno Mesa</strong> hingga SpringBoard stabil 60 FPS.
                                 </p>
+
+                                <!-- Real Engineering Terminal dmesg Preview -->
+                                <div class="terminal-log my-4 rounded-xl p-3.5 sm:p-4 font-mono text-[11px] sm:text-[12px] leading-relaxed overflow-x-auto text-left select-all">
+                                    <div class="flex items-center justify-between pb-2 mb-2 border-b border-white/10 text-white/40 text-[10px]">
+                                        <div class="flex items-center gap-1.5">
+                                            <span class="w-2.5 h-2.5 rounded-full bg-red-500/80"></span>
+                                            <span class="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></span>
+                                            <span class="w-2.5 h-2.5 rounded-full bg-green-500/80"></span>
+                                            <span class="ml-2 font-mono text-white/60">peridot-darwin-dmesg.log</span>
+                                        </div>
+                                        <span class="text-emerald-400 font-mono text-[10px]">SPRINGBOARD 60 FPS</span>
+                                    </div>
+                                    <p class="text-emerald-400"><span class="text-white/40">[0.000000]</span> [uefi] Mu-Silicium initialized: Snapdragon 8s Gen 3 (SM8635)</p>
+                                    <p class="text-white/70"><span class="text-white/40">[0.180420]</span> [boot] xnuloader: reloc mach_kernel to RAM @ 0x90000000</p>
+                                    <p class="text-cyan-400"><span class="text-white/40">[0.320110]</span> [xnu] Darwin Kernel Version 22.5.0: root:xnu-8796.121.2~1; RELEASE_ARM64</p>
+                                    <p class="text-white/70"><span class="text-white/40">[0.650890]</span> [iokit] AMFI/SEP bypass patched &bull; Surface framebuffer registered</p>
+                                    <p class="text-amber-300"><span class="text-white/40">[1.120400]</span> [gpu] Adreno 735 active with Mesa OSMesa &bull; SpringBoard running</p>
+                                </div>
                             </div>
                             <div class="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-white/10 relative z-10">
                                 <div class="flex flex-wrap gap-2">
@@ -571,9 +620,9 @@
                                     <span
                                         class="tech-tag text-[11px] font-mono px-2.5 py-1 rounded bg-white/5 text-white/75 border border-white/10">Mu-Silicium UEFI</span>
                                     <span
-                                        class="tech-tag text-[11px] font-mono px-2.5 py-1 rounded bg-white/5 text-white/75 border border-white/10">IOKit &amp; AMFI/SEP Patch</span>
+                                        class="tech-tag text-[11px] font-mono px-2.5 py-1 rounded bg-white/5 text-white/75 border border-white/10">IOKit &amp; AMFI Patch</span>
                                     <span
-                                        class="tech-tag text-[11px] font-mono px-2.5 py-1 rounded bg-white/5 text-white/75 border border-white/10">Mesa / Freedreno</span>
+                                        class="tech-tag text-[11px] font-mono px-2.5 py-1 rounded bg-white/5 text-white/75 border border-white/10">Mesa Freedreno</span>
                                 </div>
 
                                 <div class="flex flex-wrap items-center gap-2.5">
@@ -884,14 +933,13 @@
                     <div class="text-center max-w-2xl mx-auto mb-14">
                         <div
                             class="reveal inline-block px-4 py-1.5 rounded-full border border-white/15 bg-white/5 text-[11px] font-mono uppercase tracking-widest text-white/75 mb-5">
-                            Dokumentasi Pencapaian &bull; HakiOS Peridot
+                            Verifikasi Hardware // HakiOS Peridot
                         </div>
                         <h3 class="heading-reveal text-2xl md:text-3xl font-medium text-white mb-3" style="--reveal-delay: 80ms;">
-                            Bukti Boot Native iOS 16.5 pada POCO F6
+                            Log Verifikasi Empiris: iOS 16.5 di POCO F6
                         </h3>
                         <p class="reveal text-[14px] md:text-[15px] text-white/65 leading-relaxed" style="--reveal-delay: 160ms;">
-                            Tangkapan layar langsung dari perangkat POCO F6 yang menjalankan kernel Darwin 22.5 (iOS
-                            16.5) secara native dari RAM. Klik gambar untuk memperbesar detail.
+                            Tangkapan layar empiris langsung dari hardware POCO F6 (peridot) saat mengeksekusi kernel Darwin 22.5 langsung dari RAM via UEFI Mu-Silicium &amp; xnuloader.
                         </p>
                     </div>
 
@@ -909,8 +957,8 @@
                                 </picture>
                             </button>
                             <figcaption class="mt-4 text-center max-w-[240px]">
-                                <p class="text-[13px] font-medium text-white">01 &bull; Lock Screen iOS 16.5</p>
-                                <p class="text-[12px] text-white/60 mt-1">Boot native selesai hingga antarmuka layar kunci melalui UEFI Mu-Silicium &amp; xnuloader.</p>
+                                <p class="text-[13px] font-mono font-medium text-white">01 // LOCK SCREEN</p>
+                                <p class="text-[12px] text-white/60 mt-1">Boot native selesai hingga antarmuka kunci via UEFI Mu-Silicium &amp; xnuloader.</p>
                             </figcaption>
                         </figure>
 
@@ -927,8 +975,8 @@
                                 </picture>
                             </button>
                             <figcaption class="mt-4 text-center max-w-[240px]">
-                                <p class="text-[13px] font-medium text-white">02 &bull; Home Screen (SpringBoard)</p>
-                                <p class="text-[12px] text-white/60 mt-1">Rendering UI penuh dengan akselerasi Metal(OSMesa) hingga 60 FPS.</p>
+                                <p class="text-[13px] font-mono font-medium text-white">02 // SPRINGBOARD (60 FPS)</p>
+                                <p class="text-[12px] text-white/60 mt-1">Rendering UI penuh dengan akselerasi grafis Metal(OSMesa) stabil 60 FPS.</p>
                             </figcaption>
                         </figure>
 
@@ -945,8 +993,8 @@
                                 </picture>
                             </button>
                             <figcaption class="mt-4 text-center max-w-[240px]">
-                                <p class="text-[13px] font-medium text-white">03 &bull; Settings &rarr; About</p>
-                                <p class="text-[12px] text-white/60 mt-1">Teridentifikasi sebagai iOS 16.5 berjalan langsung pada ramdisk (RDW00POCOX5P).</p>
+                                <p class="text-[13px] font-mono font-medium text-white">03 // ABOUT (ARM64 RAMDISK)</p>
+                                <p class="text-[12px] text-white/60 mt-1">Teridentifikasi sebagai iOS 16.5 kernel Darwin 22.5 pada RAM ramdisk (RDW00POCOX5P).</p>
                             </figcaption>
                         </figure>
 
@@ -986,20 +1034,17 @@
                                 <div class="flex flex-wrap items-center gap-3 mb-4">
                                     <span
                                         class="px-3 py-1 rounded-full text-[11px] font-mono uppercase tracking-wider bg-white/10 text-white border border-white/15">
-                                        Dokumentasi Publik &bull; TikTok Live
+                                        Log Eksperimen Terbuka
                                     </span>
-                                    <span class="text-[13px] font-mono text-white/65">@amiaxf</span>
+                                    <span class="text-[13px] font-mono text-cyan-400">TikTok @amiaxf</span>
                                 </div>
 
                                 <h2 class="heading-reveal text-2xl md:text-3xl font-medium text-white mb-3 leading-snug">
-                                    Dokumentasi Eksperimen Sistem di TikTok
+                                    Video Eksperimen &amp; Demo Hardware
                                 </h2>
 
                                 <p class="text-[14px] md:text-[15px] text-white/70 leading-relaxed">
-                                    Progres teknis eksperimen sistem mobile&mdash;mulai dari perkembangan <em>native
-                                        boot</em> iOS 16.5 pada POCO F6, kustomisasi antarmuka iOS, hingga porting
-                                    sistem operasi lintas perangkat&mdash;ditampilkan langsung secara dinamis melalui
-                                    profil resmi TikTok <strong class="text-white font-medium">@amiaxf</strong>.
+                                    Setiap proses pengujian sistem&mdash;mulai dari cold-booting UEFI, pengujian driver grafis GPU Freedreno, hingga stabilitas SpringBoard di POCO F6&mdash;didokumentasikan dalam video nyata di profil resmi TikTok <strong class="text-white font-medium">@amiaxf</strong>.
                                 </p>
                             </div>
 
@@ -1043,19 +1088,30 @@
         <section id="kolaborasi" data-bg-mood="kolaborasi"
             class="cv-auto section-divider relative py-28 md:py-36 px-6 flex flex-col items-center justify-center text-center overflow-hidden">
             <div class="relative z-10 flex flex-col items-center">
-                <h2 class="heading-reveal text-4xl md:text-[56px] font-medium text-gradient leading-tight mb-5">
-                    Mari Berkolaborasi.
+                <div
+                    class="reveal inline-block px-3.5 py-1 rounded-full border border-white/15 bg-white/5 text-[11px] font-mono uppercase tracking-widest text-white/75 mb-4">
+                    Diskusi &amp; Kolaborasi
+                </div>
+                <h2 class="heading-reveal text-3xl sm:text-4xl md:text-[54px] font-medium text-gradient leading-tight mb-5">
+                    Punya Ide Eksperimen atau Proyek Menantang?
                 </h2>
                 <p class="reveal text-[15px] md:text-[16px] text-white/65 max-w-lg mb-10 leading-relaxed" style="--reveal-delay: 110ms;">
-                    Terbuka untuk diskusi dan kerja sama di bidang teknik mesin, pemeliharaan perangkat keras, rekayasa
-                    sistem, pengembangan web &amp; AI, maupun perancangan materi visual.
+                    Terbuka untuk bertukar pikiran seputar permesinan alat berat, rekayasa kernel tingkat rendah, troubleshooting perangkat keras, atau kolaborasi software &amp; visual.
                 </p>
 
-                <div class="reveal" style="--reveal-delay: 200ms;">
+                <div class="reveal flex flex-wrap items-center justify-center gap-3.5" style="--reveal-delay: 200ms;">
                     <a href="https://instagram.com/gtalfr" target="_blank" rel="noopener noreferrer"
-                        class="btn-primary bg-white text-black px-9 py-3.5 rounded-full text-[15px] font-medium inline-flex items-center justify-center gap-2 hover:bg-gray-200 transition-colors">
+                        class="btn-primary bg-white text-black px-8 py-3.5 rounded-full text-[14px] font-medium inline-flex items-center justify-center gap-2 hover:bg-gray-200 transition-colors">
                         Hubungi via Instagram
                         <span class="btn-arrow btn-arrow-up-right" aria-hidden="true">&#8599;</span>
+                    </a>
+                    <a href="https://github.com/slayedkaito" target="_blank" rel="noopener noreferrer"
+                        class="inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-[14px] font-medium text-white/90 border border-white/20 bg-white/5 hover:bg-white/10 hover:text-white transition-colors">
+                        <svg class="w-4 h-4 shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+                        </svg>
+                        <span>Profil GitHub</span>
+                        <span class="btn-arrow btn-arrow-right" aria-hidden="true">&rarr;</span>
                     </a>
                 </div>
             </div>
@@ -1124,7 +1180,7 @@
         </button>
     </div>
 
-    <script type="module" src="js/main.js?v=20261118-18"></script>
+    <script type="module" src="js/main.js?v=20261120-1"></script>
 </body>
 
 </html>
